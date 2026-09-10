@@ -207,24 +207,18 @@ Good options:
 
 ## 12. How to replace the founder portrait
 
-The founder sections (homepage and `/about`) currently show a labelled
-placeholder block instead of a photo. To add a real portrait:
+The founder sections (homepage and `/about`) show `public/images/founder.jpg`
+via `next/image`. To swap in a different photo, just replace that file with
+a new one of the same name (ideally a 4:5 portrait crop, ≥1200×1500px) — no
+code changes needed.
 
-1. Add the image to `public/images/founder.jpg`.
-2. In [`src/app/page.tsx`](src/app/page.tsx) and
-   [`src/app/about/page.tsx`](src/app/about/page.tsx), find the comment
-   `Placeholder for the founder portrait` and replace the placeholder
-   `<div>` block with:
-   ```tsx
-   <div className="relative aspect-[4/5] w-full overflow-hidden">
-     <Image
-       src="/images/founder.jpg"
-       alt="Lewis Miller, Founder of Miller & Partners Asia"
-       fill
-       className="object-cover"
-     />
-   </div>
-   ```
+If the source photo has a busy background (e.g. taken at an event, in front
+of signage or other branding), it's worth applying the same treatment used
+for the current photo before dropping it in: crop tighter to a
+head-and-shoulders frame, then blur and darken the background (a simulated
+shallow depth-of-field) so the founder stays the clear subject and any
+unrelated signage becomes illegible. Any photo editor's background-blur or
+portrait mode can achieve this — it doesn't need to be code-based.
 
 ## 13. How to replace the logo
 

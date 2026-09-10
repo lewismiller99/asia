@@ -71,11 +71,14 @@ export default function AboutPage() {
       <section className="bg-ink py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
           <Reveal className="lg:col-span-4">
-            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center border border-line-dark bg-charcoal text-center">
-              <span className="font-serif-display text-5xl text-ivory">LM</span>
-              <span className="mt-4 text-[11px] uppercase tracking-[0.2em] text-stone">
-                Founder portrait placeholder
-              </span>
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-line-dark bg-charcoal">
+              <Image
+                src="/images/founder.jpg"
+                alt="Lewis Miller, Founder of Miller & Partners Asia"
+                fill
+                sizes="(min-width: 1024px) 30vw, 100vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
           <Reveal delayMs={100} className="lg:col-span-8">
