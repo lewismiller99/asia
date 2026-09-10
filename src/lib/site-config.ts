@@ -8,7 +8,9 @@ export const siteConfig = {
   tagline: "Connecting opportunity across Asia",
   shortDescription:
     "Miller & Partners Asia is an independent business platform focused on investment, advisory, technology and property opportunities across Asia.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://millerpartnersasia.com",
+  // `||` (not `??`) so an env var that's set but left blank still falls
+  // back correctly — an empty string would otherwise crash `new URL()`.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://millerpartnersasia.com",
   founder: "Lewis Miller",
   location: "Bangkok | Thailand | Asia",
 
