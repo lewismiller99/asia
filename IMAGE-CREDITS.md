@@ -13,6 +13,8 @@ have been resized/re-compressed for the web; content is unaltered.
 | `hongkong-harbour.jpg` | Hong Kong Harbour view from International Commerce Center Building | Wikimedia Commons contributor | CC0 (public domain) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hong_Kong_Harbour_view_from_International_Commerce_Center_Building.jpg) |
 | `singapore-port-terminal.jpg` | Singapore (SG), Tanjong Pagar Terminal — 2019 | Wikimedia Commons contributor | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Singapore_(SG),_Tanjong_Pagar_Terminal_--_2019_--_4728.jpg) |
 | `suvarnabhumi-airport.jpg` | Suvarnabhumi Airport Terminal E interior at dusk | Wikimedia Commons contributor | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg) |
+| `shenzhen-office.jpg` | Shenzhen Bay Avenue office building facades, Nanshan, Shenzhen | Wikimedia Commons contributor | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8D%80_Nanshan_%E8%9B%87%E5%8F%A3_Shekou_%E6%B7%B1%E5%9C%B3%E7%81%A3%E5%A4%A7%E9%81%93_Shenzhen_Bay_Avenue_office_building_facades_July_2023_Px3.jpg) |
+| `founder.jpg` | Portrait of Lewis Miller, Founder | Photo of Lewis Miller, cropped and retouched | N/A (subject's own photo) | — |
 
 **CC BY / CC BY-SA note:** these licences require attribution if the images
 are redistributed as standalone files (e.g. shared outside the site).

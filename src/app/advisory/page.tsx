@@ -15,16 +15,16 @@ export default function AdvisoryPage() {
       eyebrow="Advisory"
       title="Practical commercial advisory across Asia"
       intro="We provide practical commercial advisory for businesses, investors and entrepreneurs operating in Asia or looking to enter the region."
-      heroImage="/images/singapore-port-terminal.jpg"
-      heroImageAlt="Container terminal representing cross-border trade and market entry"
+      heroImage="/images/bangkok-benjakiti.jpg"
+      heroImageAlt="Bangkok skyline representing commercial advisory and market entry in Thailand"
       overviewLabel="Advisory"
       overviewHeading="Market entry, strategy and structuring"
       overviewParagraphs={[
-        "Our work can include business strategy, market entry, commercial development, partnerships, project structuring, investor introductions and strategic positioning.",
-        "We also support businesses exploring opportunities available through Thailand's investment promotion framework, and work alongside appropriate professional specialists where regulatory, legal, tax or corporate advice is required.",
+        "Most engagements fall into three buckets: getting a business into Thailand or expanding within Asia, structuring a partnership or project properly, and positioning a company for capital or growth.",
+        "We also help businesses assess Thailand's investment promotion framework, working alongside qualified professionals wherever legal, tax or regulatory advice is required.",
       ]}
-      overviewImage="/images/bangkok-benjakiti.jpg"
-      overviewImageAlt="Bangkok skyline representing commercial advisory in Thailand"
+      overviewImage="/images/shenzhen-office.jpg"
+      overviewImageAlt="Modern office building in Shenzhen representing regional advisory work"
       areasLabel="Focus"
       areasHeading="Where our advisory work concentrates"
       areas={[

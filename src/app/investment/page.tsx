@@ -20,11 +20,11 @@ export default function InvestmentPage() {
       overviewLabel="Investment"
       overviewHeading="Direct participation, or access to the right opportunity"
       overviewParagraphs={[
-        "Our interests include private businesses, technology, property, development and emerging commercial opportunities where we believe our experience, network or involvement can create additional value.",
-        "We also work with investors seeking access to opportunities, partnerships and projects within Thailand and the wider Asian market. Depending on the project, Miller & Partners Asia may invest directly, participate strategically, or connect investors with a selected opportunity.",
+        "We invest directly, participate strategically, or connect investors with the right opportunity — in private businesses, technology, property and select commercial ventures across Thailand and the wider region.",
+        "The right fit depends on the project. What stays consistent is that our involvement adds real value, not just capital.",
       ]}
-      overviewImage="/images/shanghai-skyline.jpg"
-      overviewImageAlt="Shanghai skyline representing Asian investment markets"
+      overviewImage="/images/singapore-port-terminal.jpg"
+      overviewImageAlt="Singapore container terminal representing regional trade and investment"
       areasLabel="Focus"
       areasHeading="Where we look for value"
       areas={[

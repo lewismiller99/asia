@@ -10,8 +10,8 @@ export const ventures: Venture[] = [
     title: "Digital Platform Venture, Thailand",
     description:
       "Commercial strategy, structuring and early investment for a digital platform built for the Thai market.",
-    image: "/images/shanghai-skyline.jpg",
-    imageAlt: "Modern skyline representing a technology venture in Asia",
+    image: "/images/bangkok-benjakiti.jpg",
+    imageAlt: "Modern Bangkok skyscrapers representing a Thailand technology venture",
   },
   {
     slug: "bangkok-property-development",
@@ -37,7 +37,7 @@ export const ventures: Venture[] = [
     title: "Cross-Border Advisory, Thailand and China",
     description:
       "Ongoing strategic advisory supporting commercial relationships between Thai and Chinese partners.",
-    image: "/images/hongkong-harbour.jpg",
-    imageAlt: "Harbour view representing cross-border business between Thailand and China",
+    image: "/images/shanghai-skyline.jpg",
+    imageAlt: "Shanghai skyline representing cross-border business between Thailand and China",
   },
 ];

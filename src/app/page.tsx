@@ -24,8 +24,8 @@ const focusAreas = [
     index: "02",
     title: "Advisory",
     href: "/advisory",
-    image: "/images/singapore-port-terminal.jpg",
-    imageAlt: "Container terminal representing commercial advisory and market entry",
+    image: "/images/shenzhen-office.jpg",
+    imageAlt: "Modern office building in Shenzhen representing commercial advisory and market entry",
     description:
       "Commercial advisory for businesses and investors operating in, or entering, Asian markets.",
   },
@@ -130,7 +130,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — Who We Are */}
+      {/* 2 — Founder */}
+      <section className="bg-ink py-24 sm:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
+          <Reveal className="lg:col-span-4">
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-line-dark bg-charcoal">
+              <Image
+                src="/images/founder.jpg"
+                alt="Lewis Miller, Founder of Miller & Partners Asia"
+                fill
+                priority
+                sizes="(min-width: 1024px) 30vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal delayMs={100} className="lg:col-span-8">
+            <SectionLabel>Founder</SectionLabel>
+            <h2 className="mt-5 font-serif-display text-3xl leading-tight text-ivory sm:text-4xl">
+              Lewis Miller
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone">
+              Lewis Miller is a British entrepreneur based in Thailand,
+              working across property, technology and investment since
+              relocating from the UK.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
+              Miller &amp; Partners Asia is how he brings that work
+              together — one platform for the ventures, advisory mandates
+              and partnerships he is involved in across the region.
+            </p>
+            <a
+              href={siteConfig.linkedInUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="mt-8 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.16em] text-ivory underline decoration-bronze decoration-2 underline-offset-8"
+            >
+              Connect on LinkedIn &rarr;
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 3 — Who We Are */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
           <Reveal className="lg:col-span-5">
@@ -139,15 +181,14 @@ export default function HomePage() {
               An independent platform for opportunity across the region
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              Miller &amp; Partners Asia works with entrepreneurs, investors,
-              developers and businesses across the region to identify
-              opportunities, build partnerships and develop commercially
-              viable projects.
+              We work with entrepreneurs, investors and developers across
+              Asia — identifying opportunities, building partnerships, and
+              getting projects done.
             </p>
             <p className="mt-4 text-base leading-relaxed text-olive">
-              Based in Thailand and operating across the wider Asian market,
-              our work is supported by a network of independent specialists,
-              professional advisers, investors and commercial partners.
+              Based in Thailand, our network extends across the region:
+              independent specialists, advisers and investors who bring the
+              right expertise to each project.
             </p>
             <Link
               href="/about"
@@ -170,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — Our Focus */}
+      {/* 4 — Our Focus */}
       <section className="bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -189,7 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Asia */}
+      {/* 5 — Asia */}
       <section className="relative overflow-hidden bg-ink py-28 sm:py-36">
         <Image
           src="/images/suvarnabhumi-airport.jpg"
@@ -219,7 +260,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 — Our Approach */}
+      {/* 6 — Our Approach */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -228,10 +269,9 @@ export default function HomePage() {
               We are selective about the projects we become involved with.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              Every engagement begins by understanding the commercial
-              objective and identifying where we can genuinely add value.
-              Where appropriate, we bring together the people, expertise and
-              resources required to move an opportunity forward.
+              Every engagement starts with the commercial objective, not the
+              pitch. From there, we bring together the people and expertise
+              needed to move it forward.
             </p>
           </Reveal>
           <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -252,7 +292,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — Selected Interests */}
+      {/* 7 — Selected Interests */}
       <section className="border-y border-line bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -276,7 +316,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7 — Selected Ventures */}
+      {/* 8 — Selected Ventures */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -285,8 +325,8 @@ export default function HomePage() {
               A growing portfolio of projects and partnerships
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              This section will continue to evolve as new ventures,
-              developments and mandates are added.
+              A snapshot of where the platform is active right now — more
+              to follow as new mandates close.
             </p>
           </Reveal>
           <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2">
@@ -299,7 +339,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 — Insights */}
+      {/* 9 — Insights */}
       <section className="bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
@@ -323,50 +363,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 9 — Founder */}
-      <section className="bg-ink py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
-          <Reveal className="lg:col-span-4">
-            <div className="relative aspect-[4/5] w-full overflow-hidden border border-line-dark bg-charcoal">
-              <Image
-                src="/images/founder.jpg"
-                alt="Lewis Miller, Founder of Miller & Partners Asia"
-                fill
-                sizes="(min-width: 1024px) 30vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal delayMs={100} className="lg:col-span-8">
-            <SectionLabel>Founder</SectionLabel>
-            <h2 className="mt-5 font-serif-display text-3xl leading-tight text-ivory sm:text-4xl">
-              Lewis Miller
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone">
-              Lewis Miller is a British entrepreneur and business executive
-              based in Thailand. After building his career in the United
-              Kingdom, Lewis relocated to Asia and has since developed
-              commercial interests across property, technology, investment
-              and business development.
-            </p>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
-              Miller &amp; Partners Asia brings these activities together
-              through one independent platform, working alongside business
-              owners, developers, investors, technology specialists,
-              professional advisers and regional partners.
-            </p>
-            <a
-              href={siteConfig.linkedInUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mt-8 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.16em] text-ivory underline decoration-bronze decoration-2 underline-offset-8"
-            >
-              Connect on LinkedIn &rarr;
-            </a>
-          </Reveal>
         </div>
       </section>
 

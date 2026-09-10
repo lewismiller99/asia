@@ -14,17 +14,17 @@ export default function TechnologyPage() {
     <ServicePage
       eyebrow="Technology"
       title="Technology ventures built for Asia"
-      intro="Technology is an increasingly important part of the Miller & Partners Asia portfolio. We develop and participate in digital businesses, software platforms and technology led ventures designed primarily for Asian markets."
+      intro="Technology is a growing part of the portfolio — digital businesses and software platforms built primarily for Asian markets."
       heroImage="/images/shanghai-skyline.jpg"
       heroImageAlt="Shanghai skyline representing technology ventures in Asia"
       overviewLabel="Technology"
       overviewHeading="From concept to commercial launch"
       overviewParagraphs={[
-        "Our involvement can range from concept development and commercial strategy through to company formation, investment, product development, partnerships and market launch.",
+        "Our involvement can start as early as concept and commercial strategy, and run through company formation, product development and market launch.",
         "We work with founders who understand their product but need support translating it into a commercially viable business for specific Asian markets — where distribution, payment behaviour and local relevance often matter more than the technology itself.",
       ]}
-      overviewImage="/images/hongkong-harbour.jpg"
-      overviewImageAlt="Hong Kong skyline representing technology markets in Asia"
+      overviewImage="/images/shenzhen-office.jpg"
+      overviewImageAlt="Modern office building in Shenzhen, a leading Asian technology hub"
       areasLabel="Focus"
       areasHeading="Where we get involved"
       areas={[

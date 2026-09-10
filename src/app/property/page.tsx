@@ -14,14 +14,14 @@ export default function PropertyPage() {
     <ServicePage
       eyebrow="Property"
       title="Property investment and development across Asia"
-      intro="Property remains one of our core areas of experience. We work across property investment, development, sales strategy, project advisory and selected independent opportunities within Thailand and across Asia."
+      intro="Property is one of our deepest areas of experience — positioning, structuring and advising on projects across Thailand and Asia. This is not a property portal; we don't list transactions."
       heroImage="/images/bangkok-skyline.jpg"
       heroImageAlt="Bangkok skyline representing property investment and development"
       overviewLabel="Property"
       overviewHeading="Understanding the fundamentals of every project"
       overviewParagraphs={[
         "Our approach is focused on understanding the commercial fundamentals of each project, the ownership environment, the target market and the long term viability of the opportunity.",
-        "This is not a property portal — our work is advisory and participatory, focused on positioning, structuring and strategy rather than listing transactions. Where specialist legal, financial or regulatory advice is required, we work with qualified independent professionals.",
+        "Where specialist legal, financial or regulatory advice is required, we work with qualified independent professionals.",
       ]}
       overviewImage="/images/bangkok-benjakiti.jpg"
       overviewImageAlt="Bangkok skyscrapers representing property development in Thailand"

@@ -87,17 +87,14 @@ export default function AboutPage() {
               Lewis Miller
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone">
-              Lewis Miller is a British entrepreneur and business executive
-              based in Thailand. His professional background spans senior
-              management, business development, property, development,
-              investment and technology.
+              Lewis Miller is a British entrepreneur based in Thailand. He
+              built his career in the UK before relocating to Asia, where
+              he has since worked across property, technology and
+              investment.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
-              After building his career in the United Kingdom, Lewis
-              relocated to Asia and has since developed commercial interests
-              across property, technology, investment and business
-              development. Miller &amp; Partners Asia brings these
-              activities together through one independent platform.
+              Miller &amp; Partners Asia brings that work together under one
+              independent platform.
             </p>
             <a
               href={siteConfig.linkedInUrl}
@@ -120,16 +117,16 @@ export default function AboutPage() {
               What the name means
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              Miller &amp; Partners Asia reflects the way the business
-              operates. We work with independent professionals, companies,
-              advisers, investors, developers, founders and specialists
-              depending on the requirements of each project.
+              We don&rsquo;t try to cover every discipline in-house. Instead,
+              we bring in independent specialists, advisers, investors and
+              developers as each project requires — assembling the right
+              expertise rather than forcing everything through one fixed
+              structure.
             </p>
             <p className="mt-4 text-base leading-relaxed text-olive">
-              Miller &amp; Partners Asia is not represented as a formal legal
-              partnership. Projects may involve different entities and
-              independent partners, and this is made clear on a project by
-              project basis.
+              Miller &amp; Partners Asia is not a formal legal partnership.
+              Individual projects may sit under different entities, made
+              clear on a project-by-project basis.
             </p>
           </Reveal>
           <Reveal delayMs={100} className="lg:col-span-7">
@@ -142,26 +139,6 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Our Network */}
-      <section className="border-y border-line bg-ivory py-24 sm:py-32">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
-          <Reveal>
-            <SectionLabel>Our Network</SectionLabel>
-            <p className="mt-6 font-serif-display text-2xl leading-snug text-ink sm:text-3xl">
-              The name Miller &amp; Partners reflects the way we operate. We
-              do not attempt to provide every discipline internally.
-            </p>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-olive">
-              Instead, we work with independent specialists, businesses,
-              investors, developers and professional advisers depending on
-              the requirements of each project — assembling the right
-              expertise around an opportunity rather than forcing every
-              project through the same structure.
-            </p>
           </Reveal>
         </div>
       </section>
