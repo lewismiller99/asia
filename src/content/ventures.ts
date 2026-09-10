@@ -20,7 +20,7 @@ export const ventures: Venture[] = [
     description:
       "Project positioning and sales strategy advisory for a residential development in central Bangkok.",
     image: "/images/bangkok-skyline.jpg",
-    imageAlt: "Bangkok skyline representing a property development project",
+    imageAlt: "Bangkok at twilight with a rooftop pool, representing a property development project",
   },
   {
     slug: "market-entry-mandate",

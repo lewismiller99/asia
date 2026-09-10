@@ -33,8 +33,8 @@ const focusAreas = [
     index: "03",
     title: "Technology",
     href: "/technology",
-    image: "/images/shanghai-skyline.jpg",
-    imageAlt: "Modern skyline representing technology ventures in Asia",
+    image: "/images/shanghai-tower.jpg",
+    imageAlt: "The Shanghai Tower's twisting glass facade, representing technology ventures in Asia",
     description:
       "Development, investment and commercial strategy for technology led businesses built for Asia.",
   },
@@ -43,7 +43,7 @@ const focusAreas = [
     title: "Property",
     href: "/property",
     image: "/images/bangkok-skyline.jpg",
-    imageAlt: "Bangkok skyline representing property investment and development",
+    imageAlt: "Bangkok at twilight, including the King Power Mahanakhon tower, representing property investment",
     description:
       "Property investment, development strategy and project advisory across Thailand and Asia.",
   },

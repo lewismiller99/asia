@@ -15,8 +15,8 @@ export default function TechnologyPage() {
       eyebrow="Technology"
       title="Technology ventures built for Asia"
       intro="Technology is a growing part of the portfolio — digital businesses and software platforms built primarily for Asian markets."
-      heroImage="/images/shanghai-skyline.jpg"
-      heroImageAlt="Shanghai skyline representing technology ventures in Asia"
+      heroImage="/images/shanghai-tower.jpg"
+      heroImageAlt="The Shanghai Tower's twisting glass facade, representing technology ventures in Asia"
       overviewLabel="Technology"
       overviewHeading="From concept to commercial launch"
       overviewParagraphs={[

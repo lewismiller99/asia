@@ -10,9 +10,10 @@ for the web; content is otherwise unaltered.
 | File | Description | Unsplash photo ID |
 |---|---|---|
 | `bangkok-hero.jpg` | Bangkok skyline at night, including the King Power Mahanakhon tower | `1683317617081-74b271f8c8b3` |
-| `bangkok-skyline.jpg` | Bangkok skyline at blue-hour dusk | `1572272294800-a99116ad349c` |
+| `bangkok-skyline.jpg` | Bangkok at twilight, including the King Power Mahanakhon tower and a rooftop pool | `1504121619445-01661434a022` |
 | `bangkok-daylight.jpg` | Bangkok skyline in daylight, including the King Power Mahanakhon tower | `1592117984084-15bc78969be2` |
 | `shanghai-skyline.jpg` | Shanghai's Pudong skyline by day, including the Oriental Pearl Tower and Shanghai Tower | `1783419423805-c38e7402b0e7` |
+| `shanghai-tower.jpg` | The Shanghai Tower's twisting glass facade, low-angle | `1776675706819-263e97181423` |
 | `singapore-skyline.jpg` | Singapore's financial district at golden hour | `1628866686613-6cf852bed925` |
 | `hongkong-skyline.jpg` | Hong Kong skyline across Victoria Harbour at golden hour | `1620015092538-e33c665fc181` |
 | `suvarnabhumi-airport.jpg` | Suvarnabhumi Airport terminal, Bangkok | `1653582245010-04fc596f8ee2` |

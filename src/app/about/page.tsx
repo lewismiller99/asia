@@ -28,7 +28,7 @@ export default function AboutPage() {
         title="An independent platform, built around Asia"
         intro="Miller & Partners Asia was founded by Lewis Miller as an independent platform for business interests, investments, advisory work and new ventures across Asia."
         image="/images/bangkok-skyline.jpg"
-        imageAlt="Bangkok's skyline, including the King Power Mahanakhon tower"
+        imageAlt="Bangkok at twilight, including the King Power Mahanakhon tower and a rooftop pool"
       />
 
       <section className="bg-offwhite py-24 sm:py-32">

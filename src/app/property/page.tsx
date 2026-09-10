@@ -16,7 +16,7 @@ export default function PropertyPage() {
       title="Property investment and development across Asia"
       intro="Property is one of our deepest areas of experience — positioning, structuring and advising on projects across Thailand and Asia. This is not a property portal; we don't list transactions."
       heroImage="/images/bangkok-skyline.jpg"
-      heroImageAlt="Bangkok skyline representing property investment and development"
+      heroImageAlt="Bangkok at twilight, including the King Power Mahanakhon tower and a rooftop pool"
       overviewLabel="Property"
       overviewHeading="Understanding the fundamentals of every project"
       overviewParagraphs={[

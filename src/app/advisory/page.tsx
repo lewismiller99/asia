@@ -16,7 +16,7 @@ export default function AdvisoryPage() {
       title="Practical commercial advisory across Asia"
       intro="We provide practical commercial advisory for businesses, investors and entrepreneurs operating in Asia or looking to enter the region."
       heroImage="/images/bangkok-skyline.jpg"
-      heroImageAlt="Bangkok skyline representing commercial advisory and market entry in Thailand"
+      heroImageAlt="Bangkok at twilight, including the King Power Mahanakhon tower, representing commercial advisory in Thailand"
       overviewLabel="Advisory"
       overviewHeading="Market entry, strategy and structuring"
       overviewParagraphs={[
