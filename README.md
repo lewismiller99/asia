@@ -100,8 +100,8 @@ Hero and section images are referenced by path, e.g.
 2. Update the `src="/images/..."` (and matching `alt` text) reference in the
    relevant component or page.
 
-All current photography is sourced from Wikimedia Commons under
-attribution-friendly Creative Commons licences — see
+All current photography is sourced from Unsplash under the Unsplash
+License (free commercial use, no attribution required) — see
 [`IMAGE-CREDITS.md`](IMAGE-CREDITS.md). Replace freely with your own
 licensed or commissioned photography; update or remove that file to match.
 

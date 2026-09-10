@@ -10,8 +10,8 @@ export const ventures: Venture[] = [
     title: "Digital Platform Venture, Thailand",
     description:
       "Commercial strategy, structuring and early investment for a digital platform built for the Thai market.",
-    image: "/images/bangkok-benjakiti.jpg",
-    imageAlt: "Modern Bangkok skyscrapers representing a Thailand technology venture",
+    image: "/images/bangkok-daylight.jpg",
+    imageAlt: "Bangkok skyline in daylight, representing a Thailand technology venture",
   },
   {
     slug: "bangkok-property-development",

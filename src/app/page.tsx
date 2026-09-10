@@ -15,7 +15,7 @@ const focusAreas = [
     index: "01",
     title: "Investment",
     href: "/investment",
-    image: "/images/hongkong-harbour.jpg",
+    image: "/images/hongkong-skyline.jpg",
     imageAlt: "Harbour and skyline representing private investment across Asia",
     description:
       "Selected private investment across technology, property and emerging commercial opportunities.",
@@ -24,8 +24,8 @@ const focusAreas = [
     index: "02",
     title: "Advisory",
     href: "/advisory",
-    image: "/images/shenzhen-office.jpg",
-    imageAlt: "Modern office building in Shenzhen representing commercial advisory and market entry",
+    image: "/images/singapore-skyline.jpg",
+    imageAlt: "Singapore's financial district at golden hour, representing commercial advisory and market entry",
     description:
       "Commercial advisory for businesses and investors operating in, or entering, Asian markets.",
   },
@@ -95,8 +95,8 @@ export default function HomePage() {
       {/* 1 — Hero */}
       <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
         <Image
-          src="/images/bangkok-dusk-ratchadamri.jpg"
-          alt="Bangkok's skyline at dusk, viewed across the Ratchadamri district"
+          src="/images/bangkok-hero.jpg"
+          alt="Bangkok's skyline at night, including the King Power Mahanakhon tower"
           fill
           priority
           sizes="100vw"
@@ -200,8 +200,8 @@ export default function HomePage() {
           <Reveal delayMs={100} className="lg:col-span-7">
             <div className="relative aspect-[16/11] w-full overflow-hidden bg-charcoal">
               <Image
-                src="/images/bangkok-benjakiti.jpg"
-                alt="Skyscrapers along Benjakiti Park, Bangkok"
+                src="/images/bangkok-daylight.jpg"
+                alt="Bangkok's skyline in daylight, including the King Power Mahanakhon tower"
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover"

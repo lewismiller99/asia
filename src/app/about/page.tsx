@@ -27,8 +27,8 @@ export default function AboutPage() {
         eyebrow="About"
         title="An independent platform, built around Asia"
         intro="Miller & Partners Asia was founded by Lewis Miller as an independent platform for business interests, investments, advisory work and new ventures across Asia."
-        image="/images/bangkok-benjakiti.jpg"
-        imageAlt="Skyscrapers along Benjakiti Park, Bangkok"
+        image="/images/bangkok-skyline.jpg"
+        imageAlt="Bangkok's skyline, including the King Power Mahanakhon tower"
       />
 
       <section className="bg-offwhite py-24 sm:py-32">
@@ -132,7 +132,7 @@ export default function AboutPage() {
           <Reveal delayMs={100} className="lg:col-span-7">
             <div className="relative aspect-[16/11] w-full overflow-hidden bg-charcoal">
               <Image
-                src="/images/hongkong-harbour.jpg"
+                src="/images/hongkong-skyline.jpg"
                 alt="Harbour view representing our regional network across Asia"
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"

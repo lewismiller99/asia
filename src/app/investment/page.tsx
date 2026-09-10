@@ -15,16 +15,16 @@ export default function InvestmentPage() {
       eyebrow="Investment"
       title="Selected private investment across Asia"
       intro="We identify, evaluate and participate in selected investment opportunities across technology, property, development and emerging commercial ventures."
-      heroImage="/images/hongkong-harbour.jpg"
-      heroImageAlt="Hong Kong harbour skyline representing private investment across Asia"
+      heroImage="/images/hongkong-skyline.jpg"
+      heroImageAlt="Hong Kong skyline at golden hour, representing private investment across Asia"
       overviewLabel="Investment"
       overviewHeading="Direct participation, or access to the right opportunity"
       overviewParagraphs={[
         "We invest directly, participate strategically, or connect investors with the right opportunity — in private businesses, technology, property and select commercial ventures across Thailand and the wider region.",
         "The right fit depends on the project. What stays consistent is that our involvement adds real value, not just capital.",
       ]}
-      overviewImage="/images/singapore-port-terminal.jpg"
-      overviewImageAlt="Singapore container terminal representing regional trade and investment"
+      overviewImage="/images/singapore-skyline.jpg"
+      overviewImageAlt="Singapore's financial district at golden hour, representing regional trade and investment"
       areasLabel="Focus"
       areasHeading="Where we look for value"
       areas={[

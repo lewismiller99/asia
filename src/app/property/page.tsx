@@ -23,8 +23,8 @@ export default function PropertyPage() {
         "Our approach is focused on understanding the commercial fundamentals of each project, the ownership environment, the target market and the long term viability of the opportunity.",
         "Where specialist legal, financial or regulatory advice is required, we work with qualified independent professionals.",
       ]}
-      overviewImage="/images/bangkok-benjakiti.jpg"
-      overviewImageAlt="Bangkok skyscrapers representing property development in Thailand"
+      overviewImage="/images/bangkok-daylight.jpg"
+      overviewImageAlt="Bangkok skyline in daylight, representing property development in Thailand"
       areasLabel="Focus"
       areasHeading="Where our property experience concentrates"
       areas={[

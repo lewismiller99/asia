@@ -23,8 +23,8 @@ export default function TechnologyPage() {
         "Our involvement can start as early as concept and commercial strategy, and run through company formation, product development and market launch.",
         "We work with founders who understand their product but need support translating it into a commercially viable business for specific Asian markets — where distribution, payment behaviour and local relevance often matter more than the technology itself.",
       ]}
-      overviewImage="/images/shenzhen-office.jpg"
-      overviewImageAlt="Modern office building in Shenzhen, a leading Asian technology hub"
+      overviewImage="/images/hongkong-skyline.jpg"
+      overviewImageAlt="Hong Kong skyline at golden hour, a leading Asian technology and finance hub"
       areasLabel="Focus"
       areasHeading="Where we get involved"
       areas={[

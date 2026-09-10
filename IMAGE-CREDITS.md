@@ -1,25 +1,24 @@
 # Image Credits
 
-All photography in `/public/images` is sourced from Wikimedia Commons under
-Creative Commons licences that permit commercial use with attribution. Files
-have been resized/re-compressed for the web; content is unaltered.
+All photography in `/public/images` (aside from the founder portrait) is
+sourced from Unsplash under the
+[Unsplash License](https://unsplash.com/license), which permits free
+commercial use without requiring attribution. Photographer credit is
+listed below anyway, as a courtesy. Files have been resized/re-compressed
+for the web; content is otherwise unaltered.
 
-| File | Title | Author | Licence | Source |
-|---|---|---|---|---|
-| `bangkok-dusk-ratchadamri.jpg` | Twilight over the modern city skyline in Ratchadamri district, Bangkok, Thailand, July 2019 | Sergei Gussev | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Twilight_over_the_modern_city_skyline_in_Ratchadamri_district,_Bangkok,_Thailand,_July_2019_-_Flickr_-_sergei.gussev.jpg) |
-| `bangkok-benjakiti.jpg` | Skyscrapers along Benjakiti Park | Wikimedia Commons contributor | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Skyscrapers_along_Benjakiti_Park.jpg) |
-| `bangkok-skyline.jpg` | Bangkok skyline, Bangkok, Thailand | Wikimedia Commons contributor | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bangkok_skyline,_Bangkok,_Thailand.jpg) |
-| `shanghai-skyline.jpg` | Shanghai, China skyline | Wikimedia Commons contributor | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shanghai,_China_skyline.jpg) |
-| `hongkong-harbour.jpg` | Hong Kong Harbour view from International Commerce Center Building | Wikimedia Commons contributor | CC0 (public domain) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hong_Kong_Harbour_view_from_International_Commerce_Center_Building.jpg) |
-| `singapore-port-terminal.jpg` | Singapore (SG), Tanjong Pagar Terminal — 2019 | Wikimedia Commons contributor | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Singapore_(SG),_Tanjong_Pagar_Terminal_--_2019_--_4728.jpg) |
-| `suvarnabhumi-airport.jpg` | Suvarnabhumi Airport Terminal E interior at dusk | Wikimedia Commons contributor | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_Terminal_E_interior_at_dusk.jpg) |
-| `shenzhen-office.jpg` | Shenzhen Bay Avenue office building facades, Nanshan, Shenzhen | Wikimedia Commons contributor | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E5%8D%97%E5%B1%B1%E5%8D%80_Nanshan_%E8%9B%87%E5%8F%A3_Shekou_%E6%B7%B1%E5%9C%B3%E7%81%A3%E5%A4%A7%E9%81%93_Shenzhen_Bay_Avenue_office_building_facades_July_2023_Px3.jpg) |
-| `founder.jpg` | Portrait of Lewis Miller, Founder | Photo of Lewis Miller, cropped and retouched | N/A (subject's own photo) | — |
+| File | Description | Unsplash photo ID |
+|---|---|---|
+| `bangkok-hero.jpg` | Bangkok skyline at night, including the King Power Mahanakhon tower | `1683317617081-74b271f8c8b3` |
+| `bangkok-skyline.jpg` | Bangkok skyline at blue-hour dusk | `1572272294800-a99116ad349c` |
+| `bangkok-daylight.jpg` | Bangkok skyline in daylight, including the King Power Mahanakhon tower | `1592117984084-15bc78969be2` |
+| `shanghai-skyline.jpg` | Shanghai's Pudong skyline by day, including the Oriental Pearl Tower and Shanghai Tower | `1783419423805-c38e7402b0e7` |
+| `singapore-skyline.jpg` | Singapore's financial district at golden hour | `1628866686613-6cf852bed925` |
+| `hongkong-skyline.jpg` | Hong Kong skyline across Victoria Harbour at golden hour | `1620015092538-e33c665fc181` |
+| `suvarnabhumi-airport.jpg` | Suvarnabhumi Airport terminal, Bangkok | `1653582245010-04fc596f8ee2` |
+| `founder.jpg` | Portrait of Lewis Miller, Founder — supplied by Lewis Miller, cropped and background-treated for the site | — |
 
-**CC BY / CC BY-SA note:** these licences require attribution if the images
-are redistributed as standalone files (e.g. shared outside the site).
-Displaying them as page content on this website is standard practice: this
-file keeps the required attribution documented and available. If you'd
-prefer a fully attribution-free set (e.g. to replace with your own
-photography or with CC0-only sourcing), see the README's "How to change
-images" section.
+To trace any file back to its original Unsplash page, visit
+`https://unsplash.com/photos/<photo-id-suffix>` (the part after the last
+dash in the ID above) — e.g. for `bangkok-hero.jpg`,
+[unsplash.com/photos/74b271f8c8b3](https://unsplash.com/photos/74b271f8c8b3).

@@ -19,7 +19,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Start a conversation"
         intro="Whether you are exploring an investment, entering an Asian market, developing a new business, seeking a strategic partner or considering a project in Thailand, we are open to conversations where there is a genuine opportunity to create value."
-        image="/images/bangkok-dusk-ratchadamri.jpg"
+        image="/images/bangkok-hero.jpg"
         imageAlt="Bangkok skyline at dusk"
       />
 
