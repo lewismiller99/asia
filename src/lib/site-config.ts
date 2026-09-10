@@ -16,8 +16,8 @@ export const siteConfig = {
 
   // Update these when live contact details are available.
   contactEmail: "enquiries@millerpartnersasia.com",
-  linkedInUrl: "https://www.linkedin.com/in/lewismiller",
-  linkedInHandle: "linkedin.com/in/lewismiller",
+  linkedInUrl: "https://www.linkedin.com/in/lewis-m-27b80550/",
+  linkedInHandle: "linkedin.com/in/lewis-m-27b80550",
 
   ogImageAlt: "Miller & Partners Asia — Connecting opportunity across Asia",
 } as const;
