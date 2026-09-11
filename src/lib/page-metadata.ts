@@ -21,7 +21,7 @@ export function pageMetadata({
     description,
     alternates: { canonical: path },
     openGraph: {
-      title: `${title} — ${siteConfig.name}`,
+      title: `${title} | ${siteConfig.name}`,
       description,
       url,
       siteName: siteConfig.name,
@@ -30,7 +30,7 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} — ${siteConfig.name}`,
+      title: `${title} | ${siteConfig.name}`,
       description,
       images: [image],
     },

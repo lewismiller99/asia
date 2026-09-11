@@ -119,7 +119,7 @@ export default function AboutPage() {
             <p className="mt-6 text-base leading-relaxed text-olive">
               We don&rsquo;t try to cover every discipline in-house. Instead,
               we bring in independent specialists, advisers, investors and
-              developers as each project requires — assembling the right
+              developers as each project requires, assembling the right
               expertise rather than forcing everything through one fixed
               structure.
             </p>

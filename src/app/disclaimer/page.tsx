@@ -35,9 +35,9 @@ export default function DisclaimerPage() {
       <p>
         Miller &amp; Partners Asia does not represent itself as a licensed
         legal, financial, securities or investment advisory firm. Where
-        regulated professional services are required — including legal, tax,
-        financial or securities advice — clients are referred to
-        appropriately qualified independent professionals.
+        regulated professional services are required, including legal, tax,
+        financial or securities advice, clients are referred to appropriately
+        qualified independent professionals.
       </p>
 
       <h2>No Guarantee of Outcome</h2>

@@ -11,7 +11,7 @@ type RevealProps = {
 /**
  * Lightweight scroll reveal. Uses an IntersectionObserver rather than a
  * scroll-linked animation library so the effect stays cheap and never
- * jitters — matches the brief's "subtle animation only" rule.
+ * jitters, matching the brief's "subtle animation only" rule.
  */
 export function Reveal({ children, className, delayMs = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);

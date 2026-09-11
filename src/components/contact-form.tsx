@@ -16,7 +16,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
-// No backend is wired up yet — see README.md ("How to change contact
+// No backend is wired up yet. See README.md ("How to change contact
 // details" / form integration) for the recommended way to connect this to
 // Formspree, Resend, a serverless function, or another provider by setting
 // NEXT_PUBLIC_FORM_ENDPOINT. Until then, a valid submission opens the

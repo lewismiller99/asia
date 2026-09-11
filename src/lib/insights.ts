@@ -6,7 +6,7 @@ import type { InsightArticle, InsightFrontmatter } from "@/types";
 
 // Server-only module: reads MDX files from src/content/insights at build /
 // request time. To add an article, drop a new .mdx file in that folder with
-// the same frontmatter shape used by the existing articles — no code
+// the same frontmatter shape used by the existing articles. No code
 // changes required.
 
 const INSIGHTS_DIR = path.join(process.cwd(), "src/content/insights");

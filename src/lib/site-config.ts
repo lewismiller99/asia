@@ -1,5 +1,5 @@
 // Central site configuration.
-// Update contact details, social links and the base URL here — every page,
+// Update contact details, social links and the base URL here. Every page,
 // the sitemap and the SEO metadata read from this single file.
 
 export const siteConfig = {
@@ -9,7 +9,7 @@ export const siteConfig = {
   shortDescription:
     "Miller & Partners Asia is an independent business platform focused on investment, advisory, technology and property opportunities across Asia.",
   // `||` (not `??`) so an env var that's set but left blank still falls
-  // back correctly — an empty string would otherwise crash `new URL()`.
+  // back correctly: an empty string would otherwise crash `new URL()`.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://lewisandpartners.asia",
   founder: "Lewis Miller",
   location: "Bangkok | Thailand | Asia",
@@ -19,7 +19,7 @@ export const siteConfig = {
   linkedInUrl: "https://www.linkedin.com/in/lewis-m-27b80550/",
   linkedInHandle: "linkedin.com/in/lewis-m-27b80550",
 
-  ogImageAlt: "Miller & Partners Asia — Connecting opportunity across Asia",
+  ogImageAlt: "Miller & Partners Asia | Connecting opportunity across Asia",
 } as const;
 
 export type NavItem = {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { primaryNav, siteConfig } from "@/lib/site-config";
+import { primaryNav } from "@/lib/site-config";
 import { MobileNav } from "@/components/mobile-nav";
 
 export function Header() {
@@ -9,7 +9,7 @@ export function Header() {
         <Link
           href="/"
           className="group flex flex-col leading-none text-ivory"
-          aria-label={`${siteConfig.name} — home`}
+          aria-label="Home"
         >
           <span className="font-serif-display text-lg tracking-[0.02em] sm:text-xl">
             MILLER &amp; PARTNERS

@@ -1,6 +1,6 @@
 import type { Venture } from "@/types";
 
-// Selected Ventures — add or replace entries here as projects become
+// Selected Ventures. Add or replace entries here as projects become
 // public. Each entry needs an image already present in /public/images,
 // or drop a new file in that folder and reference it below.
 export const ventures: Venture[] = [

@@ -24,8 +24,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} | ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.shortDescription,
   keywords: [
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.shortDescription,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: siteConfig.ogImageAlt }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.shortDescription,
     images: ["/opengraph-image"],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Organization structured data (JSON-LD). Kept generic and factual — no
+// Organization structured data (JSON-LD). Kept generic and factual, with no
 // legal-entity or registration claims, consistent with the disclaimer in
 // the footer and on /disclaimer.
 const organizationJsonLd = {
@@ -88,7 +88,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col antialiased">
-        {/* Plain script tag, not next/script — this needs to be present in
+        {/* Plain script tag, not next/script: this needs to be present in
             the static HTML for crawlers/rich-result tools, not injected at
             runtime the way next/script's strategies do. */}
         <script

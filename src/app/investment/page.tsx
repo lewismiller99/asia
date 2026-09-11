@@ -20,7 +20,7 @@ export default function InvestmentPage() {
       overviewLabel="Investment"
       overviewHeading="Direct participation, or access to the right opportunity"
       overviewParagraphs={[
-        "We invest directly, participate strategically, or connect investors with the right opportunity — in private businesses, technology, property and select commercial ventures across Thailand and the wider region.",
+        "We invest directly, participate strategically, or connect investors with the right opportunity. Our interests span private businesses, technology, property and select commercial ventures across Thailand and the wider region.",
         "The right fit depends on the project. What stays consistent is that our involvement adds real value, not just capital.",
       ]}
       overviewImage="/images/singapore-skyline.jpg"

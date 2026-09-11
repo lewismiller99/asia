@@ -92,7 +92,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1 — Hero */}
+      {/* 1. Hero */}
       <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
         <Image
           src="/images/bangkok-hero.jpg"
@@ -130,7 +130,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — Founder */}
+      {/* 2. Founder */}
       <section className="bg-ink py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
           <Reveal className="lg:col-span-4">
@@ -156,9 +156,9 @@ export default function HomePage() {
               relocating from the UK.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
-              Miller &amp; Partners Asia is how he brings that work
-              together — one platform for the ventures, advisory mandates
-              and partnerships he is involved in across the region.
+              Miller &amp; Partners Asia is the platform he brings that
+              work together through: the ventures, advisory mandates and
+              partnerships he is involved in across the region.
             </p>
             <a
               href={siteConfig.linkedInUrl}
@@ -172,7 +172,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — Who We Are */}
+      {/* 3. Who We Are */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
           <Reveal className="lg:col-span-5">
@@ -182,7 +182,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
               We work with entrepreneurs, investors and developers across
-              Asia — identifying opportunities, building partnerships, and
+              Asia, identifying opportunities, building partnerships, and
               getting projects done.
             </p>
             <p className="mt-4 text-base leading-relaxed text-olive">
@@ -211,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Our Focus */}
+      {/* 4. Our Focus */}
       <section className="bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -230,7 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 — Asia */}
+      {/* 5. Asia */}
       <section className="relative overflow-hidden bg-ink py-28 sm:py-36">
         <Image
           src="/images/suvarnabhumi-airport.jpg"
@@ -260,7 +260,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — Our Approach */}
+      {/* 6. Our Approach */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -292,7 +292,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7 — Selected Interests */}
+      {/* 7. Selected Interests */}
       <section className="border-y border-line bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -316,7 +316,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 — Selected Ventures */}
+      {/* 8. Selected Ventures */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="max-w-2xl">
@@ -325,8 +325,8 @@ export default function HomePage() {
               A growing portfolio of projects and partnerships
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              A snapshot of where the platform is active right now — more
-              to follow as new mandates close.
+              A snapshot of where the platform is active right now. More
+              will follow as new mandates close.
             </p>
           </Reveal>
           <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2">
@@ -339,7 +339,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9 — Insights */}
+      {/* 9. Insights */}
       <section className="bg-ivory py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
@@ -366,7 +366,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10 — Contact */}
+      {/* 10. Contact */}
       <section className="bg-offwhite py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:px-10">
           <Reveal className="lg:col-span-5">
