@@ -156,8 +156,8 @@ export default function HomePage() {
               relocating from the UK.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
-              Miller &amp; Partners Asia is the platform he brings that
-              work together through: the ventures, advisory mandates and
+              Miller &amp; Partners Asia brings that work together under
+              one business: the ventures, advisory mandates and
               partnerships he is involved in across the region.
             </p>
             <a
@@ -178,7 +178,7 @@ export default function HomePage() {
           <Reveal className="lg:col-span-5">
             <SectionLabel>Who We Are</SectionLabel>
             <h2 className="mt-5 font-serif-display text-3xl leading-tight text-ink sm:text-4xl">
-              An independent platform for opportunity across the region
+              Connecting opportunity across the region
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
               We work with entrepreneurs, investors and developers across
@@ -186,9 +186,9 @@ export default function HomePage() {
               getting projects done.
             </p>
             <p className="mt-4 text-base leading-relaxed text-olive">
-              Based in Thailand, our network extends across the region:
-              independent specialists, advisers and investors who bring the
-              right expertise to each project.
+              Based in Thailand, we work with a trusted network of
+              specialists, advisers, investors and developers who bring
+              the right expertise to each project.
             </p>
             <Link
               href="/about"
@@ -217,7 +217,7 @@ export default function HomePage() {
           <Reveal className="max-w-2xl">
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="mt-5 font-serif-display text-3xl leading-tight text-ink sm:text-4xl">
-              Four areas. One commercial platform.
+              Four areas. One business.
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -325,7 +325,7 @@ export default function HomePage() {
               A growing portfolio of projects and partnerships
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              A snapshot of where the platform is active right now. More
+              A snapshot of where the business is active right now. More
               will follow as new mandates close.
             </p>
           </Reveal>

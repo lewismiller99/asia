@@ -7,7 +7,7 @@ export const siteConfig = {
   descriptor: "Investment | Advisory | Technology | Property",
   tagline: "Connecting opportunity across Asia",
   shortDescription:
-    "Miller & Partners Asia is an independent business platform focused on investment, advisory, technology and property opportunities across Asia.",
+    "Miller & Partners Asia brings together investment, advisory, technology and property opportunities across Asia.",
   // `||` (not `??`) so an env var that's set but left blank still falls
   // back correctly: an empty string would otherwise crash `new URL()`.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://lewisandpartners.asia",
@@ -46,4 +46,4 @@ export const footerLegalNav: NavItem[] = [
 ];
 
 export const legalDisclaimer =
-  "Miller & Partners Asia is an independent business and advisory brand operated by Lewis Miller. Projects, investments and commercial activities presented through this website may be undertaken personally, through independent partners or through separate legal entities. Miller & Partners Asia does not represent itself as a licensed legal, financial, securities or investment advisory firm. Where regulated professional services are required, clients are referred to appropriately qualified independent professionals.";
+  "Miller & Partners Asia does not represent itself as a licensed legal, financial, securities or investment advisory firm. Where regulated professional services are required, clients are referred to appropriately qualified independent professionals.";

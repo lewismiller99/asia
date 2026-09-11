@@ -250,7 +250,7 @@ at your logo file.
   images — the one intentional placeholder is the founder portrait (§12),
   clearly labelled as such on the page itself.
 - The site never states or implies Miller & Partners Asia is a registered
-  company, a formal legal partnership, or a regulated financial/legal
-  adviser — see the Legal Disclaimer page and footer text, sourced from
-  `legalDisclaimer` in `site-config.ts`.
+  company or a regulated financial/legal adviser. That's confined to the
+  dedicated Legal Disclaimer page (`legalDisclaimer` in `site-config.ts`);
+  marketing pages and the footer stay free of legal-structure explanation.
 - All photography is licensed for this use — see `IMAGE-CREDITS.md`.

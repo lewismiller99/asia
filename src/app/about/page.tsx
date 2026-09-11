@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "Miller & Partners Asia is an independent business platform founded by Lewis Miller, working across investment, advisory, technology and property in Asia.",
+    "Miller & Partners Asia brings together Lewis Miller's investment, advisory, technology and property work across Asia.",
   path: "/about",
 });
 
@@ -25,8 +25,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="An independent platform, built around Asia"
-        intro="Miller & Partners Asia was founded by Lewis Miller as an independent platform for business interests, investments, advisory work and new ventures across Asia."
+        title="Bringing together our work across Asia"
+        intro="Miller & Partners Asia was founded by Lewis Miller to bring together his business interests, investments, advisory work and new ventures across Asia."
         image="/images/bangkok-skyline.jpg"
         imageAlt="Bangkok at twilight, including the King Power Mahanakhon tower and a rooftop pool"
       />
@@ -37,9 +37,9 @@ export default function AboutPage() {
             <SectionLabel>Who We Are</SectionLabel>
             <p className="mt-6 text-lg leading-relaxed text-ink">
               Based in Thailand and operating across the wider Asian market,
-              the platform works alongside business owners, developers,
-              investors, technology specialists, professional advisers and
-              regional partners.
+              we work alongside business owners, developers, investors,
+              technology specialists, professional advisers and regional
+              partners.
             </p>
             <p className="mt-6 text-base leading-relaxed text-olive">
               Our role varies from project to project. Sometimes we advise.
@@ -47,7 +47,9 @@ export default function AboutPage() {
               the right people.
             </p>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              What remains consistent is our approach.
+              What remains consistent is a commercial approach focused on
+              identifying opportunities, bringing together the right
+              expertise and moving projects forward.
             </p>
           </Reveal>
           <Reveal delayMs={100}>
@@ -93,8 +95,10 @@ export default function AboutPage() {
               investment.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-stone">
-              Miller &amp; Partners Asia brings that work together under one
-              independent platform.
+              Miller &amp; Partners Asia brings those interests together
+              under one business, creating a central home for the projects,
+              ventures, investments and advisory work Lewis is involved in
+              across the region.
             </p>
             <a
               href={siteConfig.linkedInUrl}
@@ -114,19 +118,13 @@ export default function AboutPage() {
           <Reveal className="lg:col-span-5">
             <SectionLabel>How We Work</SectionLabel>
             <h2 className="mt-5 font-serif-display text-3xl leading-tight text-ink sm:text-4xl">
-              What the name means
+              A trusted network for every project
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
-              We don&rsquo;t try to cover every discipline in-house. Instead,
-              we bring in independent specialists, advisers, investors and
-              developers as each project requires, assembling the right
-              expertise rather than forcing everything through one fixed
-              structure.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-olive">
-              Miller &amp; Partners Asia is not a formal legal partnership.
-              Individual projects may sit under different entities, made
-              clear on a project-by-project basis.
+              We work with a trusted network of specialists, advisers,
+              investors, developers and commercial partners, bringing
+              together the right expertise for each project rather than
+              forcing everything through one fixed structure.
             </p>
           </Reveal>
           <Reveal delayMs={100} className="lg:col-span-7">
@@ -153,9 +151,9 @@ export default function AboutPage() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-olive">
               Our current network and activities are centred primarily
-              around Thailand and China, with the intention of continuing to
-              expand relationships, investments and commercial interests
-              across the wider region.
+              around Thailand and China, with relationships, investments
+              and commercial interests continuing to develop across the
+              wider Asian region.
             </p>
           </Reveal>
           <Reveal delayMs={100} className="mt-12 grid gap-x-8 gap-y-6 border-t border-line pt-10 sm:grid-cols-3">

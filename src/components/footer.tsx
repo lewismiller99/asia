@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  footerLegalNav,
-  legalDisclaimer,
-  primaryNav,
-  siteConfig,
-} from "@/lib/site-config";
+import { footerLegalNav, primaryNav, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -21,8 +16,8 @@ export function Footer() {
               {siteConfig.descriptor}
             </p>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-stone">
-              An independent business platform connecting investment,
-              advisory, technology and property opportunities across Asia.
+              Investment, advisory, technology and property opportunities
+              across Asia.
             </p>
             <p className="mt-6 text-sm text-stone">{siteConfig.location}</p>
           </div>
@@ -92,10 +87,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 border-t border-line-dark pt-8">
-          <p className="max-w-4xl text-xs leading-relaxed text-stone/80">
-            {legalDisclaimer}
-          </p>
-          <p className="mt-6 text-xs text-stone/60">
+          <p className="text-xs text-stone/60">
             © {year} Miller &amp; Partners Asia. Founded by {siteConfig.founder}.
           </p>
         </div>

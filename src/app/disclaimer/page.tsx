@@ -10,34 +10,13 @@ export const metadata = pageMetadata({
 
 export default function DisclaimerPage() {
   return (
-    <LegalLayout title="Legal Disclaimer" updated="10 September 2026">
-      <p>{legalDisclaimer}</p>
-
-      <h2>Independent Platform</h2>
-      <p>
-        Miller &amp; Partners Asia is an independent business and advisory
-        brand operated by Lewis Miller. It is not represented as a
-        registered limited company, a formal legal partnership, or a
-        regulated financial institution unless explicitly stated in writing
-        in connection with a specific project.
-      </p>
-
-      <h2>How Projects Are Structured</h2>
-      <p>
-        Projects, investments and commercial activities presented through
-        this website may be undertaken personally by Lewis Miller, through
-        independent partners, or through separate legal entities specific to
-        that project. The structure applicable to any individual opportunity
-        would be made clear before any commitment is required.
-      </p>
-
+    <LegalLayout title="Legal Disclaimer" updated="11 September 2026">
       <h2>No Regulated Advice</h2>
+      <p>{legalDisclaimer}</p>
       <p>
-        Miller &amp; Partners Asia does not represent itself as a licensed
-        legal, financial, securities or investment advisory firm. Where
-        regulated professional services are required, including legal, tax,
-        financial or securities advice, clients are referred to appropriately
-        qualified independent professionals.
+        Miller &amp; Partners Asia is not a registered company or regulated
+        financial institution unless stated otherwise in writing for a
+        specific project.
       </p>
 
       <h2>No Guarantee of Outcome</h2>
