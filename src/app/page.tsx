@@ -15,8 +15,8 @@ const focusAreas = [
     index: "01",
     title: "Investment",
     href: "/investment",
-    image: "/images/hongkong-skyline.jpg",
-    imageAlt: "Harbour and skyline representing private investment across Asia",
+    image: "/images/investment-tower.jpg",
+    imageAlt: "The Bank of China Tower, Hong Kong, representing private investment across Asia",
     description:
       "Selected private investment across technology, property and emerging commercial opportunities.",
   },
@@ -24,8 +24,8 @@ const focusAreas = [
     index: "02",
     title: "Advisory",
     href: "/advisory",
-    image: "/images/singapore-skyline.jpg",
-    imageAlt: "Singapore's financial district at golden hour, representing commercial advisory and market entry",
+    image: "/images/advisory-bridge.jpg",
+    imageAlt: "A cable-stayed bridge over Bangkok's Chao Phraya river, representing commercial advisory and market entry",
     description:
       "Commercial advisory for businesses and investors operating in, or entering, Asian markets.",
   },
@@ -33,8 +33,8 @@ const focusAreas = [
     index: "03",
     title: "Technology",
     href: "/technology",
-    image: "/images/shanghai-tower.jpg",
-    imageAlt: "The Shanghai Tower's twisting glass facade, representing technology ventures in Asia",
+    image: "/images/technology-factory.jpg",
+    imageAlt: "An industrial robot arm on a factory production line, representing technology ventures in Asia",
     description:
       "Development, investment and commercial strategy for technology led businesses built for Asia.",
   },

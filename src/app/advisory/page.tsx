@@ -23,8 +23,8 @@ export default function AdvisoryPage() {
         "Most engagements fall into three buckets: getting a business into Thailand or expanding within Asia, structuring a partnership or project properly, and positioning a company for capital or growth.",
         "We also help businesses assess Thailand's investment promotion framework, working alongside qualified professionals wherever legal, tax or regulatory advice is required.",
       ]}
-      overviewImage="/images/singapore-skyline.jpg"
-      overviewImageAlt="Singapore's financial district at golden hour, representing regional advisory work"
+      overviewImage="/images/advisory-bridge.jpg"
+      overviewImageAlt="A cable-stayed bridge over Bangkok's Chao Phraya river, representing regional advisory work"
       areasLabel="Focus"
       areasHeading="Where our advisory work concentrates"
       areas={[

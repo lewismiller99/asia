@@ -15,8 +15,8 @@ export default function InvestmentPage() {
       eyebrow="Investment"
       title="Selected private investment across Asia"
       intro="We identify, evaluate and participate in selected investment opportunities across technology, property, development and emerging commercial ventures."
-      heroImage="/images/hongkong-skyline.jpg"
-      heroImageAlt="Hong Kong skyline at golden hour, representing private investment across Asia"
+      heroImage="/images/investment-tower.jpg"
+      heroImageAlt="The Bank of China Tower, Hong Kong, representing private investment across Asia"
       overviewLabel="Investment"
       overviewHeading="Direct participation, or access to the right opportunity"
       overviewParagraphs={[
