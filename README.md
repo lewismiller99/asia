@@ -157,7 +157,7 @@ where its `category` matches.
 Edit [`src/lib/site-config.ts`](src/lib/site-config.ts):
 
 ```ts
-contactEmail: "enquiries@millerpartnersasia.com",
+contactEmail: "lewis@millerandpartners.asia",
 linkedInUrl: "https://www.linkedin.com/in/lewismiller",
 location: "Bangkok | Thailand | Asia",
 ```

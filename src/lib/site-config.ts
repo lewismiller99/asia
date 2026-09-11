@@ -10,12 +10,12 @@ export const siteConfig = {
     "Miller & Partners Asia is an independent business platform focused on investment, advisory, technology and property opportunities across Asia.",
   // `||` (not `??`) so an env var that's set but left blank still falls
   // back correctly — an empty string would otherwise crash `new URL()`.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://millerpartnersasia.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://lewisandpartners.asia",
   founder: "Lewis Miller",
   location: "Bangkok | Thailand | Asia",
 
   // Update these when live contact details are available.
-  contactEmail: "enquiries@millerpartnersasia.com",
+  contactEmail: "lewis@millerandpartners.asia",
   linkedInUrl: "https://www.linkedin.com/in/lewis-m-27b80550/",
   linkedInHandle: "linkedin.com/in/lewis-m-27b80550",
 

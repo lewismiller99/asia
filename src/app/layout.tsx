@@ -60,6 +60,22 @@ export const metadata: Metadata = {
   },
 };
 
+// Organization structured data (JSON-LD). Kept generic and factual — no
+// legal-entity or registration claims, consistent with the disclaimer in
+// the footer and on /disclaimer.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.shortDescription,
+  founder: {
+    "@type": "Person",
+    name: siteConfig.founder,
+  },
+  sameAs: [siteConfig.linkedInUrl],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -72,6 +88,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col antialiased">
+        {/* Plain script tag, not next/script — this needs to be present in
+            the static HTML for crawlers/rich-result tools, not injected at
+            runtime the way next/script's strategies do. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {/* Adds "js" before first paint so scroll-reveal CSS only ever
             hides content when JavaScript has actually run. See
             globals.css and components/reveal.tsx. */}
