@@ -40,8 +40,10 @@ It does not show, and is not presented as showing, any partner facility.
 
 ## Typography
 
-- Archivo (variable), Omnibus-Type, SIL Open Font License 1.1
-- Instrument Serif, Rodrigo Fuenzalida and Jordan Egstad, SIL Open Font License 1.1
+- Archivo (variable), Omnibus-Type, SIL Open Font License 1.1 (site typography)
+- Instrument Serif, Rodrigo Fuenzalida and Jordan Egstad, SIL Open Font License 1.1 (accents)
+- League Spartan, The League of Moveable Type, SIL Open Font License 1.1 (wordmark outlines)
+- ZCOOL XiaoWei, ZCOOL, SIL Open Font License 1.1 (seal glyph outline, single character subset)
 
 The static instances in `brand/fonts` are used only by the brand tooling
 (logo outlines, frame rendering). The website loads the fonts through

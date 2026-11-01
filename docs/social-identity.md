@@ -27,7 +27,7 @@ in step with any change to the mark.
 
 - Black, white, warm neutral, one red. No gradients, no other accents.
 - The lockup is never stretched, recoloured or cropped. Minimum width 120 px.
-- The seal is the watermark: bottom right, 5 percent of frame width, 70 percent opacity.
+- The seal is the watermark: bottom right, 4 percent of frame width, 70 percent opacity.
 - Headlines: Archivo semi expanded, uppercase, tight leading. Accents: Instrument Serif italic, sparingly.
 - Captions sit on a black bar, never directly on footage.
 - Label every product render as a concept. Only show client work with permission.

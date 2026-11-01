@@ -19,7 +19,7 @@ export function Hero() {
       <div className="container-wide relative z-10 flex flex-1 flex-col pb-6 pt-[calc(var(--header-h)+1.25rem)] md:pb-12 md:pt-[calc(var(--header-h)+2.5rem)]">
         {/* Approved mark, large, as the first thing the visitor reads. */}
         <div className="hero-rise" style={delay(150)}>
-          <Logo tone="light" animate className="w-[min(62vw,13rem)] md:w-[min(40vw,24rem)]" />
+          <Logo tone="light" animate className="w-[min(58vw,12rem)] md:w-[min(32vw,19rem)]" />
         </div>
 
         <div className="mt-auto grid gap-8 pt-10 md:grid-cols-12 md:items-end md:gap-6">

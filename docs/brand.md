@@ -11,14 +11,17 @@ rule, red seal, "china" beneath) is the foundation for everything else.
 - Variants: black on light, white on dark (`tone`), wordmark only
   (`Wordmark`) for compact placements, seal only (`Seal`) for favicon,
   avatars and watermarks.
-- The seal reads 中国 (China) in uniform strokes inside a rounded red
-  square. If the approved artwork uses different characters, replace the
-  two path strings in `SealGroup` and in `src/app/icon.tsx`,
-  `apple-icon.tsx` and `opengraph-image.tsx`.
-- The wordmark is set in Archivo ExtraBold with tight tracking; "china" in
-  Archivo Expanded Medium, letterspaced. Both are stored as outlines so
-  they never depend on font loading.
-- Clear space: the height of the "b" on every side. Minimum width 120 px.
+- Measured from the approved artwork: "brand it" over "china" at the same
+  size, the second line right aligned to the "t" and set one ascender
+  height below the first; the "t" crossbar continues as the rule for 1.2
+  ascender heights; the seal (0.38 by 0.58 ascender heights, vermilion
+  `#E02619`) sits 0.17 ascender heights beyond the rule, centred on it.
+- The seal carries 创 ("create") in ZCOOL XiaoWei, white on vermilion.
+- The wordmark is set in League Spartan Black with -0.02em tracking,
+  the closest open typeface to the approved letterforms. Both faces are
+  stored as outlines (`logo-paths.ts`) so the mark never depends on font
+  loading. Regenerate with `node brand/tools/build-logo-paths.js`.
+- Clear space: half the height of the "b" on every side. Minimum width 120 px.
 - Motion: the rule may draw in and the seal may land (hero only). The mark
   is never otherwise animated, recoloured, rotated or cropped.
 
@@ -32,7 +35,7 @@ rule, red seal, "china" beneath) is the foundation for everything else.
 | ash / smoke / mist | `#5a5955` / `#8c8a86` / `#b8b4ae` | Secondary text |
 | sand / bone / paper | `#dcd6cc` / `#f3f0ea` / `#faf8f4` | Warm light surfaces |
 | white | `#ffffff` | Text on dark |
-| seal | `#c8102e` | The one accent: eyebrow rules, buttons, the seal |
+| seal | `#e02619` | The one accent: eyebrow rules, buttons, the seal |
 
 No gradients between hues, no blue, purple or neon. Red is used for the
 eyebrow rule, the primary button, the seal, the italic accent word in a

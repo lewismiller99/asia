@@ -19,7 +19,7 @@ export default function PrivacyPage() {
       <header className="surface-black">
         <div className="container-wide flex h-[var(--header-h)] items-center justify-between">
           <Link href="/" aria-label={`${siteConfig.name} home`}>
-            <Logo tone="light" className="h-9 w-auto" />
+            <Logo tone="light" className="h-11 w-auto" />
           </Link>
           <Link href="/" className="link-rule text-[0.75rem] font-medium uppercase tracking-[0.18em] text-white/80">
             Back to site

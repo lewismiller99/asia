@@ -113,7 +113,7 @@ function FinishedBrand({ vertical }: { vertical: boolean }) {
           left: vertical ? 64 : 110,
           top: vertical ? 160 : undefined,
           bottom: vertical ? undefined : 110,
-          width: vertical ? "calc(100% - 128px)" : 560,
+          width: vertical ? "calc(100% - 128px)" : 520,
           display: "grid",
           gap: vertical ? 40 : 34,
         }}
@@ -133,8 +133,8 @@ function ClosingFrame({ vertical }: { vertical: boolean }) {
   // Video closing graphic: seal, wordmark, domain.
   return (
     <div className="frame" style={{ display: "grid", placeItems: "center", background: "#0a0a0a" }}>
-      <div style={{ display: "grid", justifyItems: "center", gap: vertical ? 56 : 44, width: vertical ? "70%" : "44%" }}>
-        <Seal size={vertical ? 140 : 110} />
+      <div style={{ display: "grid", justifyItems: "center", gap: vertical ? 56 : 44, width: vertical ? "76%" : "40%" }}>
+        <Seal size={vertical ? 150 : 120} />
         <Logo tone="light" className="" />
         <style>{`.frame svg[aria-label="Brand It China"] { width: 100%; height: auto; }`}</style>
         <p className="eyebrow" style={{ color: "rgba(255,255,255,0.6)", fontSize: vertical ? 26 : 20 }}>branditchina.com</p>
@@ -149,7 +149,7 @@ function OpeningFrame({ vertical }: { vertical: boolean }) {
     <div className="frame" style={{ background: "#0a0a0a" }}>
       <div style={{ position: "absolute", left: 72, right: 72, top: vertical ? 140 : 90 }}>
         <Logo tone="light" className="" />
-        <style>{`.frame svg[aria-label="Brand It China"] { width: ${vertical ? "100%" : "38%"}; height: auto; }`}</style>
+        <style>{`.frame svg[aria-label="Brand It China"] { width: ${vertical ? "72%" : "30%"}; height: auto; }`}</style>
       </div>
       <div style={{ position: "absolute", left: 72, right: 72, bottom: vertical ? 160 : 90 }}>
         <p className="eyebrow" style={{ color: "#c8102e", marginBottom: 28 }}>From China</p>
@@ -174,7 +174,7 @@ function LowerThird() {
           <p className="eyebrow" style={{ color: "rgba(255,255,255,0.7)" }}>Founder, Brand It China</p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 10 }}>
             <Wordmark tone="light" className="" />
-            <style>{`.frame svg[aria-label="Brand It China"] { height: 44px; width: auto; }`}</style>
+            <style>{`.frame svg[aria-label="Brand It China"] { height: 72px; width: auto; }`}</style>
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@ function CaptionCard() {
 function ProfileImage() {
   return (
     <div className="frame" style={{ background: "#0a0a0a", display: "grid", placeItems: "center" }}>
-      <Seal size={620} />
+      <Seal size={640} />
     </div>
   );
 }
@@ -218,7 +218,7 @@ function CoverPortrait({ title, kicker, image }: { title: string; kicker: string
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.15) 40%, rgba(10,10,10,0.92) 100%)" }} />
       <div style={{ position: "absolute", left: 72, right: 72, top: 110 }}>
         <Logo tone="light" className="" />
-        <style>{`.frame svg[aria-label="Brand It China"] { width: 60%; height: auto; }`}</style>
+        <style>{`.frame svg[aria-label="Brand It China"] { width: 54%; height: auto; }`}</style>
       </div>
       <div style={{ position: "absolute", left: 72, right: 72, bottom: 150, display: "grid", gap: 30 }}>
         <p className="eyebrow" style={{ color: "#c8102e", fontSize: 24 }}>{kicker}</p>

@@ -43,8 +43,8 @@ export function Header() {
           tabIndex={scrolled ? 0 : -1}
           aria-hidden={!scrolled}
         >
-          <Logo tone="light" className="hidden h-9 w-auto sm:block" />
-          <Wordmark tone="light" className="h-8 w-auto sm:hidden" />
+          <Logo tone="light" className="hidden h-11 w-auto sm:block" />
+          <Wordmark tone="light" className="h-10 w-auto sm:hidden" />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">

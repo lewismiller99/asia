@@ -13,7 +13,7 @@ export function Footer() {
       <div className="container-wide py-14 md:py-20">
         <div className="grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <Logo tone="light" className="w-[min(80vw,26rem)]" />
+            <Logo tone="light" className="w-[min(70vw,20rem)]" />
             <p className="serif-accent mt-8 text-[clamp(1.5rem,2.4vw,2rem)] text-white/90">Your Brand. Built at Source.</p>
           </div>
 

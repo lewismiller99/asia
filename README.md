@@ -128,10 +128,12 @@ tile's `render` with a `next/image` element in
 its caption from "Illustrative concept" to an accurate label. Only use
 client work with permission.
 
-**Logo.** The mark is vector in `src/components/brand/logo.tsx`. If an
-official vector file is supplied, replace the paths in `logo-paths.ts`
-(generate them with `node brand/tools/build-logo-paths.js`) and keep the
-geometry in `LOGO_GEOMETRY` matched to the approved artwork.
+**Logo.** The mark is vector in `src/components/brand/logo.tsx`, matched
+to the approved artwork (League Spartan Black wordmark, 创 seal in ZCOOL
+XiaoWei). If an official vector file is supplied, replace the outlines in
+`logo-paths.ts` (or regenerate them with
+`node brand/tools/build-logo-paths.js` after swapping the fonts in
+`brand/fonts`) and keep `LOGO_GEOMETRY` matched to the artwork.
 
 ## 6. Brand and social assets
 

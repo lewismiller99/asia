@@ -136,7 +136,7 @@ export function Showcase() {
                 )}
                 {item.kind === "mark" && (
                   <div className="flex h-full flex-col justify-between p-5 pb-14 md:p-8 md:pb-16">
-                    <Logo tone="light" className="w-full max-w-[16rem] md:max-w-[22rem]" />
+                    <Logo tone="light" className="w-full max-w-[13rem] md:max-w-[17rem]" />
                     <p className="serif-accent text-[clamp(1.35rem,2.4vw,2.25rem)] leading-tight">Your brand. Built at source.</p>
                   </div>
                 )}
