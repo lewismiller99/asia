@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
-import { sealArtElements, SEAL_RATIO } from "@/components/brand/logo";
+import { sealArtElements, SEAL_RATIO, SEAL_VIEWBOX } from "@/components/brand/logo";
 
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-// The seal alone is the favicon: 创 inside the red stamp on black.
+// The standalone seal from the brand pack is the favicon, on charcoal.
 export default function Icon() {
   const h = 52;
   const w = h * SEAL_RATIO;
@@ -17,11 +17,11 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#202020",
         }}
       >
-        <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h}>
-          {sealArtElements({ width: w, height: h })}
+        <svg viewBox={SEAL_VIEWBOX} width={w} height={h}>
+          {sealArtElements()}
         </svg>
       </div>
     ),

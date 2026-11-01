@@ -91,9 +91,10 @@ media-source/
   photos/                 master photographs
   frames/                 rendered film frames
 brand/
-  logo/                   SVG logo exports
-  social/                 social templates (PNG)
-  fonts/                  static font instances used by the brand tooling
+  official/               the approved brand pack v1.0 (guidelines, SVG, PDF, EPS, PNG, fonts, tokens)
+  social/                 social templates (PNG), rendered from the official artwork
+  tools/                  extracts the official outlines into the codebase
+src/fonts/                Plus Jakarta Sans and Inter from the brand pack (OFL)
 scripts/
   build-media.mjs         photo grading and export
   build-film.mjs          hero film assembly (ffmpeg)
@@ -128,19 +129,18 @@ tile's `render` with a `next/image` element in
 its caption from "Illustrative concept" to an accurate label. Only use
 client work with permission.
 
-**Logo.** The mark is vector in `src/components/brand/logo.tsx`, matched
-to the approved artwork (League Spartan Black wordmark, 创 seal in ZCOOL
-XiaoWei). If an official vector file is supplied, replace the outlines in
-`logo-paths.ts` (or regenerate them with
-`node brand/tools/build-logo-paths.js` after swapping the fonts in
-`brand/fonts`) and keep `LOGO_GEOMETRY` matched to the artwork.
+**Logo.** The mark is the official artwork from the brand pack
+(`brand/official/SVG`), extracted into `src/components/brand/logo-paths.ts`
+by `node brand/tools/build-logo-paths.mjs`. If the pack is updated, replace
+the files in `brand/official` and run that script.
 
 ## 6. Brand and social assets
 
-`npm run brand:build` renders the logo SVGs, the social templates and the
-two product film frames with Playwright (Chromium). See
-`docs/social-identity.md` for how to use them and `docs/video-concepts.md`
-for the content plan.
+Logo files for designers, printers and editors are in `brand/official`
+(SVG, PDF, EPS and transparent PNG in every approved version).
+`npm run brand:build` renders the social templates and the two product
+film frames with Playwright (Chromium). See `docs/social-identity.md` for
+how to use them and `docs/video-concepts.md` for the content plan.
 
 ## 7. Deployment
 

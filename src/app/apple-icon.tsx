@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { sealArtElements, SEAL_RATIO } from "@/components/brand/logo";
+import { sealArtElements, SEAL_RATIO, SEAL_VIEWBOX } from "@/components/brand/logo";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
@@ -16,11 +16,11 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#202020",
         }}
       >
-        <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h}>
-          {sealArtElements({ width: w, height: h })}
+        <svg viewBox={SEAL_VIEWBOX} width={w} height={h}>
+          {sealArtElements()}
         </svg>
       </div>
     ),

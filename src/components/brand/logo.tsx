@@ -1,162 +1,102 @@
 import {
-  ASCENDER,
-  BRANDIT_INK_RIGHT,
-  BRANDIT_PATH,
-  CHINA_INK_RIGHT,
-  CHINA_PATH,
-  CROSSBAR_BOTTOM,
-  CROSSBAR_TOP,
-  SEAL_GLYPH_BOX,
-  SEAL_GLYPH_PATH,
+  LOGO_HEIGHT,
+  LOGO_VIEWBOX,
+  LOGO_WIDTH,
+  SEAL_BACKGROUND_PATHS,
+  SEAL_BOUNDS,
+  SEAL_GLYPH_PATHS,
+  WORDMARK_HEIGHT,
+  WORDMARK_PATHS,
+  WORDMARK_WIDTH,
+  type ArtPath,
 } from "./logo-paths";
 
 /*
- * The approved Brand It China identity as scalable vector.
+ * The approved Brand It China identity, drawn from the official brand pack
+ * outlines (brand/official). Never retype or rebuild the mark: everything
+ * here places the supplied paths.
  *
- * Composition, measured from the approved artwork (do not change without
- * approval):
- *  - "brand it" on the first line, "china" on the second, both at the same
- *    size, the second line right aligned to the "t" and set one ascender
- *    height below the first (the lines almost touch).
- *  - The crossbar of the "t" continues as a long rule to the right.
- *  - A tall red seal carrying 创 ("create") sits just beyond the rule,
- *    centred on it.
- *
- * Geometry is expressed in logo units where the wordmark is set at a font
- * size of 100 with the first baseline at y = 0.
+ * Versions (per the guidelines):
+ *  - Primary: charcoal wordmark, vermilion seal, for light backgrounds.
+ *  - Reverse: white wordmark, vermilion seal, for dark backgrounds.
+ *  - Mono: single ink; the seal character is a knockout.
+ *  - Wordmark: no seal, for limited production uses.
+ *  - Seal: standalone, for avatars and supporting details.
  */
-const H = ASCENDER;
-const BAR_T = CROSSBAR_TOP;
-const BAR_B = CROSSBAR_BOTTOM;
-const BAR_MID = (BAR_T + BAR_B) / 2;
 
-export const LOGO_GEOMETRY = {
-  ascender: H,
-  line2Baseline: H * 1.0,
-  chinaX: BRANDIT_INK_RIGHT - CHINA_INK_RIGHT,
-  ruleStart: BRANDIT_INK_RIGHT - 0.5,
-  ruleLength: H * 1.2,
-  ruleTop: BAR_T,
-  ruleThickness: BAR_B - BAR_T,
-  sealGap: H * 0.17,
-  sealWidth: H * 0.38,
-  sealHeight: H * 0.58,
-  sealRadius: H * 0.06,
-} as const;
+export const BRAND_CHARCOAL = "#202020";
+export const BRAND_VERMILION = "#E63329";
+export const BRAND_WHITE = "#FFFFFF";
 
-const G = LOGO_GEOMETRY;
-const RULE_END = G.ruleStart + G.ruleLength;
-const SEAL_X = RULE_END + G.sealGap;
-const SEAL_Y = BAR_MID - G.sealHeight / 2;
-const TOP = -H - 2;
-const BOTTOM = G.line2Baseline + 3;
-const RIGHT = SEAL_X + G.sealWidth + 1;
-
-export const LOGO_VIEWBOX = `0 ${TOP} ${RIGHT} ${BOTTOM - TOP}`;
-export const LOGO_ASPECT = RIGHT / (BOTTOM - TOP);
-export const WORDMARK_VIEWBOX = `0 ${TOP} ${BRANDIT_INK_RIGHT + 1} ${BOTTOM - TOP}`;
-
-/** Seal proportions, shared by the favicon and video frames. */
-export const SEAL_RATIO = G.sealWidth / G.sealHeight;
+export const LOGO_ASPECT = LOGO_WIDTH / LOGO_HEIGHT;
+export const WORDMARK_ASPECT = WORDMARK_WIDTH / WORDMARK_HEIGHT;
+export const SEAL_RATIO = SEAL_BOUNDS.width / SEAL_BOUNDS.height;
+export const SEAL_VIEWBOX = `0 0 ${SEAL_BOUNDS.width} ${SEAL_BOUNDS.height}`;
+export { LOGO_VIEWBOX };
+export const WORDMARK_VIEWBOX = `0 0 ${WORDMARK_WIDTH} ${WORDMARK_HEIGHT}`;
 
 export type LogoTone = "light" | "dark";
+export type LogoVersion = "colour" | "mono";
 
-/**
- * The seal glyph scaled into a box of the given width and height, with the
- * character filling about 90 percent of the width as in the artwork.
- */
-export function SealArt({
-  width,
-  height,
-  radius,
-  className,
-  color = "var(--color-seal, #E02619)",
-}: {
-  width: number;
-  height: number;
-  radius?: number;
-  className?: string;
-  /** Literal colour for renderers without CSS variables (Open Graph, icons). */
-  color?: string;
-}) {
-  const r = radius ?? width * 0.16;
-  const box = SEAL_GLYPH_BOX;
-  const glyphW = box.x2 - box.x1;
-  const glyphH = box.y2 - box.y1;
-  const scale = Math.min((width * 0.9) / glyphW, (height * 0.82) / glyphH);
-  const tx = width / 2 - ((box.x1 + box.x2) / 2) * scale;
-  const ty = height / 2 - ((box.y1 + box.y2) / 2) * scale;
+function paths(list: ArtPath[], fill: string, className?: string) {
   return (
-    <g className={className}>
-      <rect width={width} height={height} rx={r} fill={color} />
-      <g transform={`translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${scale.toFixed(4)})`}>
-        <path d={SEAL_GLYPH_PATH} fill="#fff" />
-      </g>
+    <g fill={fill} className={className}>
+      {list.map((p, i) => (
+        <path key={i} d={p.d} transform={p.tx || p.ty ? `translate(${p.tx},${p.ty})` : undefined} />
+      ))}
     </g>
   );
 }
 
 /**
- * Plain element forms for renderers that do not expand React components
- * inside <svg> (next/og's Satori). Call these as functions, not as JSX tags.
+ * Plain element forms. These are functions, not components, so renderers
+ * that cannot expand React components inside <svg> (next/og) still work.
  */
-export function sealArtElements(opts: { width: number; height: number; radius?: number; color?: string }) {
-  return SealArt({ ...opts, color: opts.color ?? "#E02619" });
-}
-
-export function logoArtElements(opts: { ink: string; sealColor?: string }) {
-  return LogoArt({ ink: opts.ink, sealColor: opts.sealColor ?? "#E02619" });
-}
-
-type SealProps = {
-  /** Rendered height in pixels; width follows the approved ratio. */
-  size?: number;
-  className?: string;
-  title?: string;
-};
-
-/** The seal alone: favicon, avatar, watermark, closing frame. */
-export function Seal({ size = 40, className, title = "Brand It China seal", color }: SealProps & { color?: string }) {
-  const w = 100 * SEAL_RATIO;
+export function logoArtElements({
+  ink,
+  version = "colour",
+  sealColor = BRAND_VERMILION,
+  animate = false,
+}: {
+  ink: string;
+  version?: LogoVersion;
+  sealColor?: string;
+  animate?: boolean;
+}) {
+  const mono = version === "mono";
   return (
-    <svg viewBox={`0 0 ${w.toFixed(2)} 100`} height={size} width={size * SEAL_RATIO} className={className} role="img" aria-label={title}>
-      <SealArt width={w} height={100} color={color} />
-    </svg>
+    <g>
+      {paths(WORDMARK_PATHS, ink)}
+      <g className={animate ? "logo-seal" : undefined}>
+        {paths(SEAL_BACKGROUND_PATHS, mono ? ink : sealColor)}
+        {paths(SEAL_GLYPH_PATHS, mono ? "var(--logo-knockout, #FFFFFF)" : BRAND_WHITE)}
+      </g>
+    </g>
   );
 }
 
-/**
- * The lockup's drawing without its <svg> wrapper, for renderers that need
- * to size and colour it explicitly (Open Graph image, video frames).
- */
-export function LogoArt({ ink, sealColor }: { ink: string; sealColor?: string }) {
+export function sealArtElements({ color = BRAND_VERMILION, glyph = BRAND_WHITE }: { color?: string; glyph?: string } = {}) {
   return (
-    <g>
-      <path d={BRANDIT_PATH} fill={ink} />
-      <g transform={`translate(${G.chinaX.toFixed(2)} ${G.line2Baseline.toFixed(2)})`}>
-        <path d={CHINA_PATH} fill={ink} />
-      </g>
-      <rect x={G.ruleStart} y={G.ruleTop} width={G.ruleLength + 0.5} height={G.ruleThickness} fill={ink} className="logo-rule" />
-      <g transform={`translate(${SEAL_X.toFixed(2)} ${SEAL_Y.toFixed(2)})`}>
-        {/* Called as a function, not a tag, so Satori (next/og) can serialise it. */}
-        {SealArt({ width: G.sealWidth, height: G.sealHeight, radius: G.sealRadius, className: "logo-seal", color: sealColor })}
-      </g>
+    <g transform={`translate(${-SEAL_BOUNDS.x},${-SEAL_BOUNDS.y})`}>
+      {paths(SEAL_BACKGROUND_PATHS, color)}
+      {paths(SEAL_GLYPH_PATHS, glyph)}
     </g>
   );
 }
 
 type LogoProps = {
-  /** "light" renders a white wordmark for dark backgrounds. */
+  /** "light" is the Reverse version (white wordmark) for dark backgrounds. */
   tone?: LogoTone;
+  version?: LogoVersion;
   className?: string;
-  /** Draw the rule and land the seal on first paint (hero only). */
+  /** Land the seal on first paint (hero only). */
   animate?: boolean;
   title?: string;
 };
 
-/** Full lockup: two line wordmark, rule and seal. */
-export function Logo({ tone = "dark", className, animate = false, title = "Brand It China" }: LogoProps) {
-  const ink = tone === "light" ? "#FFFFFF" : "#0A0A0A";
+/** Full lockup: wordmark, long t stroke and seal. */
+export function Logo({ tone = "dark", version = "colour", className, animate = false, title = "Brand It China" }: LogoProps) {
+  const ink = tone === "light" ? BRAND_WHITE : BRAND_CHARCOAL;
   return (
     <svg
       viewBox={LOGO_VIEWBOX}
@@ -164,21 +104,39 @@ export function Logo({ tone = "dark", className, animate = false, title = "Brand
       role="img"
       aria-label={title}
       preserveAspectRatio="xMinYMid meet"
+      style={version === "mono" ? ({ "--logo-knockout": tone === "light" ? BRAND_CHARCOAL : BRAND_WHITE } as React.CSSProperties) : undefined}
     >
-      <LogoArt ink={ink} />
+      {logoArtElements({ ink, version, animate })}
     </svg>
   );
 }
 
-/** Wordmark only (both lines, no rule or seal) for very tight placements. */
+/** Wordmark only (no seal), for limited production uses. */
 export function Wordmark({ tone = "dark", className, title = "Brand It China" }: LogoProps) {
-  const ink = tone === "light" ? "#FFFFFF" : "#0A0A0A";
+  const ink = tone === "light" ? BRAND_WHITE : BRAND_CHARCOAL;
   return (
     <svg viewBox={WORDMARK_VIEWBOX} className={className} role="img" aria-label={title} preserveAspectRatio="xMinYMid meet">
-      <path d={BRANDIT_PATH} fill={ink} />
-      <g transform={`translate(${G.chinaX.toFixed(2)} ${G.line2Baseline.toFixed(2)})`}>
-        <path d={CHINA_PATH} fill={ink} />
-      </g>
+      {paths(WORDMARK_PATHS, ink)}
+    </svg>
+  );
+}
+
+type SealProps = {
+  /** Rendered height in pixels; the width follows the artwork's ratio. */
+  size?: number;
+  className?: string;
+  title?: string;
+  /** "red" (default), "black" or "white" single ink versions from the pack. */
+  variant?: "red" | "black" | "white";
+};
+
+/** The standalone seal: favicon, avatars, supporting details, closing frames. */
+export function Seal({ size = 40, className, title = "Brand It China seal", variant = "red" }: SealProps) {
+  const color = variant === "red" ? BRAND_VERMILION : variant === "black" ? BRAND_CHARCOAL : BRAND_WHITE;
+  const glyph = variant === "white" ? BRAND_CHARCOAL : BRAND_WHITE;
+  return (
+    <svg viewBox={SEAL_VIEWBOX} height={size} width={size * SEAL_RATIO} className={className} role="img" aria-label={title}>
+      {sealArtElements({ color, glyph })}
     </svg>
   );
 }

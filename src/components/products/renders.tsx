@@ -1,5 +1,6 @@
 import { useId } from "react";
-import { SEAL_GLYPH_BOX, SEAL_GLYPH_PATH } from "@/components/brand/logo-paths";
+import { SEAL_BOUNDS } from "@/components/brand/logo-paths";
+import { sealArtElements } from "@/components/brand/logo";
 
 /*
  * Illustrative product concepts, drawn as vector so they are razor sharp at
@@ -103,22 +104,11 @@ function Defs({ id }: { id: string }) {
 
 type RenderProps = { className?: string; title?: string };
 
-/** The seal as a small label accent: tall vermilion stamp with 创, matching the mark. */
-function SealAccent({ x, y, height, glyph = true, transform }: { x: number; y: number; height: number; glyph?: boolean; transform?: string }) {
-  const width = height * 0.655;
-  const box = SEAL_GLYPH_BOX;
-  const scale = Math.min((width * 0.9) / (box.x2 - box.x1), (height * 0.82) / (box.y2 - box.y1));
-  const tx = width / 2 - ((box.x1 + box.x2) / 2) * scale;
-  const ty = height / 2 - ((box.y1 + box.y2) / 2) * scale;
+/** The official standalone seal as a small label accent on a concept. */
+function SealAccent({ x, y, height, transform }: { x: number; y: number; height: number; transform?: string }) {
+  const scale = height / SEAL_BOUNDS.height;
   return (
-    <g transform={`translate(${x} ${y})${transform ? " " + transform : ""}`}>
-      <rect width={width} height={height} rx={width * 0.16} fill="#e02619" />
-      {glyph && (
-        <g transform={`translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${scale.toFixed(4)})`}>
-          <path d={SEAL_GLYPH_PATH} fill="#fff" />
-        </g>
-      )}
-    </g>
+    <g transform={`translate(${x} ${y})${transform ? " " + transform : ""} scale(${scale.toFixed(4)})`}>{sealArtElements()}</g>
   );
 }
 
@@ -152,7 +142,7 @@ export function SerumDropper({ className, title = "Illustrative serum bottle con
       {/* glass highlight */}
       <rect x="146" y="210" width="12" height="240" rx="6" fill={`url(#${id}-shine)`} opacity="0.6" />
       {/* label band */}
-      <rect x="128" y="330" width="144" height="48" fill="#0a0a0a" opacity="0.92" />
+      <rect x="128" y="330" width="144" height="48" fill="#202020" opacity="0.92" />
       <rect x="150" y="353" width="40" height="2" fill="#fff" opacity="0.8" />
       <rect x="150" y="360" width="22" height="2" fill="#fff" opacity="0.4" />
       <SealAccent x={236} y={344} height={20} />
@@ -204,9 +194,9 @@ export function PumpBottle({ className, title = "Illustrative pump bottle concep
       <rect x="158" y="170" width="10" height="290" rx="5" fill={`url(#${id}-shine)`} opacity="0.5" />
       <rect x="232" y="180" width="4" height="270" rx="2" fill="#fff" opacity="0.08" />
       {/* label */}
-      <rect x="146" y="300" width="108" height="100" fill="#f3f0ea" />
-      <rect x="166" y="330" width="46" height="2" fill="#0a0a0a" />
-      <rect x="166" y="338" width="30" height="2" fill="#0a0a0a" opacity="0.5" />
+      <rect x="146" y="300" width="108" height="100" fill="#f2f2f2" />
+      <rect x="166" y="330" width="46" height="2" fill="#202020" />
+      <rect x="166" y="338" width="30" height="2" fill="#202020" opacity="0.5" />
       <SealAccent x={166} y={366} height={22} />
     </svg>
   );
@@ -230,12 +220,12 @@ export function SupplementJar({ className, title = "Illustrative supplement jar 
         <rect key={i} x={112 + i * 16} y="104" width="4" height="50" fill="#000" opacity="0.35" />
       ))}
       {/* label block in bone */}
-      <rect x="96" y="226" width="208" height="170" fill="#f3f0ea" />
-      <rect x="124" y="262" width="88" height="3" fill="#0a0a0a" />
-      <rect x="124" y="274" width="60" height="2" fill="#0a0a0a" opacity="0.55" />
-      <rect x="124" y="282" width="72" height="2" fill="#0a0a0a" opacity="0.55" />
+      <rect x="96" y="226" width="208" height="170" fill="#f2f2f2" />
+      <rect x="124" y="262" width="88" height="3" fill="#202020" />
+      <rect x="124" y="274" width="60" height="2" fill="#202020" opacity="0.55" />
+      <rect x="124" y="282" width="72" height="2" fill="#202020" opacity="0.55" />
       <SealAccent x={124} y={342} height={28} />
-      <rect x="150" y="356" width="60" height="2" fill="#0a0a0a" opacity="0.5" />
+      <rect x="150" y="356" width="60" height="2" fill="#202020" opacity="0.5" />
       {/* highlight */}
       <rect x="112" y="166" width="12" height="300" rx="6" fill={`url(#${id}-shine)`} opacity="0.28" />
     </svg>
@@ -277,7 +267,7 @@ export function AmpouleSet({ className, title = "Illustrative ampoule concept" }
       <rect x={x + 6} y={480 - h} width="6" height={h - 30} rx="3" fill={`url(#${id}-shine)`} opacity="0.5" />
       <rect x={x + 8} y={454 - h} width="38" height="24" rx="3" fill={`url(#${id}-${cap})`} />
       <rect x={x + 14} y={436 - h} width="26" height="20" rx="6" fill={`url(#${id}-${cap})`} />
-      <rect x={x} y={470 - h + 100} width="54" height="12" fill="#0a0a0a" opacity="0.9" />
+      <rect x={x} y={470 - h + 100} width="54" height="12" fill="#202020" opacity="0.9" />
     </g>
   );
   return (
@@ -316,14 +306,14 @@ export function StandUpPouch({ className, title = "Illustrative pouch concept" }
       <Defs id={id} />
       <Shadow id={id} cx={200} cy={482} rx={140} ry={18} />
       <path d="M96 120 H304 L318 470 Q200 492 82 470 Z" fill={`url(#${id}-matte)`} />
-      <path d="M96 120 H304 V148 H96 Z" fill="#0a0a0a" />
+      <path d="M96 120 H304 V148 H96 Z" fill="#202020" />
       <path d="M96 150 H304" stroke="#fff" strokeOpacity="0.2" strokeWidth="2" strokeDasharray="4 4" />
       <path d="M110 150 L96 470" stroke="#fff" strokeOpacity="0.08" strokeWidth="6" />
       <path d="M290 150 L304 470" stroke="#fff" strokeOpacity="0.08" strokeWidth="6" />
       {/* label area */}
-      <rect x="132" y="236" width="136" height="150" fill="#f3f0ea" />
-      <rect x="152" y="268" width="70" height="3" fill="#0a0a0a" />
-      <rect x="152" y="280" width="48" height="2" fill="#0a0a0a" opacity="0.5" />
+      <rect x="132" y="236" width="136" height="150" fill="#f2f2f2" />
+      <rect x="152" y="268" width="70" height="3" fill="#202020" />
+      <rect x="152" y="280" width="48" height="2" fill="#202020" opacity="0.5" />
       <SealAccent x={152} y={336} height={28} />
       <rect x="120" y="140" width="10" height="320" rx="5" fill={`url(#${id}-shine)`} opacity="0.3" />
     </svg>
@@ -352,7 +342,7 @@ export function GuaSha({ className, title = "Illustrative wellness accessory con
         />
         <path d="M158 372 C180 368 198 348 214 334" fill="none" stroke="#fff" strokeOpacity="0.15" strokeWidth="3" strokeLinecap="round" />
       </g>
-      <rect x="150" y="470" width="100" height="26" fill="#0a0a0a" />
+      <rect x="150" y="470" width="100" height="26" fill="#202020" />
       <rect x="184" y="482" width="32" height="2" fill="#fff" opacity="0.7" />
     </svg>
   );

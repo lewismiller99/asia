@@ -8,8 +8,8 @@ on location in China or Asia with the founder on camera. Nothing in these
 scripts should make a claim about certifications, approvals or results
 that cannot be shown or evidenced.
 
-Recurring caption treatment: white Archivo, left aligned, on a black bar
-with the red rule above. Lower third: founder name, "Founder, Brand It
+Recurring caption treatment: white Plus Jakarta Sans, left aligned, on a
+charcoal bar with the vermilion rule above. Lower third: founder name, "Founder, Brand It
 China", wordmark (`brand/social/lower-third-16x9.png`).
 
 | # | Working title | Hook (spoken, first 2 seconds) | Shape of the video | Destination line |

@@ -10,9 +10,10 @@ export const contentType = "image/png";
 
 export default async function Image() {
   const logoWidth = 520;
-  // Archivo semi expanded, the site's headline face, so the share image
-  // matches the page. Read from the repo's brand fonts at build time.
-  const archivo = await readFile(join(process.cwd(), "brand/fonts/archivo-600-semiexp.woff"));
+  // Plus Jakarta Sans ExtraBold, the brand heading face. Satori cannot read
+  // the supplied variable TTF, so a static ExtraBold instance of the same
+  // open licensed font is kept in src/fonts/static for this route only.
+  const jakarta = await readFile(join(process.cwd(), "src/fonts/static/PlusJakartaSans-ExtraBold.woff"));
   return new ImageResponse(
     (
       <div
@@ -23,27 +24,27 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 80px",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#202020",
           color: "#ffffff",
-          fontFamily: "Archivo",
+          fontFamily: "Jakarta",
         }}
       >
         <svg viewBox={LOGO_VIEWBOX} width={logoWidth} height={Math.round(logoWidth / LOGO_ASPECT)}>
           {logoArtElements({ ink: "#ffffff" })}
         </svg>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div style={{ display: "flex", fontSize: 92, fontWeight: 600, lineHeight: 0.92, letterSpacing: -2, textTransform: "uppercase" }}>
+          <div style={{ display: "flex", fontSize: 96, fontWeight: 800, lineHeight: 0.96, letterSpacing: -3 }}>
             Your brand.
           </div>
-          <div style={{ display: "flex", fontSize: 92, fontWeight: 600, lineHeight: 0.92, letterSpacing: -2, textTransform: "uppercase" }}>
+          <div style={{ display: "flex", fontSize: 96, fontWeight: 800, lineHeight: 0.96, letterSpacing: -3 }}>
             Built at source.
           </div>
-          <div style={{ display: "flex", marginTop: 18, fontSize: 22, letterSpacing: 6, textTransform: "uppercase", color: "#b8b4ae" }}>
+          <div style={{ display: "flex", marginTop: 18, fontSize: 22, letterSpacing: 6, textTransform: "uppercase", color: "#b3b3b3" }}>
             {siteConfig.positioning}
           </div>
         </div>
       </div>
     ),
-    { ...size, fonts: [{ name: "Archivo", data: archivo, weight: 600, style: "normal" }] }
+    { ...size, fonts: [{ name: "Jakarta", data: jakarta, weight: 800, style: "normal" }] }
   );
 }

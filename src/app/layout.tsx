@@ -1,24 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { siteConfig, configuredSocials } from "@/lib/site-config";
 
-// Archivo's width axis is what gives the headlines their stance, so it is
-// loaded alongside weight. Instrument Serif italic is the single editorial
-// counterpoint used for short accent phrases.
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  axes: ["wdth"],
+// The supporting typefaces from the brand pack, self hosted from the
+// supplied variable font files: Plus Jakarta Sans for headings, Inter for
+// body and labels.
+const jakarta = localFont({
+  src: "../fonts/PlusJakartaSans.ttf",
+  variable: "--font-jakarta",
+  weight: "200 800",
   display: "swap",
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["italic"],
+const inter = localFont({
+  src: "../fonts/Inter.ttf",
+  variable: "--font-inter",
+  weight: "100 900",
   display: "swap",
 });
 
@@ -66,7 +65,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#202020",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -87,7 +86,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${archivo.variable} ${instrument.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={`${jakarta.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-dvh antialiased">
         <script
           type="application/ld+json"

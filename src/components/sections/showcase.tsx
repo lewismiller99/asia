@@ -21,7 +21,7 @@ const items: Item[] = [
     label: "Serum, frosted glass",
     span: "col-span-1 md:col-span-4",
     aspect: "aspect-[4/5]",
-    surface: "bg-[radial-gradient(110%_80%_at_50%_10%,#2c2c2c_0%,#0a0a0a_70%)]",
+    surface: "bg-[radial-gradient(110%_80%_at_50%_10%,#2c2c2c_0%,#202020_70%)]",
     render: <SerumDropper className="mx-auto h-full" />,
   },
   {
@@ -36,7 +36,7 @@ const items: Item[] = [
     label: "Cream jar, bone and black",
     span: "col-span-2 md:col-span-4",
     aspect: "aspect-[4/3] md:aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#f3f0ea_0%,#d9d3c8_100%)]",
+    surface: "bg-[linear-gradient(180deg,#f2f2f2_0%,#d6d6d6_100%)]",
     render: <CreamJar className="mx-auto h-full" />,
   },
   {
@@ -51,7 +51,7 @@ const items: Item[] = [
     label: "Retail box, matte black",
     span: "col-span-1 md:col-span-3",
     aspect: "aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#1f1f1f_0%,#0a0a0a_100%)]",
+    surface: "bg-[linear-gradient(180deg,#1f1f1f_0%,#202020_100%)]",
     render: <RetailBox className="mx-auto h-full" />,
   },
   {
@@ -66,7 +66,7 @@ const items: Item[] = [
     label: "Supplement jar",
     span: "col-span-1 md:col-span-3",
     aspect: "aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#e9e3d9_0%,#cdc5b8_100%)]",
+    surface: "bg-[linear-gradient(180deg,#ebebeb_0%,#d0d0d0_100%)]",
     render: <SupplementJar className="mx-auto h-full" />,
   },
   {
@@ -74,7 +74,7 @@ const items: Item[] = [
     label: "Ampoule set",
     span: "col-span-1 md:col-span-5",
     aspect: "aspect-[4/5] md:aspect-[5/4]",
-    surface: "bg-[radial-gradient(100%_100%_at_50%_100%,#303030_0%,#0a0a0a_70%)]",
+    surface: "bg-[radial-gradient(100%_100%_at_50%_100%,#303030_0%,#202020_70%)]",
     render: <AmpouleSet className="mx-auto h-full" />,
   },
   {
@@ -82,7 +82,7 @@ const items: Item[] = [
     label: "Balm stick",
     span: "col-span-2 md:col-span-4",
     aspect: "aspect-[4/3] md:aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#faf8f4_0%,#e2dcd2_100%)]",
+    surface: "bg-[linear-gradient(180deg,#fafafa_0%,#e0e0e0_100%)]",
     render: <BalmStick className="mx-auto h-full" />,
   },
 ];
@@ -102,7 +102,7 @@ export function Showcase() {
             <>
               Made to be
               <br />
-              <span className="serif-accent font-normal lowercase text-white/90">your</span> brand.
+              <span className="accent">your</span> brand.
             </>
           }
           lede="Illustrative product concepts beside the environments they come from. Client work is shared privately and with permission. Nothing here is presented as a completed project."
@@ -137,12 +137,12 @@ export function Showcase() {
                 {item.kind === "mark" && (
                   <div className="flex h-full flex-col justify-between p-5 pb-14 md:p-8 md:pb-16">
                     <Logo tone="light" className="w-full max-w-[13rem] md:max-w-[17rem]" />
-                    <p className="serif-accent text-[clamp(1.35rem,2.4vw,2.25rem)] leading-tight">Your brand. Built at source.</p>
+                    <p className="display-sm text-[clamp(1.25rem,2vw,1.75rem)]">Your brand. Built at source.</p>
                   </div>
                 )}
                 <figcaption
                   className={`absolute bottom-0 left-0 right-0 flex flex-col gap-0.5 p-3 text-[0.5625rem] uppercase tracking-[0.18em] md:gap-1 md:p-5 md:text-[0.625rem] md:tracking-[0.2em] ${
-                    item.kind === "environment" || item.surface?.includes("#0a0a0a") || item.kind === "mark" ? "text-white/70" : "text-ink/60"
+                    item.kind === "environment" || item.surface?.includes("#202020") || item.kind === "mark" ? "text-white/70" : "text-ink/60"
                   }`}
                 >
                   <span>{item.label}</span>

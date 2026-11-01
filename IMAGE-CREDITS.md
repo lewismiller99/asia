@@ -40,11 +40,13 @@ It does not show, and is not presented as showing, any partner facility.
 
 ## Typography
 
-- Archivo (variable), Omnibus-Type, SIL Open Font License 1.1 (site typography)
-- Instrument Serif, Rodrigo Fuenzalida and Jordan Egstad, SIL Open Font License 1.1 (accents)
-- League Spartan, The League of Moveable Type, SIL Open Font License 1.1 (wordmark outlines)
-- ZCOOL XiaoWei, ZCOOL, SIL Open Font License 1.1 (seal glyph outline, single character subset)
+- Plus Jakarta Sans (variable), Tokotype, SIL Open Font License 1.1, supplied in the brand pack (headings)
+- Inter (variable), The Inter Project Authors, SIL Open Font License 1.1, supplied in the brand pack (body and labels)
 
-The static instances in `brand/fonts` are used only by the brand tooling
-(logo outlines, frame rendering). The website loads the fonts through
-`next/font` and self-hosts them.
+Both files and their licence notices are in `src/fonts` and
+`brand/official/Fonts`. The website self-hosts them through `next/font`.
+
+## Logo artwork
+
+The logo is the approved outlined artwork from the official brand pack
+(`brand/official`, v1.0). It is not set in any font.

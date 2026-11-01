@@ -91,10 +91,10 @@ const tiles: Tile[] = [
 ];
 
 const surfaces: Record<Tile["surface"], string> = {
-  black: "bg-[radial-gradient(120%_90%_at_50%_0%,#2a2a2a_0%,#0a0a0a_70%)] text-white",
+  black: "bg-[radial-gradient(120%_90%_at_50%_0%,#2a2a2a_0%,#202020_70%)] text-white",
   charcoal: "bg-[linear-gradient(180deg,#242424_0%,#111111_100%)] text-white",
-  bone: "bg-[linear-gradient(180deg,#faf8f4_0%,#e4dfd6_100%)] text-ink",
-  sand: "bg-[linear-gradient(180deg,#e9e3d9_0%,#cfc7ba_100%)] text-ink",
+  bone: "bg-[linear-gradient(180deg,#fafafa_0%,#e3e3e3_100%)] text-ink",
+  sand: "bg-[linear-gradient(180deg,#ebebeb_0%,#d2d2d2_100%)] text-ink",
 };
 
 /**
@@ -110,7 +110,7 @@ export function Possibilities() {
           eyebrow="The possibilities"
           title={
             <>
-              What will <span className="serif-accent font-normal lowercase text-seal">you</span> create?
+              What will <span className="accent">you</span> create?
             </>
           }
           lede="Six categories we develop most often with our partners in China. Every concept shown here is illustrative. Your product, your packaging, your name on it."

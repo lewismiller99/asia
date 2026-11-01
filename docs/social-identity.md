@@ -9,10 +9,7 @@ in step with any change to the mark.
 
 | File | Use |
 |---|---|
-| `logo/branditchina-logo-black.svg` | Full lockup for light backgrounds |
-| `logo/branditchina-logo-white.svg` | Full lockup for dark backgrounds |
-| `logo/branditchina-wordmark-black.svg`, `-white.svg` | Wordmark only, for small placements |
-| `logo/branditchina-seal.svg` | The seal alone: avatar, favicon, video watermark |
+| `official/SVG`, `official/PNG` | The approved logo files: Primary, Reverse, Mono, Wordmark and Seal versions |
 | `social/profile-seal.png` | Profile image (1080x1080), seal on black. Use on every platform. |
 | `social/profile-wordmark.png` | Alternative profile image, wordmark on black |
 | `social/opening-9x16.png`, `opening-16x9.png` | Video opening graphic, hold 0.4 s |
@@ -25,10 +22,10 @@ in step with any change to the mark.
 
 ## Rules
 
-- Black, white, warm neutral, one red. No gradients, no other accents.
-- The lockup is never stretched, recoloured or cropped. Minimum width 120 px.
+- Charcoal, white, light grey, one vermilion. No gradients, no other accents.
+- The lockup is never stretched, recoloured or cropped. Keep one seal width clear around it. Minimum width 220 px.
 - The seal is the watermark: bottom right, 4 percent of frame width, 70 percent opacity.
-- Headlines: Archivo semi expanded, uppercase, tight leading. Accents: Instrument Serif italic, sparingly.
+- Headlines: Plus Jakarta Sans ExtraBold, sentence case, tight leading. Labels: Inter SemiBold, uppercase, tracked.
 - Captions sit on a black bar, never directly on footage.
 - Label every product render as a concept. Only show client work with permission.
 
@@ -43,5 +40,4 @@ in step with any change to the mark.
 | All | Profile image | 1080x1080 |
 
 Editing the templates: change the copy and images in
-`scripts/render-frames.tsx` and run `npm run brand:build`. The script also
-re-exports the logo SVGs.
+`scripts/render-frames.tsx` and run `npm run brand:build`.

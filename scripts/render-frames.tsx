@@ -7,29 +7,26 @@
  */
 import { renderToStaticMarkup } from "react-dom/server";
 import { chromium } from "playwright";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import React from "react";
 import { Logo, Seal, Wordmark } from "../src/components/brand/logo";
 import { AmpouleSet, CreamJar, RetailBox, SerumDropper, SupplementJar, PumpBottle } from "../src/components/products/renders";
 
 const root = resolve(import.meta.dirname, "..");
-const fonts = resolve(root, "brand/fonts");
+const fonts = resolve(root, "src/fonts");
+const fontData = (file: string) => `data:font/ttf;base64,${readFileSync(resolve(fonts, file)).toString("base64")}`;
 
 const css = `
-@font-face { font-family: "Archivo"; font-weight: 800; src: url("file://${fonts}/archivo-800.woff") format("woff"); }
-@font-face { font-family: "Archivo"; font-weight: 500; src: url("file://${fonts}/archivo-500.woff") format("woff"); }
-@font-face { font-family: "Archivo"; font-weight: 300; src: url("file://${fonts}/archivo-300.woff") format("woff"); }
-@font-face { font-family: "ArchivoExp"; font-weight: 500; src: url("file://${fonts}/archivo-500-exp.woff") format("woff"); }
-@font-face { font-family: "ArchivoSemi"; font-weight: 600; src: url("file://${fonts}/archivo-600-semiexp.woff") format("woff"); }
-@font-face { font-family: "Instrument"; font-style: italic; src: url("file://${fonts}/iserif-italic.woff") format("woff"); }
+@font-face { font-family: "Jakarta"; font-weight: 200 800; src: url("${fontData("PlusJakartaSans.ttf")}") format("truetype"); }
+@font-face { font-family: "Inter"; font-weight: 100 900; src: url("${fontData("Inter.ttf")}") format("truetype"); }
 * { box-sizing: border-box; margin: 0; }
-html, body { width: 100%; height: 100%; background: #0a0a0a; color: #fff; font-family: "Archivo", sans-serif; -webkit-font-smoothing: antialiased; }
+html, body { width: 100%; height: 100%; background: #202020; color: #fff; font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased; }
 svg { display: block; }
 .frame { position: relative; width: 100%; height: 100%; overflow: hidden; }
-.display { font-family: "ArchivoSemi", "Archivo", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; }
-.eyebrow { font-family: "ArchivoExp", "Archivo", sans-serif; font-weight: 500; font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase; }
-.serif { font-family: "Instrument", serif; font-style: italic; }
+.display { font-family: "Jakarta", sans-serif; font-weight: 800; letter-spacing: -0.03em; line-height: 0.96; }
+.eyebrow { font-family: "Inter", sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 0.3em; text-transform: uppercase; }
+.serif { font-family: "Jakarta", sans-serif; font-weight: 800; letter-spacing: -0.02em; }
 .grain { position:absolute; inset:0; opacity:.06; mix-blend-mode: overlay; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 `;
 
@@ -39,8 +36,8 @@ const darkStage = (vertical: boolean): React.CSSProperties => ({
   position: "absolute",
   inset: 0,
   background: vertical
-    ? "radial-gradient(90% 55% at 50% 42%, #2a2a2a 0%, #0a0a0a 70%)"
-    : "radial-gradient(60% 90% at 50% 45%, #2a2a2a 0%, #0a0a0a 70%)",
+    ? "radial-gradient(90% 55% at 50% 42%, #2a2a2a 0%, #202020 70%)"
+    : "radial-gradient(60% 90% at 50% 45%, #2a2a2a 0%, #202020 70%)",
 });
 
 const floor = (y: string): React.CSSProperties => ({
@@ -132,9 +129,9 @@ function FinishedBrand({ vertical }: { vertical: boolean }) {
 function ClosingFrame({ vertical }: { vertical: boolean }) {
   // Video closing graphic: seal, wordmark, domain.
   return (
-    <div className="frame" style={{ display: "grid", placeItems: "center", background: "#0a0a0a" }}>
-      <div style={{ display: "grid", justifyItems: "center", gap: vertical ? 56 : 44, width: vertical ? "76%" : "40%" }}>
-        <Seal size={vertical ? 150 : 120} />
+    <div className="frame" style={{ display: "grid", placeItems: "center", background: "#202020" }}>
+      <div style={{ display: "grid", justifyItems: "center", gap: vertical ? 56 : 44, width: vertical ? "80%" : "44%" }}>
+        <Seal size={vertical ? 170 : 130} />
         <Logo tone="light" className="" />
         <style>{`.frame svg[aria-label="Brand It China"] { width: 100%; height: auto; }`}</style>
         <p className="eyebrow" style={{ color: "rgba(255,255,255,0.6)", fontSize: vertical ? 26 : 20 }}>branditchina.com</p>
@@ -146,13 +143,13 @@ function ClosingFrame({ vertical }: { vertical: boolean }) {
 
 function OpeningFrame({ vertical }: { vertical: boolean }) {
   return (
-    <div className="frame" style={{ background: "#0a0a0a" }}>
+    <div className="frame" style={{ background: "#202020" }}>
       <div style={{ position: "absolute", left: 72, right: 72, top: vertical ? 140 : 90 }}>
         <Logo tone="light" className="" />
-        <style>{`.frame svg[aria-label="Brand It China"] { width: ${vertical ? "72%" : "30%"}; height: auto; }`}</style>
+        <style>{`.frame svg[aria-label="Brand It China"] { width: ${vertical ? "78%" : "34%"}; height: auto; }`}</style>
       </div>
       <div style={{ position: "absolute", left: 72, right: 72, bottom: vertical ? 160 : 90 }}>
-        <p className="eyebrow" style={{ color: "#c8102e", marginBottom: 28 }}>From China</p>
+        <p className="eyebrow" style={{ color: "#E63329", marginBottom: 28 }}>From China</p>
         <p className="display" style={{ fontSize: vertical ? 132 : 150, color: "#fff" }}>
           Your brand.
           <br />
@@ -168,7 +165,7 @@ function LowerThird() {
   return (
     <div className="frame" style={{ background: "transparent" }}>
       <div style={{ position: "absolute", left: 80, bottom: 120, display: "flex", alignItems: "center", gap: 28 }}>
-        <div style={{ width: 6, height: 150, background: "#c8102e" }} />
+        <div style={{ width: 6, height: 150, background: "#E63329" }} />
         <div style={{ display: "grid", gap: 10 }}>
           <p className="display" style={{ fontSize: 64, color: "#fff" }}>Lewis Miller</p>
           <p className="eyebrow" style={{ color: "rgba(255,255,255,0.7)" }}>Founder, Brand It China</p>
@@ -185,8 +182,8 @@ function LowerThird() {
 function CaptionCard() {
   return (
     <div className="frame" style={{ background: "transparent", display: "grid", placeItems: "center" }}>
-      <div style={{ background: "#0a0a0a", padding: "28px 44px", display: "grid", gap: 14, maxWidth: "84%" }}>
-        <p className="eyebrow" style={{ color: "#c8102e", fontSize: 18 }}>Factory visit, Guangdong</p>
+      <div style={{ background: "#202020", padding: "28px 44px", display: "grid", gap: 14, maxWidth: "84%" }}>
+        <p className="eyebrow" style={{ color: "#E63329", fontSize: 18 }}>Factory visit, Guangdong</p>
         <p className="display" style={{ fontSize: 72, color: "#fff" }}>What a private label serum actually costs</p>
       </div>
     </div>
@@ -195,7 +192,7 @@ function CaptionCard() {
 
 function ProfileImage() {
   return (
-    <div className="frame" style={{ background: "#0a0a0a", display: "grid", placeItems: "center" }}>
+    <div className="frame" style={{ background: "#202020", display: "grid", placeItems: "center" }}>
       <Seal size={640} />
     </div>
   );
@@ -203,7 +200,7 @@ function ProfileImage() {
 
 function ProfileImageWordmark() {
   return (
-    <div className="frame" style={{ background: "#0a0a0a", display: "grid", placeItems: "center" }}>
+    <div className="frame" style={{ background: "#202020", display: "grid", placeItems: "center" }}>
       <Wordmark tone="light" className="" />
       <style>{`.frame svg { width: 70%; height: auto; }`}</style>
     </div>
@@ -221,7 +218,7 @@ function CoverPortrait({ title, kicker, image }: { title: string; kicker: string
         <style>{`.frame svg[aria-label="Brand It China"] { width: 54%; height: auto; }`}</style>
       </div>
       <div style={{ position: "absolute", left: 72, right: 72, bottom: 150, display: "grid", gap: 30 }}>
-        <p className="eyebrow" style={{ color: "#c8102e", fontSize: 24 }}>{kicker}</p>
+        <p className="eyebrow" style={{ color: "#E63329", fontSize: 24 }}>{kicker}</p>
         <p className="display" style={{ fontSize: 116, color: "#fff" }}>{title}</p>
       </div>
       <div className="grain" />
@@ -257,11 +254,11 @@ function FounderTemplate() {
   // 4:5 founder post template with a portrait slot.
   const portrait = dataUri(resolve(root, "public/images/founder.jpg"));
   return (
-    <div className="frame" style={{ background: "#f3f0ea" }}>
+    <div className="frame" style={{ background: "#f2f2f2" }}>
       <img src={portrait} alt="" style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "72%", objectFit: "cover", objectPosition: "top" }} />
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "30%", background: "#f3f0ea", padding: "56px 64px", display: "grid", gap: 20, alignContent: "start" }}>
-        <p className="eyebrow" style={{ color: "#c8102e", fontSize: 18 }}>Your man on the ground in Asia</p>
-        <p className="display" style={{ fontSize: 72, color: "#0a0a0a" }}>Lewis Miller, Founder</p>
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "30%", background: "#f2f2f2", padding: "56px 64px", display: "grid", gap: 20, alignContent: "start" }}>
+        <p className="eyebrow" style={{ color: "#E63329", fontSize: 18 }}>Your man on the ground in Asia</p>
+        <p className="display" style={{ fontSize: 72, color: "#202020" }}>Lewis Miller, Founder</p>
         <div style={{ display: "flex", alignItems: "center", gap: 20, marginTop: 8 }}>
           <Logo tone="dark" className="" />
           <style>{`.frame svg[aria-label="Brand It China"] { height: 64px; width: auto; }`}</style>
@@ -315,22 +312,7 @@ async function main() {
   }
   await browser.close();
 
-  // Static SVG logo exports for designers and video editors.
-  const logoDir = resolve(root, "brand/logo");
-  mkdirSync(logoDir, { recursive: true });
-  const svg = (el: React.ReactElement) =>
-    `<?xml version="1.0" encoding="UTF-8"?>\n` + renderToStaticMarkup(el).replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
-  writeFileSync(resolve(logoDir, "branditchina-logo-black.svg"), svg(<Logo tone="dark" />));
-  writeFileSync(resolve(logoDir, "branditchina-logo-white.svg"), svg(<Logo tone="light" />));
-  writeFileSync(resolve(logoDir, "branditchina-wordmark-black.svg"), svg(<Wordmark tone="dark" />));
-  writeFileSync(resolve(logoDir, "branditchina-wordmark-white.svg"), svg(<Wordmark tone="light" />));
-  writeFileSync(resolve(logoDir, "branditchina-seal.svg"), svg(<Seal size={400} />));
-  // The seal colour token must be literal in standalone files.
-  for (const f of ["branditchina-logo-black.svg", "branditchina-logo-white.svg", "branditchina-seal.svg"]) {
-    const p = resolve(logoDir, f);
-    writeFileSync(p, readFileSync(p, "utf8").replaceAll("var(--color-seal, #C8102E)", "#C8102E"));
-  }
-  console.log("wrote logo SVGs");
+  console.log("logo artwork: use brand/official/SVG (official pack); nothing to export");
 }
 
 main().catch((err) => {

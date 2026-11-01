@@ -1,0 +1,81 @@
+{
+  "brand": "Brand It China",
+  "colours": {
+    "Charcoal": {
+      "hex": "#202020",
+      "rgb": [
+        32,
+        32,
+        32
+      ],
+      "approx_cmyk_percent": [
+        0,
+        0,
+        0,
+        87
+      ]
+    },
+    "Vermilion": {
+      "hex": "#E63329",
+      "rgb": [
+        230,
+        51,
+        41
+      ],
+      "approx_cmyk_percent": [
+        0,
+        78,
+        82,
+        10
+      ]
+    },
+    "White": {
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "approx_cmyk_percent": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "Light grey": {
+      "hex": "#E6E6E6",
+      "rgb": [
+        230,
+        230,
+        230
+      ],
+      "approx_cmyk_percent": [
+        0,
+        0,
+        0,
+        10
+      ]
+    },
+    "Mid grey": {
+      "hex": "#737373",
+      "rgb": [
+        115,
+        115,
+        115
+      ],
+      "approx_cmyk_percent": [
+        0,
+        0,
+        0,
+        55
+      ]
+    }
+  },
+  "typography": {
+    "headings": "Plus Jakarta Sans ExtraBold 800",
+    "body": "Inter Regular 400",
+    "labels": "Inter SemiBold 600",
+    "logo": "Outlined approved artwork, not a font"
+  }
+}

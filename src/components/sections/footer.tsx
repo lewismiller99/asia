@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
             <Logo tone="light" className="w-[min(70vw,20rem)]" />
-            <p className="serif-accent mt-8 text-[clamp(1.5rem,2.4vw,2rem)] text-white/90">Your Brand. Built at Source.</p>
+            <p className="display-sm mt-8 text-[clamp(1.25rem,2vw,1.75rem)] text-white/90">Your Brand. Built at Source.</p>
           </div>
 
           <div className="md:col-span-5 md:justify-self-end">

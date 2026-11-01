@@ -1,88 +1,77 @@
 # Brand It China: digital design system
 
-A summary of the rules the website is built on, so future changes stay
-coherent. The approved identity (lowercase "brand it" wordmark, elongated
-rule, red seal, "china" beneath) is the foundation for everything else.
+How the website applies the official brand pack (`brand/official`, v1.0).
+Read `brand/official/Brand_It_China_Brand_Guidelines.pdf` first; this
+document only records how those rules are implemented in code.
 
 ## The mark
 
-- Lockup: `Logo` in `src/components/brand/logo.tsx`. Geometry lives in
-  `LOGO_GEOMETRY` and must not be changed without approval.
-- Variants: black on light, white on dark (`tone`), wordmark only
-  (`Wordmark`) for compact placements, seal only (`Seal`) for favicon,
-  avatars and watermarks.
-- Measured from the approved artwork: "brand it" over "china" at the same
-  size, the second line right aligned to the "t" and set one ascender
-  height below the first; the "t" crossbar continues as the rule for 1.2
-  ascender heights; the seal (0.38 by 0.58 ascender heights, vermilion
-  `#E02619`) sits 0.17 ascender heights beyond the rule, centred on it.
-- The seal carries 创 ("create") in ZCOOL XiaoWei, white on vermilion.
-- The wordmark is set in League Spartan Black with -0.02em tracking,
-  the closest open typeface to the approved letterforms. Both faces are
-  stored as outlines (`logo-paths.ts`) so the mark never depends on font
-  loading. Regenerate with `node brand/tools/build-logo-paths.js`.
-- Clear space: half the height of the "b" on every side. Minimum width 120 px.
-- Motion: the rule may draw in and the seal may land (hero only). The mark
-  is never otherwise animated, recoloured, rotated or cropped.
+- The logo is artwork, never typed. The approved outlines from
+  `brand/official/SVG` are extracted into `src/components/brand/logo-paths.ts`
+  by `node brand/tools/build-logo-paths.mjs` and placed by the components
+  in `src/components/brand/logo.tsx`.
+- Versions: `Logo` renders Primary (charcoal wordmark, vermilion seal) on
+  light backgrounds and Reverse (white wordmark) with `tone="light"`;
+  `version="mono"` gives the single ink versions with the seal character
+  knocked out. `Wordmark` is the no seal artwork for limited uses. `Seal`
+  is the standalone seal (red, black or white).
+- The seal character 创 ("create", chuàng) is supplied as outlines and
+  needs no font.
+- Clear space: at least one seal width around the whole logo. Minimum
+  digital width 220 px. Never stretch, crop, rotate, add shadows or
+  gradients, or change the spacing.
+- Motion: only the seal may land at the end of the long t on the hero's
+  first paint. Nothing else about the mark animates.
 
 ## Colour
 
 | Token | Hex | Use |
 |---|---|---|
-| black | `#0a0a0a` | Primary dark surface |
-| ink | `#141414` | Text on light surfaces |
-| charcoal / graphite | `#1c1c1c` / `#2a2a2a` | Dark tiles and gradients |
-| ash / smoke / mist | `#5a5955` / `#8c8a86` / `#b8b4ae` | Secondary text |
-| sand / bone / paper | `#dcd6cc` / `#f3f0ea` / `#faf8f4` | Warm light surfaces |
-| white | `#ffffff` | Text on dark |
-| seal | `#e02619` | The one accent: eyebrow rules, buttons, the seal |
+| charcoal (black, ink) | `#202020` | Primary dark surface and text |
+| vermilion (seal) | `#E63329` | The seal, key buttons, short highlights, error states |
+| white | `#FFFFFF` | Text on dark, light surfaces |
+| light grey (sand, bone) | `#E6E6E6`, `#F2F2F2` | Panels and light backgrounds |
+| mid grey (ash) | `#737373` | Secondary text |
 
-No gradients between hues, no blue, purple or neon. Red is used for the
-eyebrow rule, the primary button, the seal, the italic accent word in a
-headline, and error states. Nothing else.
+Lead with charcoal and white. Vermilion is reserved for the seal, the
+primary button, the eyebrow rule and one highlighted word in a heading.
+No gradients between hues and no other accent colours.
 
 ## Typography
 
-- Archivo (variable, weight and width axes) for everything. Display
-  headlines: weight 800, width 112, uppercase, leading 0.92, tracking
-  -0.025em (`.display`). Section titles within tiles: `.display-sm`.
-  Numerals: weight 300, width 75 (`.numeral`).
-- Instrument Serif italic as the only counterpoint (`.serif-accent`), used
-  for one word in a headline or a short line, never for paragraphs.
-- Eyebrows: 11px, 0.22em tracking, uppercase, preceded by a short red rule.
-- Body: 17px, leading 1.6. Lede: fluid 18 to 23px.
+- Headings: Plus Jakarta Sans ExtraBold 800, sentence case, tight leading
+  (`.display`, `.display-sm`). Loaded from the supplied variable font in
+  `src/fonts` through `next/font/local`.
+- Body: Inter 400 (`body`), labels and buttons: Inter 600 (`.eyebrow`,
+  `.btn`). Labels are the only uppercase text on the site.
+- Numerals in the process and enquiry steps: Plus Jakarta Sans 300.
 
 ## Layout rhythm
 
 Dark hero, light possibilities, dark capabilities, light founder, dark
 showcase, light enquiry, dark footer. Full bleed imagery opens the dark
-sections. Headlines are oversized and left aligned; ledes sit to the
-right on wide screens. Grids are 12 column with intentional asymmetry
-(7/5, 4/4/4, 5/3/4). Gutters are fluid (`--gutter`).
+sections. Headings are oversized and left aligned; ledes sit to the right
+on wide screens. Grids are 12 column with intentional asymmetry (7/5,
+4/4/4, 5/3/4). Gutters are fluid (`--gutter`).
 
 ## Motion
 
-One language, defined in `globals.css`:
-
-- `reveal`: content settles upward 28px while fading in.
-- `reveal-mask`: imagery unmasks from the bottom while scaling from 1.08.
-- `reveal-line`: rules draw from the left.
-- `reveal-stagger`: lists arrive 90ms apart.
-- Hero choreography: logo, headline lines, copy, buttons, then positioning.
-
-All of it is disabled under `prefers-reduced-motion`, and everything is
-visible without JavaScript.
+One language, defined in `globals.css`: `reveal` (content settles upward),
+`reveal-mask` (imagery unmasks from the bottom), `reveal-line`,
+`reveal-stagger`, and the hero choreography. All of it is disabled under
+`prefers-reduced-motion`, and everything is visible without JavaScript.
 
 ## Imagery
 
 Two worlds, always both present: cinematic international commerce and
 premium product concepts. Photography is graded with restrained
-saturation, lifted blacks and warm neutral shadows (`scripts/build-media.mjs`).
-Product renders are lit from the upper left on charcoal or bone stages
-and are always labelled as concepts.
+saturation, lifted blacks and neutral shadows (`scripts/build-media.mjs`).
+Product renders are lit from the upper left on charcoal or light grey
+stages, carry the official seal as their label accent, and are always
+labelled as concepts.
 
 ## Voice
 
-Confident, direct, international. Short sentences. No inflated claims,
-no certifications or approvals asserted, no fictional results. The founder
-speaks in the first person only in the quoted copy of the founder section.
+Confident, direct, international. Short sentences in sentence case. No
+inflated claims, no certifications or approvals asserted, no fictional
+results.

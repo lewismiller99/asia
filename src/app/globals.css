@@ -2,30 +2,31 @@
 
 /* ------------------------------------------------------------------
    Brand It China design tokens
-   Black, white, warm neutrals and one restrained seal red.
+   From the official brand pack (brand/official/Digital): charcoal,
+   vermilion, white, light grey and mid grey. Lead with black and white;
+   vermilion is reserved for the seal, key buttons and short highlights.
    ------------------------------------------------------------------ */
 @theme inline {
-  --font-sans: var(--font-archivo);
-  --font-display: var(--font-archivo);
-  --font-serif: var(--font-instrument);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-jakarta);
 
-  --color-black: #0a0a0a;
-  --color-ink: #141414;
-  --color-charcoal: #1c1c1c;
-  --color-graphite: #2a2a2a;
-  --color-ash: #5a5955;
-  --color-smoke: #8c8a86;
-  --color-mist: #b8b4ae;
-  --color-sand: #dcd6cc;
-  --color-bone: #f3f0ea;
-  --color-paper: #faf8f4;
+  --color-black: #202020;
+  --color-ink: #202020;
+  --color-charcoal: #202020;
+  --color-graphite: #2e2e2e;
+  --color-ash: #737373;
+  --color-smoke: #8c8c8c;
+  --color-mist: #b3b3b3;
+  --color-sand: #e6e6e6;
+  --color-bone: #f2f2f2;
+  --color-paper: #fafafa;
   --color-white: #ffffff;
-  --color-seal: #e02619;
-  --color-seal-deep: #b01c12;
+  --color-seal: #e63329;
+  --color-seal-deep: #c1281f;
   --color-whatsapp: #25d366;
 
-  --color-line: rgba(10, 10, 10, 0.14);
-  --color-line-strong: rgba(10, 10, 10, 0.4);
+  --color-line: rgba(32, 32, 32, 0.14);
+  --color-line-strong: rgba(32, 32, 32, 0.4);
   --color-line-light: rgba(255, 255, 255, 0.16);
   --color-line-light-strong: rgba(255, 255, 255, 0.45);
 
@@ -84,46 +85,28 @@ body {
 
 /* ------------------------------------------------------------------
    Typography
-   Archivo carries everything; the width axis gives the headlines their
-   stance. Instrument Serif italic is the single editorial counterpoint.
+   Plus Jakarta Sans ExtraBold for headings, in sentence case as the
+   guidelines ask. Inter for body (400) and labels (600).
    ------------------------------------------------------------------ */
 .display {
   font-family: var(--font-display);
   font-weight: 800;
-  font-stretch: 112%;
-  font-variation-settings: "wdth" 112;
-  text-transform: uppercase;
-  letter-spacing: -0.025em;
-  line-height: 0.92;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
   text-wrap: balance;
-}
-
-.display-condensed {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-stretch: 80%;
-  font-variation-settings: "wdth" 80;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.9;
 }
 
 .display-sm {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-stretch: 108%;
-  font-variation-settings: "wdth" 108;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
   text-wrap: balance;
 }
 
-.serif-accent {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
+/* A single highlighted word inside a heading, in vermilion. */
+.accent {
+  color: var(--color-seal);
 }
 
 .eyebrow {
@@ -160,8 +143,6 @@ body {
 .numeral {
   font-family: var(--font-display);
   font-weight: 300;
-  font-stretch: 75%;
-  font-variation-settings: "wdth" 75;
   letter-spacing: -0.03em;
   line-height: 0.85;
   font-variant-numeric: tabular-nums lining-nums;
@@ -317,23 +298,11 @@ body {
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* The approved mark's own rule draws in and the seal lands at its end. */
-@keyframes logo-rule {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
+/* The seal lands at the end of the long t on first paint. */
 @keyframes logo-seal {
   0% { opacity: 0; transform: scale(1.6); }
   60% { opacity: 0; transform: scale(1.6); }
   100% { opacity: 1; transform: scale(1); }
-}
-
-.logo-animate .logo-rule {
-  transform-box: fill-box;
-  transform-origin: left center;
-  animation: logo-rule 1.5s var(--ease-in-out-quart) both;
-  animation-delay: var(--delay, 600ms);
 }
 
 .logo-animate .logo-seal {
@@ -344,7 +313,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo-animate .logo-rule,
   .logo-animate .logo-seal {
     animation: none;
   }
@@ -396,6 +364,7 @@ body {
   gap: 0.75rem;
   min-height: 3.25rem;
   padding: 0 1.75rem;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.18em;
