@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build tooling (frame rendering, media pipeline), not application code.
+    "scripts/**",
+    "brand/tools/**",
   ]),
 ]);
 

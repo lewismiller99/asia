@@ -11,18 +11,22 @@ export default function AppleIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#14130f",
-          color: "#f4efe6",
-          fontFamily: "serif",
+          backgroundColor: "#0a0a0a",
         }}
       >
-        <div style={{ fontSize: 68 }}>M&amp;P</div>
-        <div style={{ fontSize: 18, letterSpacing: 6, color: "#9c8259", marginTop: 6 }}>
-          ASIA
-        </div>
+        <svg viewBox="0 0 100 100" width="120" height="120">
+          <rect width="100" height="100" rx="8" fill="#C8102E" />
+          <path d="M30,16 H70 V38 H30 Z M50,6 V50" fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="square" />
+          <path
+            d="M20,56 H80 V94 H20 Z M34,65 H66 M34,75 H66 M34,85 H66 M50,65 V85 M66,80 l3,3"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="7"
+            strokeLinecap="square"
+          />
+        </svg>
       </div>
     ),
     { ...size }

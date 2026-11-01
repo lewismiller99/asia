@@ -1,28 +1,48 @@
-# Image Credits
+# Media credits and provenance
 
-All photography in `/public/images` (aside from the founder portrait) is
-sourced from Unsplash under the
-[Unsplash License](https://unsplash.com/license), which permits free
-commercial use without requiring attribution. Photographer credit is
-listed below anyway, as a courtesy. Files have been resized/re-compressed
-for the web; content is otherwise unaltered.
+Every image and film asset on the site is listed here with its source and
+licence, so nothing is ever presented as something it is not.
 
-| File | Description | Unsplash photo ID |
-|---|---|---|
-| `bangkok-hero.jpg` | Bangkok skyline at night, including the King Power Mahanakhon tower | `1683317617081-74b271f8c8b3` |
-| `bangkok-skyline.jpg` | Bangkok at twilight, including the King Power Mahanakhon tower and a rooftop pool | `1504121619445-01661434a022` |
-| `bangkok-daylight.jpg` | Bangkok skyline in daylight, including the King Power Mahanakhon tower | `1592117984084-15bc78969be2` |
-| `shanghai-skyline.jpg` | Shanghai's Pudong skyline by day, including the Oriental Pearl Tower and Shanghai Tower | `1783419423805-c38e7402b0e7` |
-| `shanghai-tower.jpg` | The Shanghai Tower's twisting glass facade, low-angle | `1776675706819-263e97181423` |
-| `singapore-skyline.jpg` | Singapore's financial district at golden hour | `1628866686613-6cf852bed925` |
-| `hongkong-skyline.jpg` | Hong Kong skyline across Victoria Harbour at golden hour | `1620015092538-e33c665fc181` |
-| `investment-tower.jpg` | The Bank of China Tower, Hong Kong | `1747506533234-a2c059e0d4ad` |
-| `advisory-bridge.jpg` | A cable-stayed bridge over Bangkok's Chao Phraya river | `1778394859365-8b44253e0143` |
-| `technology-factory.jpg` | An industrial robot arm on a factory production line (exact country not confirmed by the source listing) | `1716191299980-a6e8827ba10b` |
-| `suvarnabhumi-airport.jpg` | Suvarnabhumi Airport terminal, Bangkok | `1653582245010-04fc596f8ee2` |
-| `founder.jpg` | Portrait of Lewis Miller, Founder, supplied by Lewis Miller, cropped and background-treated for the site | N/A |
+## Photography (`media-source/photos` → `public/images`)
 
-To trace any file back to its original Unsplash page, visit
-`https://unsplash.com/photos/<photo-id-suffix>` (the part after the last
-dash in the ID above) — e.g. for `bangkok-hero.jpg`,
-[unsplash.com/photos/74b271f8c8b3](https://unsplash.com/photos/74b271f8c8b3).
+Masters live in `media-source/photos`. `npm run media:build` applies the
+house colour grade and writes the web files to `public/images`. None of
+these photographs depict Brand It China's manufacturing partners, and the
+site says so wherever they appear.
+
+| Master file | Web files | Shows | Source | Licence |
+|---|---|---|---|---|
+| `suvarnabhumi-airport.jpg` | `arrival.jpg`, `arrival-portrait.jpg` | Suvarnabhumi Airport terminal, Bangkok (the "arrival" scene) | Unsplash photo `1653582245010-04fc596f8ee2` | Unsplash License (free commercial use, no attribution required) |
+| `shanghai-skyline.jpg` | `shanghai.jpg`, `shanghai-portrait.jpg` | Pudong skyline, Shanghai | Unsplash photo `1783419423805-c38e7402b0e7` | Unsplash License |
+| `shanghai-tower.jpg` | `shanghai-tower.jpg` | Shanghai Tower facade | Unsplash photo `1776675706819-263e97181423` | Unsplash License |
+| `hongkong-harbour.jpg` | `harbour-night.jpg`, `harbour-night-portrait.jpg` | Victoria Harbour and Stonecutters Bridge at night, Hong Kong | Wikimedia Commons, "Hong Kong Harbour view from International Commerce Center Building" | CC0 (public domain) |
+| `hongkong-skyline.jpg` | `harbour-day.jpg` | Hong Kong across Victoria Harbour | Unsplash photo `1620015092538-e33c665fc181` | Unsplash License |
+| `bangkok-hero.jpg` | `city-night.jpg` | Bangkok at night | Unsplash photo `1683317617081-74b271f8c8b3` | Unsplash License |
+| `technology-factory.jpg` | `production-line.jpg`, `production-line-portrait.jpg`, `production-line-square.jpg` | Industrial robot on a production line (location not confirmed by the source) | Unsplash photo `1716191299980-a6e8827ba10b` | Unsplash License |
+| `founder.jpg` | `founder.jpg` | Lewis Miller, Founder | Supplied by Lewis Miller | Subject's own photograph |
+
+Unsplash pages: `https://unsplash.com/photos/<last-segment-of-id>`, for
+example `unsplash.com/photos/04fc596f8ee2`.
+
+## Product imagery
+
+All product imagery is original vector artwork drawn for this project
+(`src/components/products/renders.tsx`). It represents illustrative
+packaging concepts, not client products, and is labelled as such on the
+site. No client work is shown.
+
+## Hero film (`public/video`)
+
+`hero-desktop.mp4` and `hero-mobile.mp4` are assembled by
+`scripts/build-film.mjs` from the graded photographs above and two
+rendered product frames (`media-source/frames`). The film is illustrative.
+It does not show, and is not presented as showing, any partner facility.
+
+## Typography
+
+- Archivo (variable), Omnibus-Type, SIL Open Font License 1.1
+- Instrument Serif, Rodrigo Fuenzalida and Jordan Egstad, SIL Open Font License 1.1
+
+The static instances in `brand/fonts` are used only by the brand tooling
+(logo outlines, frame rendering). The website loads the fonts through
+`next/font` and self-hosts them.

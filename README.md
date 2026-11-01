@@ -1,256 +1,194 @@
-# Miller & Partners Asia — Website
+# Brand It China — website
 
-Production website for Miller & Partners Asia, an independent business
-platform focused on investment, advisory, technology and property
-opportunities across Asia. Built with Next.js (App Router), TypeScript and
-Tailwind CSS.
+The flagship landing page for **Brand It China** (branditchina.com):
+*Your Brand. Built at Source.*
 
-A standalone, no-build visual preview is also included: **[preview.html](preview.html)**
-— double-click it to open in any browser.
+A single cinematic landing page plus a privacy policy, built with Next.js
+(App Router), React, TypeScript and Tailwind CSS. There is no backend: the
+enquiry form composes a WhatsApp message on the visitor's device.
 
 ---
 
-## 1. Project structure
+## 1. Quick start
 
-```
-miller-partners-asia/
-├── preview.html              # Standalone static preview (no build needed)
-├── preview-assets/           # Images used only by preview.html
-├── IMAGE-CREDITS.md          # Attribution for sourced photography
-├── src/
-│   ├── app/                  # Routes (Next.js App Router)
-│   │   ├── page.tsx          # Home
-│   │   ├── about/            ├── advisory/          ├── investment/
-│   │   ├── technology/       ├── property/          ├── contact/
-│   │   ├── insights/         #   index + [slug] article pages
-│   │   ├── privacy/  terms/  cookies/  disclaimer/   # legal pages
-│   │   ├── not-found.tsx  loading.tsx  error.tsx
-│   │   ├── sitemap.ts  robots.ts
-│   │   ├── icon.tsx  apple-icon.tsx  opengraph-image.tsx  # generated, no image files needed
-│   │   ├── layout.tsx        # Root layout: fonts, header, footer, metadata
-│   │   └── globals.css       # Design tokens (colour/type) + base styles
-│   ├── components/           # Header, Footer, cards, contact form, etc.
-│   ├── content/
-│   │   ├── insights/*.mdx    # Article content (frontmatter + Markdown)
-│   │   └── ventures.ts       # "Selected Ventures" data
-│   ├── lib/
-│   │   ├── site-config.ts    # Name, nav, contact details, disclaimer text
-│   │   ├── page-metadata.ts  # Per-page SEO metadata helper
-│   │   └── insights.ts       # Reads/parses the MDX articles
-│   └── types/                # Shared TypeScript types
-└── public/images/            # Optimised local photography used by the site
-```
-
-## 2. Install
-
-Requires Node.js 20+.
+Requires Node.js 20 or later.
 
 ```bash
 npm install
+cp .env.example .env.local   # then set NEXT_PUBLIC_WHATSAPP_NUMBER
+npm run dev                  # http://localhost:3000
 ```
 
-## 3. Run locally
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## 4. Build
+Production:
 
 ```bash
 npm run build
-npm start   # serve the production build locally on :3000
+npm start
 ```
 
-The build is verified to produce zero TypeScript errors and zero ESLint
-errors/warnings.
+Checks:
 
-## 5. Deploy
-
-**Vercel (recommended):**
-
-1. Push this repository to GitHub/GitLab/Bitbucket.
-2. Import it at [vercel.com/new](https://vercel.com/new) — Next.js is
-   detected automatically, no configuration needed.
-3. Set environment variables (see §11) in the Vercel project settings if you
-   want to change them from their defaults.
-
-**Any Node.js host (Docker, a VM, etc.):** this is a standard Next.js app —
-`npm run build` then `npm start`, or wrap it in a Dockerfile using the
-[official Next.js Docker example](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
-as a starting point. No database or special runtime is required.
-
-## 6. How to change copy
-
-Most page copy lives directly in each page's `.tsx` file under `src/app/`
-as plain JSX text — edit it in place. Shared/reused strings (site name,
-descriptor, legal disclaimer, contact details) live in
-[`src/lib/site-config.ts`](src/lib/site-config.ts).
-
-## 7. How to change images
-
-Hero and section images are referenced by path, e.g.
-`/images/bangkok-skyline.jpg`, pointing at files in
-[`public/images/`](public/images/). To replace one:
-
-1. Add your new image to `public/images/` (JPEG/WebP, ideally ≤ 2400px wide
-   and optimised — see the pipeline note below).
-2. Update the `src="/images/..."` (and matching `alt` text) reference in the
-   relevant component or page.
-
-All current photography is sourced from Unsplash under the Unsplash
-License (free commercial use, no attribution required) — see
-[`IMAGE-CREDITS.md`](IMAGE-CREDITS.md). Replace freely with your own
-licensed or commissioned photography; update or remove that file to match.
-
-Images are served through `next/image`, which automatically generates
-responsive sizes and lazy-loads offscreen images — no extra work needed
-beyond dropping in a reasonably sized source file.
-
-## 8. How to add an Insight article
-
-Add a new `.mdx` file to [`src/content/insights/`](src/content/insights/)
-with this frontmatter shape (copy an existing article as a template):
-
-```mdx
----
-title: "Your Article Title"
-date: "2026-09-01"
-category: "Thailand"   # one of: Investment, Asia, Thailand, China, Technology, Property, BOI, Business, Market Commentary
-image: "/images/your-image.jpg"
-imageAlt: "Descriptive alt text"
-excerpt: "One or two sentences shown on the article card."
-author: "Lewis Miller"
----
-
-Article body in Markdown. `##` headings, paragraphs, links, etc.
+```bash
+npm run lint
+npm run typecheck
 ```
 
-The article is picked up automatically — it appears on `/insights`, gets
-its own `/insights/<filename-slug>` page, is included in the sitemap, and
-shows in the category filter. No code changes required.
+## 2. Configuration (the only things you must set)
 
-## 9. How to add a Selected Venture
+All configuration is through environment variables, read in
+`src/lib/site-config.ts`. Copy `.env.example` to `.env.local` locally, or
+set the same variables in your host's dashboard.
 
-Add an entry to the array in
-[`src/content/ventures.ts`](src/content/ventures.ts):
+| Variable | Required | What it does |
+|---|---|---|
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | **Yes** | Destination for enquiries. Digits only, international format, no `+`. UK mobile example: `447700900123`. Until it is set the form shows a configuration notice and the WhatsApp links are hidden. |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Public URL for metadata, Open Graph, sitemap and robots. Defaults to `https://branditchina.com`. |
+| `NEXT_PUBLIC_SOCIAL_TIKTOK` | No | Full profile URL. Blank hides the link. |
+| `NEXT_PUBLIC_SOCIAL_INSTAGRAM` | No | Full profile URL. Blank hides the link. |
+| `NEXT_PUBLIC_SOCIAL_LINKEDIN` | No | Full profile URL. Blank hides the link. |
+| `NEXT_PUBLIC_SOCIAL_YOUTUBE` | No | Full profile URL. Blank hides the link. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No | Shown in the footer and privacy policy when set. |
+| `NEXT_PUBLIC_FOUNDER_VIDEO` | No | Path to the founder film, e.g. `/video/founder.mp4`. Blank shows the editable placeholder frame. |
 
-```ts
-{
-  slug: "unique-slug",
-  category: "Property", // or Investment / Technology / Market Entry / Strategic Advisory Mandate
-  title: "Project Title",
-  description: "One or two sentences.",
-  image: "/images/your-image.jpg",
-  imageAlt: "Descriptive alt text",
-}
+Only confirmed links should be entered. Nothing is invented by default.
+
+## 3. How the enquiry works
+
+1. The visitor fills in name, email, WhatsApp number (with country code),
+   one or more product interests and an optional note.
+2. On submit the form validates every field and builds a plain text
+   message (`src/lib/enquiry.ts`).
+3. It opens `https://wa.me/<your number>?text=<encoded message>` in a new
+   tab (WhatsApp app on phones, WhatsApp Web on desktop).
+4. The visitor reviews the message and presses send inside WhatsApp. The
+   site never claims the enquiry has been submitted automatically, and
+   nothing is stored on the server.
+
+## 4. Project structure
+
+```
+src/
+  app/
+    layout.tsx            fonts, metadata, Open Graph, JSON-LD, skip link
+    page.tsx              the landing page (sections in order)
+    privacy/page.tsx      privacy policy
+    globals.css           design tokens, typography, motion language, form styles
+    icon.tsx, apple-icon.tsx, opengraph-image.tsx   generated brand images
+    sitemap.ts, robots.ts
+  components/
+    brand/logo.tsx        the approved mark as vector (Logo, Wordmark, Seal)
+    brand/logo-paths.ts   generated wordmark outlines (do not hand edit)
+    products/renders.tsx  illustrative vector product concepts
+    sections/             hero, possibilities, capabilities, founder, showcase, enquiry, footer, header
+    ui/                   Reveal (scroll motion), SectionHeading, icons
+  lib/
+    site-config.ts        name, URLs, contact and social configuration
+    enquiry.ts            validation and WhatsApp message builder
+public/
+  images/                 graded web photography (generated by scripts/build-media.mjs)
+  video/                  hero film and posters (generated by scripts/build-film.mjs)
+media-source/
+  photos/                 master photographs
+  frames/                 rendered film frames
+brand/
+  logo/                   SVG logo exports
+  social/                 social templates (PNG)
+  fonts/                  static font instances used by the brand tooling
+scripts/
+  build-media.mjs         photo grading and export
+  build-film.mjs          hero film assembly (ffmpeg)
+  render-frames.tsx       film frames, social templates and logo exports (Playwright)
+docs/
+  hero-film.md            storyboard, specs and generation prompts
+  video-concepts.md       20 founder video concepts
+  social-identity.md      social templates and rules
+  brand.md                design system summary
 ```
 
-It appears automatically on the homepage's "Selected Ventures" section and
-on the matching focus-area page (Investment/Advisory/Technology/Property)
-where its `category` matches.
+## 5. Replacing media
 
-## 10. How to change contact details
+**Photographs.** Put the new master JPEG in `media-source/photos`, add or
+edit its entry in `scripts/build-media.mjs` (name, grade, crops), then run
+`npm run media:build`. Requires ImageMagick. Update `IMAGE-CREDITS.md`.
 
-Edit [`src/lib/site-config.ts`](src/lib/site-config.ts):
+**Founder video.** Put the file in `public/video` (H.264 MP4, under 20 MB
+is sensible) and set `NEXT_PUBLIC_FOUNDER_VIDEO=/video/<file>.mp4`.
 
-```ts
-contactEmail: "lewis@millerandpartners.asia",
-linkedInUrl: "https://www.linkedin.com/in/lewismiller",
-location: "Bangkok | Thailand | Asia",
-```
+**Founder portrait.** Replace `media-source/photos/founder.jpg` and run
+`npm run media:build`.
 
-These feed the header CTA, footer, `/contact` page and the founder section
-automatically.
+**Hero film.** See `docs/hero-film.md`. Either regenerate with
+`node scripts/build-film.mjs` after swapping stills, or drop in your own
+`hero-desktop.mp4`, `hero-mobile.mp4` and the two poster JPEGs.
 
-### Contact form backend
+**Product imagery.** The renders in `src/components/products/renders.tsx`
+are illustrative concepts. To show real client photography, replace a
+tile's `render` with a `next/image` element in
+`src/components/sections/showcase.tsx` or `possibilities.tsx` and change
+its caption from "Illustrative concept" to an accurate label. Only use
+client work with permission.
 
-The form validates client-side and works out of the box with **no backend
-configured** — a valid submission opens the visitor's email client with the
-message pre-filled (via a `mailto:` link), so no enquiries are lost even
-before you wire up a service.
+**Logo.** The mark is vector in `src/components/brand/logo.tsx`. If an
+official vector file is supplied, replace the paths in `logo-paths.ts`
+(generate them with `node brand/tools/build-logo-paths.js`) and keep the
+geometry in `LOGO_GEOMETRY` matched to the approved artwork.
 
-To capture submissions server-side instead, set `NEXT_PUBLIC_FORM_ENDPOINT`
-(see `.env.example`) to a POST endpoint that accepts `multipart/form-data`.
-Good options:
+## 6. Brand and social assets
 
-- **[Formspree](https://formspree.io)** — create a form, use its endpoint
-  URL directly. Zero backend code.
-- **[Resend](https://resend.com)** with a small serverless function (e.g. a
-  Next.js Route Handler at `src/app/api/contact/route.ts`) if you want
-  emails sent from your own domain.
-- Any other form-backend-as-a-service (Basin, GetForm, etc.) — all accept
-  the same `FormData` POST the form already sends.
+`npm run brand:build` renders the logo SVGs, the social templates and the
+two product film frames with Playwright (Chromium). See
+`docs/social-identity.md` for how to use them and `docs/video-concepts.md`
+for the content plan.
 
-## 11. How to update SEO metadata
+## 7. Deployment
 
-- **Global defaults** (title template, description, Open Graph, keywords):
-  [`src/app/layout.tsx`](src/app/layout.tsx) and
-  [`src/lib/site-config.ts`](src/lib/site-config.ts).
-- **Per-page metadata**: each page exports a `metadata` object built with
-  the [`pageMetadata()`](src/lib/page-metadata.ts) helper — edit the
-  `title`/`description` arguments passed to it in that page's file.
-- **Site URL**: set `NEXT_PUBLIC_SITE_URL` (see `.env.example`) — it drives
-  canonical URLs, the sitemap and Open Graph URLs.
-- **Sitemap / robots.txt**: generated automatically from
-  [`src/app/sitemap.ts`](src/app/sitemap.ts) /
-  [`src/app/robots.ts`](src/app/robots.ts) — new pages and Insight
-  articles are included with no manual edits needed.
-- **Favicon / social share image**: both are generated at build time from
-  code ([`src/app/icon.tsx`](src/app/icon.tsx),
-  [`src/app/apple-icon.tsx`](src/app/apple-icon.tsx),
-  [`src/app/opengraph-image.tsx`](src/app/opengraph-image.tsx)) rather than
-  static image files — edit the JSX/styles in those files to change them
-  (e.g. swap the "M" monogram for a logo mark).
+Nothing in this repository deploys anywhere by itself.
 
-## 12. How to replace the founder portrait
+**Vercel (recommended).** Import the repository, set the environment
+variables from section 2 in the project settings, deploy. Next.js is
+detected automatically; `next/image` optimisation and the generated icons
+and Open Graph image work out of the box.
 
-The founder sections (homepage and `/about`) show `public/images/founder.jpg`
-via `next/image`. To swap in a different photo, just replace that file with
-a new one of the same name (ideally a 4:5 portrait crop, ≥1200×1500px) — no
-code changes needed.
+**Any Node host.** `npm run build` then `npm start` on port 3000 behind a
+reverse proxy. Set the same environment variables at build time (they are
+`NEXT_PUBLIC_` and are inlined during the build).
 
-If the source photo has a busy background (e.g. taken at an event, in front
-of signage or other branding), it's worth applying the same treatment used
-for the current photo before dropping it in: crop tighter to a
-head-and-shoulders frame, then blur and darken the background (a simulated
-shallow depth-of-field) so the founder stays the clear subject and any
-unrelated signage becomes illegible. Any photo editor's background-blur or
-portrait mode can achieve this — it doesn't need to be code-based.
+**Domain.** Point `branditchina.com` at the host and set
+`NEXT_PUBLIC_SITE_URL=https://branditchina.com` so canonical URLs, the
+sitemap and share images use the right domain.
 
-## 13. How to replace the logo
+## 8. Performance and accessibility notes
 
-The logo is typographic (no image file) — "MILLER & PARTNERS" / "ASIA" set
-in the site's serif and letter-spacing, defined in
-[`src/components/header.tsx`](src/components/header.tsx) and
-[`src/components/footer.tsx`](src/components/footer.tsx). To use an image
-logo instead, replace the `<span>` elements there with an `<Image>` pointing
-at your logo file.
+- The hero poster is the largest contentful paint; the film fades in only
+  once it is playing and never under reduced motion or the save-data hint.
+- Everything below the fold is lazy loaded through `next/image`.
+- Motion is a progressive enhancement: content is visible without
+  JavaScript and under `prefers-reduced-motion`.
+- The form has labels, inline error messages wired with `aria-describedby`,
+  and keyboard accessible interest chips.
+- No analytics or third party scripts are included. If you add any, keep
+  form contents out of them.
 
-## 14. Design system reference
+## 9. Claims and compliance
 
-- **Colours** — CSS custom properties in
-  [`src/app/globals.css`](src/app/globals.css) (`--color-ink`,
-  `--color-ivory`, `--color-bronze`, etc.), exposed as Tailwind utilities
-  (`bg-ink`, `text-bronze`, ...).
-- **Typography** — Fraunces (serif, headings) + Inter (sans, body/UI),
-  loaded via `next/font/google` in `layout.tsx` — self-hosted, no runtime
-  request to Google Fonts.
-- **Scroll-reveal animation** — [`src/components/reveal.tsx`](src/components/reveal.tsx),
-  a small IntersectionObserver wrapper. Content is always visible with
-  JavaScript disabled or if the observer never fires (progressive
-  enhancement, with a timeout failsafe) — see the comments in that file and
-  in `globals.css` for how the "js"-class technique avoids a flash.
+The copy makes no certification, approval, testimonial or results claims.
+Keep it that way: see the notes in `src/components/sections/capabilities.tsx`
+and `possibilities.tsx`. Product renders are labelled as concepts, and film
+and photography are labelled as illustrative wherever they appear.
 
-## 15. Notes on this build
+## 10. Verification record
 
-- Zero `TODO`s, zero placeholder Lorem Ipsum copy, zero broken links or
-  images — the one intentional placeholder is the founder portrait (§12),
-  clearly labelled as such on the page itself.
-- The site never states or implies Miller & Partners Asia is a registered
-  company or a regulated financial/legal adviser. That's confined to the
-  dedicated Legal Disclaimer page (`legalDisclaimer` in `site-config.ts`);
-  marketing pages and the footer stay free of legal-structure explanation.
-- All photography is licensed for this use — see `IMAGE-CREDITS.md`.
+Checked on the production build (`next build` then `next start`) with
+Playwright in Chromium, 1 November 2026:
+
+- Lint, type check and production build pass with no warnings.
+- Hero film plays on desktop (16:9 edit) and iPhone (9:16 edit); under
+  `prefers-reduced-motion` the film is never requested and the poster stays.
+- Enquiry form: every field validates with inline messages and focus moves
+  to the first error; a valid submission opens `wa.me/<number>` with the
+  complete, correctly encoded message.
+- Zero console or page errors on desktop and mobile.
+- Lighthouse, mobile emulation, throttled: performance 91, accessibility
+  100, best practices 100, SEO 100; CLS 0, TBT 120 ms, FCP 1.1 s, LCP 3.3 s.
+  LCP is bound by the hero poster on a throttled connection; serve the site
+  through a CDN (Vercel does) for real world numbers well under that.
