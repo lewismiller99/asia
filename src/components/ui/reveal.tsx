@@ -34,7 +34,7 @@ export function Reveal({
     if (!el) return;
 
     const show = () => el.classList.add("is-visible");
-    const failsafe = window.setTimeout(show, 3000);
+    const failsafe = window.setTimeout(show, 1200);
 
     if (typeof IntersectionObserver === "undefined") {
       show();

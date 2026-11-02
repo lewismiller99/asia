@@ -412,8 +412,10 @@ export function BalmStick(p: ProductProps) {
    Composed scenes used across the site
    ------------------------------------------------------------------ */
 
+type SceneOpts = { className?: string; aspect?: SceneProps["aspect"]; set?: SceneProps["set"] };
+
 export const scenes = {
-  skincare: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  skincare: (props: SceneOpts) => (
     <Scene title="Illustrative skincare concept: frosted serum and cream jar" {...props}>
       {({ id }) => (
         <>
@@ -423,27 +425,27 @@ export const scenes = {
       )}
     </Scene>
   ),
-  haircare: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  haircare: (props: SceneOpts) => (
     <Scene title="Illustrative haircare concept: smoked glass pump bottle" {...props}>
       {({ id }) => <PumpBottle id={id} x={200} y={0} scale={2.5} />}
     </Scene>
   ),
-  supplements: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  supplements: (props: SceneOpts) => (
     <Scene title="Illustrative supplement concept: matte jar" {...props}>
       {({ id }) => <SupplementJar id={id} x={150} y={0} scale={2.5} />}
     </Scene>
   ),
-  weight: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  weight: (props: SceneOpts) => (
     <Scene title="Illustrative weight management concept: stand up pouch" {...props}>
       {({ id }) => <Pouch id={id} x={150} y={0} scale={2.5} />}
     </Scene>
   ),
-  accessories: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  accessories: (props: SceneOpts) => (
     <Scene title="Illustrative wellness accessory concept: facial roller" {...props}>
       {({ id }) => <FacialRoller id={id} x={150} y={0} scale={2.5} />}
     </Scene>
   ),
-  custom: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  custom: (props: SceneOpts) => (
     <Scene title="Illustrative custom product concept: ampoules and retail box" {...props}>
       {({ id }) => (
         <>
@@ -453,12 +455,12 @@ export const scenes = {
       )}
     </Scene>
   ),
-  balm: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  balm: (props: SceneOpts) => (
     <Scene title="Illustrative balm stick concept" {...props}>
       {({ id }) => <BalmStick id={id} x={150} y={0} scale={2.5} />}
     </Scene>
   ),
-  creation: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  creation: (props: SceneOpts) => (
     <Scene title="Illustrative product creation: ampoules, serum and cream jar" {...props} aspect="landscape" floor={0.8}>
       {({ id }) => (
         <>
@@ -469,7 +471,19 @@ export const scenes = {
       )}
     </Scene>
   ),
-  reveal: (props: { className?: string; aspect?: SceneProps["aspect"] }) => (
+  macro: (props: SceneOpts) => (
+    <Scene title="Illustrative macro concept: serum dropper close up" {...props} aspect="landscape" floor={1}>
+      {({ id }) => (
+        <>
+          <g filter={`url(#${id}-softer)`} opacity="0.8">
+            <CreamJar id={id} x={-140} y={-80} scale={3.4} />
+          </g>
+          <SerumBottle id={id} x={860} y={-40} scale={3.3} />
+        </>
+      )}
+    </Scene>
+  ),
+  reveal: (props: SceneOpts) => (
     <Scene title="Illustrative finished brand concept: serum and retail box" {...props} aspect="landscape" floor={0.8}>
       {({ id }) => (
         <>

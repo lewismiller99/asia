@@ -29,7 +29,7 @@ export function Founder() {
               />
             </div>
           </Parallax>
-          <div className="absolute bottom-6 left-6 flex items-center gap-3 text-[0.625rem] uppercase tracking-[0.25em] text-white/90 [text-shadow:0_1px_12px_rgba(0,0,0,0.6)]">
+          <div className="absolute bottom-6 left-6 flex items-center gap-3 bg-black/80 px-3 py-2 text-[0.625rem] uppercase tracking-[0.25em] text-white">
             <Seal size={14} />
             {siteConfig.founder.name}, {siteConfig.founder.role}
           </div>
@@ -38,7 +38,7 @@ export function Founder() {
         {/* Copy */}
         <div className="flex flex-col justify-center px-[var(--gutter)] py-[clamp(4rem,10vw,9rem)] lg:col-span-7 lg:pl-[clamp(2rem,6vw,6rem)]">
           <Reveal>
-            <p className="chapter text-ash">03 &nbsp; Meet the founder</p>
+            <p className="chapter text-ink/70">03 &nbsp; Meet the founder</p>
           </Reveal>
           <Reveal delayMs={80}>
             <h2 className="giant mt-8 text-[clamp(2.75rem,6vw,6.5rem)] text-ink">

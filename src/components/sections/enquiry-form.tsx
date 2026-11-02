@@ -144,7 +144,7 @@ export function EnquiryForm({ tone = "light" }: { tone?: "light" | "dark" }) {
             {errors.whatsapp}
           </p>
         ) : (
-          <p id={`${uid}-whatsapp-hint`} className={`mt-2 text-xs ${dark ? "text-white/45" : "text-smoke"}`}>
+          <p id={`${uid}-whatsapp-hint`} className={`mt-2 text-xs ${dark ? "text-white/60" : "text-smoke"}`}>
             Start with + and your country code so we can reply on WhatsApp.
           </p>
         )}
@@ -173,7 +173,7 @@ export function EnquiryForm({ tone = "light" }: { tone?: "light" | "dark" }) {
 
       <div className={fieldClass("idea")}>
         <label htmlFor={`${uid}-idea`} className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>
-          Tell us about your idea <span className={`normal-case tracking-normal ${dark ? "text-white/40" : "text-smoke"}`}>(optional)</span>
+          Tell us about your idea <span className={`normal-case tracking-normal ${dark ? "text-white/55" : "text-smoke"}`}>(optional)</span>
         </label>
         <textarea
           id={`${uid}-idea`}
@@ -208,7 +208,7 @@ export function EnquiryForm({ tone = "light" }: { tone?: "light" | "dark" }) {
           </p>
         )}
 
-        <p id={`${uid}-privacy`} className={`max-w-[36rem] text-xs leading-relaxed ${dark ? "text-white/45" : "text-smoke"}`}>
+        <p id={`${uid}-privacy`} className={`max-w-[36rem] text-xs leading-relaxed ${dark ? "text-white/60" : "text-smoke"}`}>
           Your details are used to compose a WhatsApp message on your device. They are not stored on this website.
           The message is shared through WhatsApp, whose own terms and privacy policy apply. Read our{" "}
           <Link href="/privacy" className={`link-rule ${dark ? "text-white" : "text-ink"}`}>

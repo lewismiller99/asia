@@ -202,7 +202,7 @@ Playwright in Chromium, 2 November 2026:
 - Enquiry form: every field validates with inline messages and focus moves
   to the first error; a valid submission opens `wa.me/<number>` with the
   complete, correctly encoded message.
-- Lighthouse, mobile emulation, throttled: performance 87, accessibility
-  100, best practices 100, SEO 100; CLS 0, TBT 60 ms, FCP 1.1 s, LCP 4.1 s.
+- Lighthouse, mobile emulation, throttled: performance 91, accessibility
+  100, best practices 100, SEO 100; CLS 0, TBT 70 ms, FCP 1.1 s, LCP 3.5 s.
   LCP is the hero on a throttled connection; a CDN deployment (Vercel)
   brings it down further.

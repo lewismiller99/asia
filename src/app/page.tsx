@@ -7,10 +7,12 @@ import { Founder } from "@/components/sections/founder";
 import { Showcase } from "@/components/sections/showcase";
 import { Enquiry } from "@/components/sections/enquiry";
 import { Footer } from "@/components/sections/footer";
+import { Intro } from "@/components/ui/intro";
 
 export default function Home() {
   return (
     <>
+      <Intro />
       <Header />
       <main id="main-content">
         <Hero />

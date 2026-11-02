@@ -2,13 +2,14 @@
 /*
  * Assembles the hero film from graded stills and rendered frames.
  *
- * Sequence (brief, section 6):
- *   1 Arrival          media-source photo "arrival"
+ * Sequence (brief, section 6). The arrival scene (an aircraft descending
+ * towards a Chinese airport) is reserved for real or generated footage;
+ * see docs/hero-film.md. Until then the film opens on international trade.
+ *   1 International    "harbour-night"
  *   2 China            "shanghai"
- *   3 International    "harbour-night"
- *   4 Manufacturing    "production-line"
- *   5 Product creation media-source/frames/scene5-product-*.png
- *   6 Finished brand   media-source/frames/scene6-brand-*.png
+ *   3 Manufacturing    "production-line"
+ *   4 Product creation media-source/frames/scene5-product-*.png
+ *   5 Finished brand   media-source/frames/scene6-brand-*.png
  *
  * Each scene gets a slow, physically plausible camera move (push in, drift,
  * pull back), scenes dissolve into each other, and the film fades through
@@ -50,9 +51,8 @@ const edits = {
   desktop: {
     size: [1920, 1080],
     scenes: [
-      { src: `${images}/arrival.jpg`, move: "pushIn" },
-      { src: `${images}/shanghai.jpg`, move: "driftRight" },
       { src: `${images}/harbour-night.jpg`, move: "pullBack" },
+      { src: `${images}/shanghai.jpg`, move: "driftRight" },
       { src: `${images}/production-line.jpg`, move: "pushIn" },
       { src: `${frames}/scene5-product-desktop.png`, move: "driftRight" },
       { src: `${frames}/scene6-brand-desktop.png`, move: "pushIn" },
@@ -61,9 +61,8 @@ const edits = {
   mobile: {
     size: [1080, 1920],
     scenes: [
-      { src: `${images}/arrival-portrait.jpg`, move: "pushIn" },
-      { src: `${images}/shanghai-portrait.jpg`, move: "driftUp" },
       { src: `${images}/harbour-night-portrait.jpg`, move: "pullBack" },
+      { src: `${images}/shanghai-portrait.jpg`, move: "driftUp" },
       { src: `${images}/production-line-portrait.jpg`, move: "pushIn" },
       { src: `${frames}/scene5-product-mobile.png`, move: "driftUp" },
       { src: `${frames}/scene6-brand-mobile.png`, move: "pushIn" },
@@ -130,7 +129,7 @@ for (const [name, edit] of Object.entries(edits)) {
   ]);
   console.log(`wrote ${output} (${total.toFixed(1)}s)`);
 
-  // Poster: the arrival frame a second in, matching what the film opens on.
+  // Poster: the opening frame a second in, matching what the film opens on.
   const poster = `${out}/hero-poster${name === "mobile" ? "-mobile" : ""}.jpg`;
   ff(["-ss", "1.2", "-i", output, "-frames:v", "1", "-q:v", "4", poster]);
   console.log(`wrote ${poster}`);

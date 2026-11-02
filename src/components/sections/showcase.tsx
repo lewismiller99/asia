@@ -38,7 +38,7 @@ export function Showcase() {
             </Reveal>
           </div>
         </div>
-        <span className="absolute bottom-5 right-[var(--gutter)] text-[0.5625rem] uppercase tracking-[0.22em] text-white/45">Illustrative concept</span>
+        <span className="absolute bottom-5 right-[var(--gutter)] text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Illustrative concept</span>
       </div>
 
       {/* Spread 2: asymmetric pair, environment and scene */}
@@ -52,8 +52,8 @@ export function Showcase() {
           </Reveal>
           <Reveal variant="mask" delayMs={120} className="relative aspect-[4/5] md:col-span-7">
             <div className="relative h-full w-full">
-              <Image src="/images/scenes/scene-skincare.jpg" alt="Illustrative skincare concept, studio scene" fill sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" quality={76} />
-              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Skincare &middot; Illustrative concept</span>
+              <Image src="/images/scenes/scene-macro.jpg" alt="Illustrative serum concept, close up studio scene" fill sizes="(min-width: 768px) 58vw, 100vw" className="object-cover object-[82%_50%]" quality={78} />
+              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Serum, detail &middot; Illustrative concept</span>
             </div>
           </Reveal>
         </div>

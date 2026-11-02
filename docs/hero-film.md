@@ -41,7 +41,7 @@ than a tripod pan.
 
 | # | Scene | Current source | Move | Intent |
 |---|---|---|---|---|
-| 1 | Arrival | Airport terminal interior, evening | Slow push in | International travel, the founder's regular journey |
+| 1 | Arrival | Not yet in the cut: awaiting aircraft footage (prompt below). A terminal interior still is graded and ready in `public/images/arrival.jpg` if a placeholder is preferred | Slow push in | International travel, the founder's regular journey |
 | 2 | China | Pudong skyline, Shanghai | Lateral drift | Scale, modernity, ambition |
 | 3 | International trade | Harbour, bridge and port lights at night | Slow pull back | Movement of goods, connected supply chain |
 | 4 | Manufacturing | Robotic production line | Push in | Capability and precision |

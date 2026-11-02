@@ -22,25 +22,25 @@ const slides: Slide[] = [
  */
 export function Possibilities() {
   return (
-    <section id={anchors.create.slice(1)} className="surface-black relative">
+    <section id={anchors.create.slice(1)} className="surface-paper relative">
       <div className="container-wide pt-[clamp(5rem,12vw,10rem)]">
         <Reveal>
-          <p className="chapter text-white/55">01 &nbsp; The possibilities</p>
+          <p className="chapter text-ink/70">01 &nbsp; The possibilities</p>
         </Reveal>
         <div className="mt-8 grid gap-8 md:grid-cols-12 md:items-end">
           <Reveal delayMs={80} className="md:col-span-8">
-            <h2 className="giant text-[clamp(3rem,10vw,10.5rem)] text-white">
+            <h2 className="giant text-[clamp(3rem,10vw,10.5rem)] text-ink">
               What will
               <br />
               <span className="accent">you</span> create?
             </h2>
           </Reveal>
           <Reveal delayMs={160} className="md:col-span-4 md:pb-4">
-            <p className="lede text-mist">
+            <p className="lede text-ash">
               Six categories we develop most often with our partners in China. Your product, your packaging, your name
               on it.
             </p>
-            <p className="mt-4 text-[0.6875rem] uppercase tracking-[0.22em] text-white/45">Scroll to browse. All concepts illustrative.</p>
+            <p className="mt-4 text-[0.6875rem] uppercase tracking-[0.22em] text-ash">Scroll to browse. All concepts illustrative.</p>
           </Reveal>
         </div>
       </div>
@@ -53,34 +53,34 @@ export function Possibilities() {
               key={slide.n}
               className="relative flex h-full w-[86vw] shrink-0 snap-start flex-col justify-end px-[var(--gutter)] sm:w-[62vw] lg:w-[46vw] lg:px-6 lg:pb-16 lg:pt-6"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-charcoal lg:h-[calc(100vh-14rem)] lg:w-auto">
+              <div className="group relative aspect-[4/5] w-full overflow-hidden bg-sand lg:h-[calc(100vh-14rem)] lg:w-auto">
                 <Image
-                  src={`/images/scenes/scene-${slide.scene}.jpg`}
+                  src={`/images/scenes/scene-${slide.scene}-light.jpg`}
                   alt={`Illustrative ${slide.title.toLowerCase()} concept, studio scene`}
                   fill
                   sizes="(min-width: 1024px) 46vw, 86vw"
-                  className="object-cover"
-                  quality={78}
+                  className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.03]"
+                  quality={80}
                   loading={i < 2 ? "eager" : "lazy"}
                 />
-                <span className="numeral absolute left-5 top-5 text-[2.5rem] text-white/80 md:text-[3.25rem]">{slide.n}</span>
-                <span className="absolute right-5 top-6 text-[0.5625rem] uppercase tracking-[0.22em] text-white/50">Illustrative concept</span>
+                <span className="numeral absolute left-5 top-5 text-[2.5rem] text-ink/70 md:text-[3.25rem]">{slide.n}</span>
+                <span className="absolute right-5 top-6 text-[0.5625rem] uppercase tracking-[0.22em] text-ink/50">Illustrative concept</span>
               </div>
               <div className="relative -mt-10 pr-4 lg:-mt-16">
-                <h3 className="display text-[clamp(1.9rem,4.2vw,4.25rem)] text-white [text-shadow:0_2px_40px_rgba(0,0,0,0.6)]">{slide.title}</h3>
-                <p className="mt-4 max-w-[26rem] text-[0.9375rem] leading-relaxed text-mist">{slide.text}</p>
+                <h3 className="display text-[clamp(1.9rem,4.2vw,4.25rem)] text-ink">{slide.title}</h3>
+                <p className="mt-4 max-w-[26rem] text-[0.9375rem] leading-relaxed text-ash">{slide.text}</p>
               </div>
             </article>
           );
         })}
         <div className="flex h-full w-[70vw] shrink-0 snap-start items-end px-[var(--gutter)] pb-10 lg:w-[34vw] lg:pb-24">
           <div>
-            <p className="display-sm text-[clamp(1.5rem,2.6vw,2.5rem)] text-white">Something else in mind?</p>
-            <p className="mt-4 max-w-[22rem] text-mist">
+            <p className="display-sm text-[clamp(1.5rem,2.6vw,2.5rem)] text-ink">Something else in mind?</p>
+            <p className="mt-4 max-w-[22rem] text-ash">
               Regulated pharmaceutical projects are considered only for appropriately licensed businesses, subject to the
               approvals each market requires.
             </p>
-            <a href={anchors.enquire} className="btn btn-seal mt-8">
+            <a href={anchors.enquire} className="btn btn-black mt-8">
               Start with your idea
             </a>
           </div>

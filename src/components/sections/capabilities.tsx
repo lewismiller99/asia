@@ -124,7 +124,7 @@ export function Capabilities() {
                 {stages.map((stage, i) => (
                   <li key={stage.n} className="flex items-center gap-4 text-[0.6875rem] uppercase tracking-[0.22em]">
                     <span className={`h-px transition-all duration-500 ${active === i ? "w-10 bg-seal" : "w-5 bg-white/30"}`} />
-                    <span className={active === i ? "text-white" : "text-white/40"}>{stage.title}</span>
+                    <span className={active === i ? "text-white" : "text-white/55"}>{stage.title}</span>
                   </li>
                 ))}
               </ol>
@@ -145,7 +145,7 @@ export function Capabilities() {
           <Reveal variant="stagger" className="grid gap-x-10 lg:col-span-8 sm:grid-cols-2">
             {services.map((service, i) => (
               <div key={service} className="flex items-baseline gap-5 border-b border-white/10 py-4 text-[1rem] text-white/90">
-                <span className="numeral w-7 shrink-0 text-[0.9rem] text-white/35">{String(i + 1).padStart(2, "0")}</span>
+                <span className="numeral w-7 shrink-0 text-[0.9rem] text-white/60">{String(i + 1).padStart(2, "0")}</span>
                 {service}
               </div>
             ))}

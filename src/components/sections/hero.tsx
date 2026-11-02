@@ -35,7 +35,7 @@ export function Hero() {
             {chapters.map((c) => (
               <li key={c.n}>
                 <a href={c.href} className="group flex items-baseline gap-4 text-[0.6875rem] uppercase tracking-[0.24em] text-white/55 transition-colors hover:text-white">
-                  <span className="numeral text-[0.8rem] text-white/40 transition-colors group-hover:text-seal">{c.n}</span>
+                  <span className="numeral text-[0.8rem] text-white/55 transition-colors group-hover:text-seal">{c.n}</span>
                   {c.label}
                 </a>
               </li>

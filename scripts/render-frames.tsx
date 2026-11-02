@@ -248,16 +248,22 @@ function SceneFrame({ art: Art }: { art: (p: { className?: string }) => React.Re
   );
 }
 
-const sceneFrames: Frame[] = (Object.keys(scenes) as (keyof typeof scenes)[]).map((key) => {
-  const landscape = key === "reveal" || key === "creation";
-  return {
+const landscapeScenes = new Set(["reveal", "creation", "macro"]);
+const lightScenes = ["skincare", "haircare", "supplements", "weight", "accessories", "custom"] as const;
+const sceneFrames: Frame[] = [
+  ...(Object.keys(scenes) as (keyof typeof scenes)[]).map((key) => ({
     name: `scene-${key}`,
-    width: landscape ? 1800 : 1200,
-    height: landscape ? 1125 : 1500,
+    width: landscapeScenes.has(key) ? 1800 : 1200,
+    height: landscapeScenes.has(key) ? 1125 : 1500,
     body: <SceneFrame art={scenes[key]} />,
     out: scenesDir,
-  };
-});
+  })),
+  ...lightScenes.map((key) => {
+    const Art = scenes[key];
+    const Light = (p: { className?: string }) => <Art {...p} set="light" />;
+    return { name: `scene-${key}-light`, width: 1200, height: 1500, body: <SceneFrame art={Light} />, out: scenesDir };
+  }),
+];
 const socialDir = resolve(root, "brand/social");
 mkdirSync(framesDir, { recursive: true });
 mkdirSync(socialDir, { recursive: true });
