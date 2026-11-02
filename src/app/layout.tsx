@@ -4,18 +4,18 @@ import Script from "next/script";
 import "./globals.css";
 import { siteConfig, configuredSocials } from "@/lib/site-config";
 
-// The supporting typefaces from the brand pack, self hosted from the
-// supplied variable font files: Plus Jakarta Sans for headings, Inter for
-// body and labels.
+// The supporting typefaces from the brand pack, self hosted. The web
+// files are Latin subsets of the supplied variable fonts, converted to
+// woff2 (see README, "Fonts"); the originals stay in src/fonts.
 const jakarta = localFont({
-  src: "../fonts/PlusJakartaSans.ttf",
+  src: "../fonts/web/PlusJakartaSans-latin.woff2",
   variable: "--font-jakarta",
   weight: "200 800",
   display: "swap",
 });
 
 const inter = localFont({
-  src: "../fonts/Inter.ttf",
+  src: "../fonts/web/Inter-latin.woff2",
   variable: "--font-inter",
   weight: "100 900",
   display: "swap",

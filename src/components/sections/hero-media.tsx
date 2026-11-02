@@ -95,10 +95,10 @@ export function HeroMedia({ desktopSrc, mobileSrc, posterDesktop, posterMobile }
   const common = { alt: "", sizes: "100vw", priority: true } as const;
   const {
     props: { srcSet: desktopSet },
-  } = getImageProps({ ...common, src: posterDesktop, width: 1920, height: 1080, quality: 70 });
+  } = getImageProps({ ...common, src: posterDesktop, width: 1920, height: 1080, quality: 62 });
   const {
     props: { srcSet: mobileSet, ...img },
-  } = getImageProps({ ...common, src: posterMobile, width: 1080, height: 1920, quality: 68 });
+  } = getImageProps({ ...common, src: posterMobile, width: 1080, height: 1920, quality: 58 });
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-black" aria-hidden="true">

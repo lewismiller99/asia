@@ -245,8 +245,13 @@ body {
   transform: scale(1);
 }
 
-.js .is-visible.reveal-line {
+.js .is-visible.reveal-line,
+.js .is-visible .reveal-line {
   transform: scaleX(1);
+}
+
+.js .reveal-line {
+  transition: transform 1.4s var(--ease-in-out-quart) 0.2s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -319,7 +324,7 @@ body {
 }
 
 .hero-rise {
-  animation: hero-rise 1.3s var(--ease-out-expo) both;
+  animation: hero-rise 1.1s var(--ease-out-expo) both;
   animation-delay: var(--delay, 0ms);
 }
 
@@ -384,16 +389,33 @@ body {
   transform: translateY(1px);
 }
 
+/* Primary action: white on the dark set, with the vermilion mark. Small
+   text on the brand red does not reach AA contrast, so the red is the
+   accent and the hover state rather than the field. */
 .btn-seal {
+  background: var(--color-white);
+  color: var(--color-ink);
+  border-color: var(--color-white);
+}
+
+.btn-seal::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.75rem;
+  border-radius: 1px;
   background: var(--color-seal);
-  color: var(--color-white);
-  border-color: var(--color-seal);
+  transition: transform 0.35s var(--ease-out-expo);
 }
 
 .btn-seal:hover {
-  background: var(--color-white);
-  color: var(--color-black);
-  border-color: var(--color-white);
+  background: var(--color-seal);
+  color: var(--color-ink);
+  border-color: var(--color-seal);
+}
+
+.btn-seal:hover::before {
+  background: var(--color-ink);
 }
 
 .btn-black {
@@ -577,4 +599,116 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ------------------------------------------------------------------
+   Chapter layouts
+   ------------------------------------------------------------------ */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.chapter {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.chapter::before {
+  content: "";
+  display: inline-block;
+  width: 2.25rem;
+  height: 1px;
+  margin-right: 1rem;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.giant {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.86;
+}
+
+.statement {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: pretty;
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
+
+/* Dark form variant for the enquiry chapter. */
+.form-dark .field input,
+.form-dark .field textarea {
+  color: var(--color-white);
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+
+.form-dark .field input::placeholder,
+.form-dark .field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.form-dark .field input:focus,
+.form-dark .field textarea:focus {
+  border-bottom-color: var(--color-white);
+}
+
+.form-dark .chip {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.form-dark .chip:hover {
+  border-color: var(--color-white);
+}
+
+.form-dark .chip:has(input:checked) {
+  background: var(--color-white);
+  color: var(--color-ink);
+  border-color: var(--color-white);
+}
+
+/* Scroll indicator line */
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.scroll-line {
+  animation: scroll-line 2.6s var(--ease-in-out-quart) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line {
+    animation: none;
+  }
 }

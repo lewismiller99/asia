@@ -25,9 +25,9 @@ const grades = {
   // Night cities and harbour: keep the warmth, pull the saturation back.
   night: ["-modulate", "96,78,100", "-level", "2%,100%,0.95", "-brightness-contrast", "-4x10"],
   // Daylight architecture: cool, cinematic, slightly underexposed.
-  city: ["-modulate", "96,62,100", "-fill", "#141418", "-colorize", "6%", "-level", "3%,100%,0.92", "-brightness-contrast", "-6x12"],
+  city: ["-modulate", "98,66,100", "-fill", "#141418", "-colorize", "5%", "-level", "3%,100%,0.96", "-brightness-contrast", "-3x14"],
   // Interiors: desaturated with warm shadows.
-  interior: ["-modulate", "95,60,100", "-fill", "#2b2420", "-colorize", "8%", "-level", "4%,100%,0.9", "-brightness-contrast", "-8x14"],
+  interior: ["-modulate", "104,55,100", "-fill", "#2b2420", "-colorize", "6%", "-level", "3%,100%,1.05", "-brightness-contrast", "2x14"],
   // Industrial: heavy desaturation with a warm overlay so machinery reads neutral.
   industrial: [
     "-modulate", "100,30,100",

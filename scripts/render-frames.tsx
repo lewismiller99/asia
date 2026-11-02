@@ -11,7 +11,7 @@ import { mkdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import React from "react";
 import { Logo, Seal, Wordmark } from "../src/components/brand/logo";
-import { AmpouleSet, CreamJar, RetailBox, SerumDropper, SupplementJar, PumpBottle } from "../src/components/products/renders";
+import { scenes } from "../src/components/products/scenes";
 
 const root = resolve(import.meta.dirname, "..");
 const fonts = resolve(root, "src/fonts");
@@ -53,71 +53,38 @@ const floor = (y: string): React.CSSProperties => ({
 const dataUri = (path: string) => `data:image/jpeg;base64,${readFileSync(path).toString("base64")}`;
 
 function ProductCreation({ vertical }: { vertical: boolean }) {
-  // Scene 5: close views of glass and packaging, a tight studio composition.
+  const Art = vertical ? scenes.skincare : scenes.creation;
   return (
     <div className="frame">
-      <div style={darkStage(vertical)} />
-      <div style={floor(vertical ? "62%" : "70%")} />
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          bottom: vertical ? "16%" : "6%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          alignItems: "flex-end",
-          gap: vertical ? 0 : 10,
-          width: vertical ? "118%" : "100%",
-          justifyContent: "center",
-        }}
-      >
-        <AmpouleSet className="" />
-        <SerumDropper className="" />
-        <CreamJar className="" />
-      </div>
-      <style>{`.frame svg { width: ${vertical ? 38 : 34}%; height: auto; }`}</style>
-      <div className="grain" />
+      <Art className="" />
+      <style>{`.frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }`}</style>
     </div>
   );
 }
 
 function FinishedBrand({ vertical }: { vertical: boolean }) {
-  // Scene 6: the product reveal with the approved mark.
+  const Art = vertical ? scenes.custom : scenes.reveal;
   return (
     <div className="frame">
-      <div style={darkStage(vertical)} />
-      <div style={floor(vertical ? "60%" : "68%")} />
-      <div
-        style={{
-          position: "absolute",
-          left: vertical ? "50%" : "58%",
-          bottom: vertical ? "24%" : "4%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          alignItems: "flex-end",
-          gap: 0,
-          width: vertical ? "110%" : "64%",
-          justifyContent: "center",
-        }}
-      >
-        <RetailBox className="" />
-        <SerumDropper className="" />
-      </div>
-      <style>{`.frame > div > svg { width: ${vertical ? 50 : 50}%; height: auto; }`}</style>
+      <Art className="" />
+      <style>{`.frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }`}</style>
+      <div style={{ position: "absolute", inset: 0, background: vertical ? "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 45%)" : "linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 55%)" }} />
       <div
         style={{
           position: "absolute",
           left: vertical ? 64 : 110,
-          top: vertical ? 160 : undefined,
+          top: vertical ? 150 : undefined,
           bottom: vertical ? undefined : 110,
-          width: vertical ? "calc(100% - 128px)" : 520,
+          width: vertical ? "calc(100% - 128px)" : 560,
           display: "grid",
-          gap: vertical ? 40 : 34,
+          gap: vertical ? 36 : 30,
         }}
       >
-        <Logo tone="light" className="" />
-        <style>{`.frame > div:last-of-type > svg { width: 100%; height: auto; }`}</style>
-        <p className="serif" style={{ fontSize: vertical ? 64 : 44, lineHeight: 1.05, color: "rgba(255,255,255,0.92)" }}>
+        <div style={{ width: vertical ? "72%" : "70%" }}>
+          <Logo tone="light" className="" />
+        </div>
+        <style>{`.frame svg[aria-label="Brand It China"] { width: 100%; height: auto; }`}</style>
+        <p className="serif" style={{ fontSize: vertical ? 60 : 44, lineHeight: 1.02, color: "#fff" }}>
           Your brand. Built at source.
         </p>
       </div>
@@ -227,23 +194,23 @@ function CoverPortrait({ title, kicker, image }: { title: string; kicker: string
 }
 
 function ProductShowcaseTemplate() {
-  // 4:5 Instagram product showcase.
+  // 4:5 Instagram product showcase on a studio scene.
+  const Art = scenes.supplements;
   return (
     <div className="frame">
-      <div style={darkStage(true)} />
-      <div style={{ position: "absolute", left: "50%", bottom: "18%", transform: "translateX(-50%)", width: "70%", display: "flex", justifyContent: "center", gap: 10, alignItems: "flex-end" }}>
-        <SupplementJar className="" />
-        <PumpBottle className="" />
-      </div>
-      <style>{`.frame > div > svg { width: 56%; height: auto; }`}</style>
+      <Art className="" />
+      <style>{`.frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }`}</style>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.75) 100%)" }} />
       <div style={{ position: "absolute", left: 64, right: 64, top: 72, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Wordmark tone="light" className="" />
-        <style>{`.frame svg[aria-label="Brand It China"] { height: 60px; width: auto; }`}</style>
-        <p className="eyebrow" style={{ color: "rgba(255,255,255,0.6)", fontSize: 18 }}>Illustrative concept</p>
+        <div style={{ width: 240 }}>
+          <Wordmark tone="light" className="" />
+        </div>
+        <style>{`.frame svg[aria-label="Brand It China"] { width: 100%; height: auto; }`}</style>
+        <p className="eyebrow" style={{ color: "rgba(255,255,255,0.7)", fontSize: 18 }}>Illustrative concept</p>
       </div>
       <div style={{ position: "absolute", left: 64, right: 64, bottom: 72, display: "grid", gap: 18 }}>
         <p className="display" style={{ fontSize: 84, color: "#fff" }}>Private label supplements</p>
-        <p className="serif" style={{ fontSize: 40, color: "rgba(255,255,255,0.8)" }}>Developed and filled at source.</p>
+        <p style={{ fontSize: 30, color: "rgba(255,255,255,0.8)", fontFamily: "Inter, sans-serif" }}>Developed and filled at source.</p>
       </div>
       <div className="grain" />
     </div>
@@ -269,6 +236,28 @@ function FounderTemplate() {
 }
 
 const framesDir = resolve(root, "media-source/frames");
+const scenesDir = resolve(root, "public/images/scenes");
+mkdirSync(scenesDir, { recursive: true });
+
+function SceneFrame({ art: Art }: { art: (p: { className?: string }) => React.ReactElement }) {
+  return (
+    <div className="frame">
+      <Art className="" />
+      <style>{`.frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }`}</style>
+    </div>
+  );
+}
+
+const sceneFrames: Frame[] = (Object.keys(scenes) as (keyof typeof scenes)[]).map((key) => {
+  const landscape = key === "reveal" || key === "creation";
+  return {
+    name: `scene-${key}`,
+    width: landscape ? 1800 : 1200,
+    height: landscape ? 1125 : 1500,
+    body: <SceneFrame art={scenes[key]} />,
+    out: scenesDir,
+  };
+});
 const socialDir = resolve(root, "brand/social");
 mkdirSync(framesDir, { recursive: true });
 mkdirSync(socialDir, { recursive: true });
@@ -296,17 +285,19 @@ const frames: Frame[] = [
 ];
 
 const transparent = new Set(["lower-third-16x9", "caption-card-9x16"]);
+const jpeg = new Set(sceneFrames.map((f) => f.name));
 
 async function main() {
   const browser = await chromium.launch();
-  for (const frame of frames) {
+  for (const frame of [...frames, ...sceneFrames]) {
     const page = await browser.newPage({ viewport: { width: frame.width, height: frame.height }, deviceScaleFactor: 1 });
     const html = `<!doctype html><html><head><meta charset="utf-8"><style>${css}${transparent.has(frame.name) ? "html,body{background:transparent}" : ""}</style></head><body>${renderToStaticMarkup(frame.body)}</body></html>`;
     await page.setContent(html, { waitUntil: "load" });
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(150);
-    const path = resolve(frame.out, `${frame.name}.png`);
-    await page.screenshot({ path, omitBackground: transparent.has(frame.name) });
+    const isJpeg = jpeg.has(frame.name);
+    const path = resolve(frame.out, `${frame.name}.${isJpeg ? "jpg" : "png"}`);
+    await page.screenshot({ path, omitBackground: transparent.has(frame.name), type: isJpeg ? "jpeg" : "png", quality: isJpeg ? 84 : undefined });
     console.log("wrote", path);
     await page.close();
   }

@@ -1,29 +1,38 @@
+"use client";
+
 import Image from "next/image";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { StepScene } from "@/components/ui/scroll";
 import { Reveal } from "@/components/ui/reveal";
-import { Seal } from "@/components/brand/logo";
 import { anchors } from "@/lib/site-config";
 
 const stages = [
   {
-    index: "01",
-    title: "Your Idea",
+    n: "01",
+    title: "Your idea",
     text: "Tell us what you want to make, who it is for and where it will sell. We shape it into a brief a manufacturer can price.",
+    image: "/images/shanghai.jpg",
+    alt: "Shanghai's Pudong skyline across the river",
   },
   {
-    index: "02",
-    title: "Product Development",
+    n: "02",
+    title: "Product development",
     text: "Formulation options, sampling and revisions with our partners until the product is right in your hands.",
+    image: "/images/production-line.jpg",
+    alt: "A production line in a manufacturing facility, illustrative",
   },
   {
-    index: "03",
-    title: "Manufacturing and Packaging",
+    n: "03",
+    title: "Manufacturing and packaging",
     text: "Production coordinated with the factory while packaging, branding and artwork are developed alongside.",
+    image: "/images/harbour-night.jpg",
+    alt: "A harbour and port lit at night, illustrative",
   },
   {
-    index: "04",
-    title: "Production and Delivery",
+    n: "04",
+    title: "Production and delivery",
     text: "Quality control coordinated at source, then international shipping arranged to your market.",
+    image: "/images/scenes/scene-reveal.jpg",
+    alt: "Illustrative finished product concept: serum and retail box in a studio scene",
   },
 ];
 
@@ -42,103 +51,111 @@ const services = [
 ];
 
 /**
- * Section 3: China returns to the narrative. A full bleed production
- * image, the four stage process with oversized numerals, and the plain
- * list of what we coordinate.
+ * Chapter 02. A pinned scene: the stage number, title and copy change as
+ * the visitor scrolls, while the backdrop crossfades from China to the
+ * finished product.
  */
 export function Capabilities() {
   return (
     <section id={anchors.process.slice(1)} className="surface-black relative">
-      {/* Full bleed production image, unmasked on scroll. */}
-      <Reveal variant="mask" className="relative aspect-[4/5] w-full sm:aspect-[16/9] lg:aspect-[21/9]">
-        <div className="relative h-full w-full">
-          <Image
-            src="/images/production-line.jpg"
-            alt="An automated production line inside a manufacturing facility, shown as illustrative stock photography"
-            fill
-            sizes="100vw"
-            className="object-cover sm:hidden"
-            quality={72}
-          />
-          <Image
-            src="/images/production-line.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="hidden object-cover sm:block"
-            quality={72}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/30" />
-          <div className="container-wide absolute inset-x-0 bottom-0 pb-8 md:pb-12">
-            <p className="eyebrow text-white/70">Manufacturing capabilities</p>
-          </div>
-        </div>
-      </Reveal>
+      <div className="container-wide pt-[clamp(5rem,12vw,10rem)]">
+        <Reveal>
+          <p className="chapter text-white/55">02 &nbsp; The process</p>
+        </Reveal>
+        <Reveal delayMs={80}>
+          <h2 className="giant mt-8 text-[clamp(3rem,10vw,10.5rem)] text-white">
+            From concept
+            <br />
+            to production<span className="accent">.</span>
+          </h2>
+        </Reveal>
+      </div>
 
-      <div className="container-wide section-pad !pt-12 md:!pt-20">
-        <SectionHeading
-          eyebrow="The process"
-          title={
-            <>
-              From concept
-              <br />
-              to production.
-            </>
-          }
-          lede="One point of contact between your idea and the factory floor. We coordinate the stages below so you are never dealing with an anonymous directory."
-          align="split"
-        />
-
-        <div className="mt-16 grid gap-12 md:mt-24 lg:grid-cols-12 lg:gap-8">
-          {/* Portrait image, sticky on wide screens. */}
-          <Reveal variant="mask" className="relative aspect-[4/5] lg:col-span-5 lg:self-start lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
-            <div className="relative h-full w-full">
-              <Image
-                src="/images/shanghai-tower.jpg"
-                alt="The Shanghai Tower rising into cloud, photographed from below"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-                quality={72}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-6 left-6 flex items-center gap-3 text-white/70">
-                <Seal size={14} />
-                <span className="text-[0.625rem] uppercase tracking-[0.25em]">Shanghai</span>
-              </div>
-            </div>
-          </Reveal>
-
-          <ol className="lg:col-span-7">
+      <StepScene
+        steps={stages.length}
+        className="mt-10 md:mt-16"
+        renderVisual={(active) => (
+          <div className="relative h-full w-full bg-black">
             {stages.map((stage, i) => (
-              <Reveal as="li" key={stage.index} delayMs={i * 60} className="grid grid-cols-[4.5rem_1fr] gap-6 border-t border-white/15 py-8 md:grid-cols-[8rem_1fr] md:py-12">
-                <span className="numeral text-[3.25rem] text-white/90 md:text-[5.5rem]">{stage.index}</span>
-                <div className="pt-1 md:pt-3">
-                  <h3 className="display-sm text-[1.5rem] md:text-[2.1rem]">{stage.title}</h3>
-                  <p className="mt-4 max-w-[30rem] text-[1rem] leading-relaxed text-mist md:text-[1.0625rem]">{stage.text}</p>
-                </div>
-              </Reveal>
+              <div
+                key={stage.n}
+                className="absolute inset-0 transition-opacity duration-[1200ms] ease-[var(--ease-out-expo)]"
+                style={{ opacity: active === i ? 1 : 0 }}
+                aria-hidden={active !== i}
+              >
+                <Image src={stage.image} alt={stage.alt} fill sizes="100vw" className="object-cover" quality={72} loading={i === 0 ? "eager" : "lazy"} />
+              </div>
             ))}
-          </ol>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <Reveal className="border-t border-white/15 pt-10 md:pt-14">
-              <p className="eyebrow text-mist">What we coordinate</p>
-              <ul className="mt-7 grid gap-x-10 gap-y-3 sm:grid-cols-2">
-                {services.map((service, i) => (
-                  <li key={service} className="flex items-baseline gap-4 border-b border-white/10 pb-3 text-[0.9375rem] text-white/85">
-                    <span className="numeral w-6 shrink-0 text-[0.9rem] text-white/40">{String(i + 1).padStart(2, "0")}</span>
-                    {service}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
+          </div>
+        )}
+        renderCopy={(active) => (
+          <div className="container-wide flex h-full flex-col justify-end pb-12 md:pb-20">
+            <div className="grid gap-8 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-7">
+                <div className="relative h-[clamp(5rem,14vw,12rem)]">
+                  {stages.map((stage, i) => (
+                    <span
+                      key={stage.n}
+                      className="numeral absolute left-0 top-0 text-[clamp(5rem,14vw,12rem)] text-white transition-all duration-700 ease-[var(--ease-out-expo)]"
+                      style={{ opacity: active === i ? 1 : 0, transform: active === i ? "none" : "translateY(0.2em)" }}
+                      aria-hidden={active !== i}
+                    >
+                      {stage.n}
+                    </span>
+                  ))}
+                </div>
+                <div className="relative mt-4 min-h-[9rem]">
+                  {stages.map((stage, i) => (
+                    <div
+                      key={stage.n}
+                      className="absolute left-0 top-0 transition-all duration-700 ease-[var(--ease-out-expo)]"
+                      style={{ opacity: active === i ? 1 : 0, transform: active === i ? "none" : "translateY(16px)" }}
+                      aria-hidden={active !== i}
+                    >
+                      <h3 className="display text-[clamp(1.9rem,4.5vw,4rem)] text-white">{stage.title}</h3>
+                      <p className="mt-4 max-w-[30rem] text-[1rem] leading-relaxed text-white/80 md:text-[1.125rem]">{stage.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <ol className="hidden gap-3 md:col-span-4 md:col-start-9 md:grid">
+                {stages.map((stage, i) => (
+                  <li key={stage.n} className="flex items-center gap-4 text-[0.6875rem] uppercase tracking-[0.22em]">
+                    <span className={`h-px transition-all duration-500 ${active === i ? "w-10 bg-seal" : "w-5 bg-white/30"}`} />
+                    <span className={active === i ? "text-white" : "text-white/40"}>{stage.title}</span>
                   </li>
                 ))}
-              </ul>
-              <p className="mt-8 max-w-[34rem] text-sm leading-relaxed text-smoke">
-                Our focus is cosmetic, personal care and wellness products. We do not make certification or approval
-                claims on behalf of partner facilities, and a factory&apos;s ability to manufacture a product does not
-                by itself make that product legal to sell in any market.
-              </p>
-            </Reveal>
+              </ol>
+            </div>
           </div>
+        )}
+      />
+
+      <div className="container-wide pb-[clamp(5rem,12vw,10rem)] pt-16 md:pt-24">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <Reveal className="lg:col-span-4">
+            <p className="chapter text-white/55">What we coordinate</p>
+            <p className="mt-6 max-w-[22rem] text-mist">
+              One point of contact between your idea and the factory floor, so you are never dealing with an anonymous
+              directory.
+            </p>
+          </Reveal>
+          <Reveal variant="stagger" className="grid gap-x-10 lg:col-span-8 sm:grid-cols-2">
+            {services.map((service, i) => (
+              <div key={service} className="flex items-baseline gap-5 border-b border-white/10 py-4 text-[1rem] text-white/90">
+                <span className="numeral w-7 shrink-0 text-[0.9rem] text-white/35">{String(i + 1).padStart(2, "0")}</span>
+                {service}
+              </div>
+            ))}
+          </Reveal>
         </div>
+        <Reveal className="mt-12 max-w-[40rem] text-sm leading-relaxed text-smoke">
+          Our focus is cosmetic, personal care and wellness products. We make no certification or approval claims on
+          behalf of partner facilities, and a factory&apos;s ability to manufacture a product does not by itself make that
+          product legal to sell in any market.
+        </Reveal>
       </div>
     </section>
   );

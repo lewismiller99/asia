@@ -10,6 +10,15 @@ export function Footer() {
 
   return (
     <footer className="surface-black relative border-t border-white/10">
+      <div className="overflow-hidden border-b border-white/10 py-5" aria-hidden="true">
+        <div className="marquee gap-16 pr-16 text-[0.6875rem] uppercase tracking-[0.3em] text-white/50">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <span key={i} className="flex shrink-0 gap-16">
+              <span>Skincare</span><span>Haircare</span><span>Supplements</span><span>Packaging</span><span>Formulation</span><span>Sourcing</span><span>Quality control</span><span>Logistics</span><span>Your brand, built at source</span>
+            </span>
+          ))}
+        </div>
+      </div>
       <div className="container-wide py-14 md:py-20">
         <div className="grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">

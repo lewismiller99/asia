@@ -48,11 +48,23 @@ No gradients between hues and no other accent colours.
 
 ## Layout rhythm
 
-Dark hero, light possibilities, dark capabilities, light founder, dark
-showcase, light enquiry, dark footer. Full bleed imagery opens the dark
-sections. Headings are oversized and left aligned; ledes sit to the right
-on wide screens. Grids are 12 column with intentional asymmetry (7/5,
-4/4/4, 5/3/4). Gutters are fluid (`--gutter`).
+The page is cut like a film in chapters, each with one idea:
+
+- Hero: the film, the mark, the headline at up to 13rem, the chapter
+  index and live clocks for Shanghai, Bangkok and London.
+- The difference: one sentence lit word by word as it scrolls.
+- 01 Create: a pinned horizontal gallery of six studio scenes (a swipe
+  carousel on phones), category names running over the frame edge.
+- 02 Process: a pinned scene whose stage number, copy and backdrop change
+  as the visitor scrolls.
+- 03 Founder: the light chapter. Full height portrait, the quote, the
+  route line finished by the seal.
+- 04 Showcase: editorial spreads, a full bleed reveal, then asymmetric
+  pairings of scenes and environments.
+- 05 Enquire: the form on the dark set.
+
+Headings are oversized and left aligned; ledes sit to the right on wide
+screens. Gutters are fluid (`--gutter`).
 
 ## Motion
 
@@ -66,9 +78,12 @@ One language, defined in `globals.css`: `reveal` (content settles upward),
 Two worlds, always both present: cinematic international commerce and
 premium product concepts. Photography is graded with restrained
 saturation, lifted blacks and neutral shadows (`scripts/build-media.mjs`).
-Product renders are lit from the upper left on charcoal or light grey
-stages, carry the official seal as their label accent, and are always
-labelled as concepts.
+Product concepts are studio scenes (`src/components/products/scenes.tsx`):
+a charcoal cyclorama, a polished floor with a reflection, a key light
+from the upper left, a cool rim light, and a long cast shadow. They carry
+the official seal on their labels and are always labelled as concepts.
+Replace any scene with photography by swapping the component for a
+`next/image` element and changing its caption.
 
 ## Voice
 

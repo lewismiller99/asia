@@ -20,7 +20,8 @@ const empty: EnquiryValues = { name: "", email: "", whatsapp: "", interests: [],
  * opens WhatsApp with it pre-filled. Nothing is sent until the visitor
  * presses send inside WhatsApp, and the form says so.
  */
-export function EnquiryForm() {
+export function EnquiryForm({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const dark = tone === "dark";
   const [values, setValues] = useState<EnquiryValues>(empty);
   const [errors, setErrors] = useState<EnquiryErrors>({});
   const [opened, setOpened] = useState(false);
@@ -72,7 +73,7 @@ export function EnquiryForm() {
     <form onSubmit={onSubmit} noValidate className="grid gap-9" aria-describedby={`${uid}-privacy`}>
       <div className="grid gap-9 sm:grid-cols-2">
         <div className={fieldClass("name")}>
-          <label htmlFor={`${uid}-name`} className="eyebrow eyebrow-plain text-ash">
+          <label htmlFor={`${uid}-name`} className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>
             Full name
           </label>
           <input
@@ -95,7 +96,7 @@ export function EnquiryForm() {
         </div>
 
         <div className={fieldClass("email")}>
-          <label htmlFor={`${uid}-email`} className="eyebrow eyebrow-plain text-ash">
+          <label htmlFor={`${uid}-email`} className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>
             Email address
           </label>
           <input
@@ -121,7 +122,7 @@ export function EnquiryForm() {
       </div>
 
       <div className={fieldClass("whatsapp")}>
-        <label htmlFor={`${uid}-whatsapp`} className="eyebrow eyebrow-plain text-ash">
+        <label htmlFor={`${uid}-whatsapp`} className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>
           WhatsApp number, with country code
         </label>
         <input
@@ -143,14 +144,14 @@ export function EnquiryForm() {
             {errors.whatsapp}
           </p>
         ) : (
-          <p id={`${uid}-whatsapp-hint`} className="mt-2 text-xs text-smoke">
+          <p id={`${uid}-whatsapp-hint`} className={`mt-2 text-xs ${dark ? "text-white/45" : "text-smoke"}`}>
             Start with + and your country code so we can reply on WhatsApp.
           </p>
         )}
       </div>
 
       <fieldset className="m-0 border-0 p-0" aria-describedby={errors.interests ? `${uid}-interests-error` : undefined}>
-        <legend className="eyebrow eyebrow-plain text-ash">Product interests</legend>
+        <legend className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>Product interests</legend>
         <div id={`${uid}-interests`} className="mt-4 flex flex-wrap gap-2.5" tabIndex={-1}>
           {interestOptions.map((option) => {
             const checked = values.interests.includes(option);
@@ -171,8 +172,8 @@ export function EnquiryForm() {
       </fieldset>
 
       <div className={fieldClass("idea")}>
-        <label htmlFor={`${uid}-idea`} className="eyebrow eyebrow-plain text-ash">
-          Tell us about your idea <span className="normal-case tracking-normal text-smoke">(optional)</span>
+        <label htmlFor={`${uid}-idea`} className={`eyebrow eyebrow-plain ${dark ? "text-white/60" : "text-ash"}`}>
+          Tell us about your idea <span className={`normal-case tracking-normal ${dark ? "text-white/40" : "text-smoke"}`}>(optional)</span>
         </label>
         <textarea
           id={`${uid}-idea`}
@@ -188,29 +189,29 @@ export function EnquiryForm() {
       </div>
 
       <div className="grid gap-5">
-        <button type="submit" className="btn btn-black w-full sm:w-auto" disabled={!configured} aria-disabled={!configured}>
+        <button type="submit" className={`btn ${dark ? "btn-seal" : "btn-black"} w-full sm:w-auto`} disabled={!configured} aria-disabled={!configured}>
           <WhatsAppIcon size={18} />
           Send enquiry via WhatsApp
         </button>
 
         {!configured && (
-          <p role="status" className="border border-seal/40 bg-seal/5 px-4 py-3 text-sm text-ink">
+          <p role="status" className={`border border-seal/50 px-4 py-3 text-sm ${dark ? "bg-seal/10 text-white" : "bg-seal/5 text-ink"}`}>
             The destination WhatsApp number has not been configured yet. Set{" "}
             <code className="font-mono text-xs">NEXT_PUBLIC_WHATSAPP_NUMBER</code> to enable this form.
           </p>
         )}
 
         {opened && (
-          <p role="status" className="border border-line bg-white px-4 py-3 text-sm text-ink">
+          <p role="status" className={`border px-4 py-3 text-sm ${dark ? "border-white/20 bg-white/5 text-white" : "border-line bg-white text-ink"}`}>
             WhatsApp should now be open with your enquiry ready to review. It is only sent once you press send there. If
             nothing opened, check your pop-up settings and try again.
           </p>
         )}
 
-        <p id={`${uid}-privacy`} className="max-w-[36rem] text-xs leading-relaxed text-smoke">
+        <p id={`${uid}-privacy`} className={`max-w-[36rem] text-xs leading-relaxed ${dark ? "text-white/45" : "text-smoke"}`}>
           Your details are used to compose a WhatsApp message on your device. They are not stored on this website.
           The message is shared through WhatsApp, whose own terms and privacy policy apply. Read our{" "}
-          <Link href="/privacy" className="link-rule text-ink">
+          <Link href="/privacy" className={`link-rule ${dark ? "text-white" : "text-ink"}`}>
             privacy policy
           </Link>
           .

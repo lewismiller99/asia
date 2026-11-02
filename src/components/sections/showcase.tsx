@@ -1,157 +1,98 @@
 import Image from "next/image";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
+import { Parallax } from "@/components/ui/scroll";
 import { Logo } from "@/components/brand/logo";
-import { AmpouleSet, BalmStick, CreamJar, RetailBox, SerumDropper, SupplementJar } from "@/components/products/renders";
 import { anchors } from "@/lib/site-config";
 
-type Item = {
-  kind: "concept" | "environment" | "mark";
-  label: string;
-  span: string;
-  aspect: string;
-  surface?: string;
-  render?: React.ReactNode;
-  image?: { src: string; alt: string };
-};
-
-const items: Item[] = [
-  {
-    kind: "concept",
-    label: "Serum, frosted glass",
-    span: "col-span-1 md:col-span-4",
-    aspect: "aspect-[4/5]",
-    surface: "bg-[radial-gradient(110%_80%_at_50%_10%,#2c2c2c_0%,#202020_70%)]",
-    render: <SerumDropper className="mx-auto h-full" />,
-  },
-  {
-    kind: "environment",
-    label: "Production line, illustrative",
-    span: "col-span-1 md:col-span-4",
-    aspect: "aspect-[4/5]",
-    image: { src: "/images/production-line-portrait.jpg", alt: "Industrial machinery on a production line, illustrative stock photography" },
-  },
-  {
-    kind: "concept",
-    label: "Cream jar, bone and black",
-    span: "col-span-2 md:col-span-4",
-    aspect: "aspect-[4/3] md:aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#f2f2f2_0%,#d6d6d6_100%)]",
-    render: <CreamJar className="mx-auto h-full" />,
-  },
-  {
-    kind: "mark",
-    label: "The signature",
-    span: "col-span-2 md:col-span-5",
-    aspect: "aspect-[4/3] md:aspect-auto",
-    surface: "bg-seal",
-  },
-  {
-    kind: "concept",
-    label: "Retail box, matte black",
-    span: "col-span-1 md:col-span-3",
-    aspect: "aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#1f1f1f_0%,#202020_100%)]",
-    render: <RetailBox className="mx-auto h-full" />,
-  },
-  {
-    kind: "environment",
-    label: "Shanghai, illustrative",
-    span: "col-span-1 md:col-span-4",
-    aspect: "aspect-[4/5]",
-    image: { src: "/images/shanghai-portrait.jpg", alt: "The Shanghai skyline across the Huangpu river" },
-  },
-  {
-    kind: "concept",
-    label: "Supplement jar",
-    span: "col-span-1 md:col-span-3",
-    aspect: "aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#ebebeb_0%,#d0d0d0_100%)]",
-    render: <SupplementJar className="mx-auto h-full" />,
-  },
-  {
-    kind: "concept",
-    label: "Ampoule set",
-    span: "col-span-1 md:col-span-5",
-    aspect: "aspect-[4/5] md:aspect-[5/4]",
-    surface: "bg-[radial-gradient(100%_100%_at_50%_100%,#303030_0%,#202020_70%)]",
-    render: <AmpouleSet className="mx-auto h-full" />,
-  },
-  {
-    kind: "concept",
-    label: "Balm stick",
-    span: "col-span-2 md:col-span-4",
-    aspect: "aspect-[4/3] md:aspect-[4/5]",
-    surface: "bg-[linear-gradient(180deg,#fafafa_0%,#e0e0e0_100%)]",
-    render: <BalmStick className="mx-auto h-full" />,
-  },
-];
-
 /**
- * Section 5: the showcase. Illustrative concepts and manufacturing
- * environments, clearly labelled, set in an editorial grid with one tile
- * reserved for the brand signature.
+ * Chapter 04. Editorial spreads rather than a grid: one full bleed
+ * product reveal, then asymmetric pairings of studio scenes and
+ * environments, each labelled for what it is.
  */
 export function Showcase() {
   return (
-    <section id={anchors.showcase.slice(1)} className="surface-black section-pad relative">
-      <div className="container-wide">
-        <SectionHeading
-          eyebrow="The showcase"
-          title={
-            <>
-              Made to be
-              <br />
-              <span className="accent">your</span> brand.
-            </>
-          }
-          lede="Illustrative product concepts beside the environments they come from. Client work is shared privately and with permission. Nothing here is presented as a completed project."
-          align="split"
-        />
-
-        <ul className="mt-16 grid grid-cols-2 gap-3 md:mt-24 md:grid-cols-12 md:gap-5">
-          {items.map((item, i) => (
-            <Reveal
-              key={item.label}
-              as="li"
-              variant="mask"
-              delayMs={(i % 3) * 80}
-              className={`${item.span} ${item.aspect} relative overflow-hidden`}
-            >
-              <figure className={`group relative h-full w-full ${item.surface ?? ""} ${item.kind === "mark" ? "text-white" : ""}`}>
-                {item.kind === "concept" && (
-                  <div className="absolute inset-x-0 top-[5%] bottom-[15%] transition-transform duration-[1400ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04] md:bottom-[12%]">
-                    {item.render}
-                  </div>
-                )}
-                {item.kind === "environment" && item.image && (
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
-                    quality={70}
-                  />
-                )}
-                {item.kind === "mark" && (
-                  <div className="flex h-full flex-col justify-between p-5 pb-14 md:p-8 md:pb-16">
-                    <Logo tone="light" className="w-full max-w-[13rem] md:max-w-[17rem]" />
-                    <p className="display-sm text-[clamp(1.25rem,2vw,1.75rem)]">Your brand. Built at source.</p>
-                  </div>
-                )}
-                <figcaption
-                  className={`absolute bottom-0 left-0 right-0 flex flex-col gap-0.5 p-3 text-[0.5625rem] uppercase tracking-[0.18em] md:gap-1 md:p-5 md:text-[0.625rem] md:tracking-[0.2em] ${
-                    item.kind === "environment" || item.surface?.includes("#202020") || item.kind === "mark" ? "text-white/70" : "text-ink/60"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  <span className="opacity-60">{item.kind === "concept" ? "Illustrative concept" : item.kind === "environment" ? "Environment, stock" : "Identity"}</span>
-                </figcaption>
-              </figure>
+    <section id={anchors.showcase.slice(1)} className="surface-black relative">
+      {/* Spread 1: full bleed reveal with the headline over it */}
+      <div className="relative min-h-[100svh] overflow-hidden">
+        <Parallax amount={0.08} className="absolute inset-0">
+          <Image src="/images/scenes/scene-reveal.jpg" alt="Illustrative finished product concept: serum and retail box in a studio scene" fill sizes="100vw" className="object-cover" quality={76} />
+        </Parallax>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40" />
+        <div className="container-wide relative flex min-h-[100svh] flex-col justify-between py-[clamp(5rem,12vw,10rem)]">
+          <Reveal>
+            <p className="chapter text-white/60">04 &nbsp; The showcase</p>
+          </Reveal>
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+            <Reveal delayMs={80} className="md:col-span-8">
+              <h2 className="giant text-[clamp(3rem,10vw,10.5rem)] text-white">
+                Made to be
+                <br />
+                <span className="accent">your</span> brand.
+              </h2>
             </Reveal>
-          ))}
-        </ul>
+            <Reveal delayMs={160} className="md:col-span-4 md:pb-4">
+              <p className="lede text-white/80">
+                Illustrative concepts beside the environments they come from. Client work is shared privately and with
+                permission. Nothing here is presented as a completed project.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+        <span className="absolute bottom-5 right-[var(--gutter)] text-[0.5625rem] uppercase tracking-[0.22em] text-white/45">Illustrative concept</span>
+      </div>
+
+      {/* Spread 2: asymmetric pair, environment and scene */}
+      <div className="container-wide py-[clamp(4rem,10vw,9rem)]">
+        <div className="grid gap-5 md:grid-cols-12 md:gap-6">
+          <Reveal variant="mask" className="relative aspect-[4/5] md:col-span-5 md:mt-24">
+            <div className="relative h-full w-full">
+              <Image src="/images/shanghai-tower.jpg" alt="The Shanghai Tower rising into cloud" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" quality={72} />
+              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/70">Shanghai &middot; Environment</span>
+            </div>
+          </Reveal>
+          <Reveal variant="mask" delayMs={120} className="relative aspect-[4/5] md:col-span-7">
+            <div className="relative h-full w-full">
+              <Image src="/images/scenes/scene-skincare.jpg" alt="Illustrative skincare concept, studio scene" fill sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" quality={76} />
+              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Skincare &middot; Illustrative concept</span>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Spread 3: statement and two scenes */}
+        <div className="mt-5 grid gap-5 md:mt-6 md:grid-cols-12 md:gap-6">
+          <Reveal className="flex flex-col justify-between bg-seal p-7 md:col-span-4 md:p-9">
+            <Logo tone="light" className="w-full max-w-[14rem]" />
+            <p className="display-sm mt-16 text-[clamp(1.5rem,2.4vw,2.25rem)] text-white md:mt-24">
+              Your packaging, your formula, your name on the box.
+            </p>
+          </Reveal>
+          <Reveal variant="mask" delayMs={100} className="relative aspect-[4/5] md:col-span-4">
+            <div className="relative h-full w-full">
+              <Image src="/images/scenes/scene-supplements.jpg" alt="Illustrative supplement concept, studio scene" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" quality={76} />
+              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Supplements &middot; Illustrative concept</span>
+            </div>
+          </Reveal>
+          <Reveal variant="mask" delayMs={200} className="relative aspect-[4/5] md:col-span-4">
+            <div className="relative h-full w-full">
+              <Image src="/images/scenes/scene-balm.jpg" alt="Illustrative balm concept, studio scene" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" quality={76} />
+              <span className="absolute bottom-4 left-4 text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Balm &middot; Illustrative concept</span>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Spread 4: wide environment with caption */}
+        <Reveal variant="mask" className="relative mt-5 aspect-[4/5] sm:aspect-[16/9] md:mt-6 lg:aspect-[21/9]">
+          <div className="relative h-full w-full">
+            <Image src="/images/production-line.jpg" alt="An automated production line, illustrative stock photography" fill sizes="100vw" className="object-cover" quality={72} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 md:bottom-10 md:left-10 md:flex-row md:items-end md:justify-between">
+              <p className="display-sm max-w-[30rem] text-[clamp(1.25rem,2.2vw,2rem)] text-white">
+                The machinery is real. The products we help you make are made on lines like these.
+              </p>
+              <span className="text-[0.5625rem] uppercase tracking-[0.22em] text-white/60">Environment &middot; Illustrative stock</span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

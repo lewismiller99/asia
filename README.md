@@ -78,9 +78,9 @@ src/
   components/
     brand/logo.tsx        the approved mark as vector (Logo, Wordmark, Seal)
     brand/logo-paths.ts   generated wordmark outlines (do not hand edit)
-    products/renders.tsx  illustrative vector product concepts
+    products/scenes.tsx   illustrative studio product scenes
     sections/             hero, possibilities, capabilities, founder, showcase, enquiry, footer, header
-    ui/                   Reveal (scroll motion), SectionHeading, icons
+    ui/                   Reveal, scroll primitives (pinned gallery, step scene, word reveal, clocks, parallax), icons
   lib/
     site-config.ts        name, URLs, contact and social configuration
     enquiry.ts            validation and WhatsApp message builder
@@ -122,12 +122,11 @@ is sensible) and set `NEXT_PUBLIC_FOUNDER_VIDEO=/video/<file>.mp4`.
 `node scripts/build-film.mjs` after swapping stills, or drop in your own
 `hero-desktop.mp4`, `hero-mobile.mp4` and the two poster JPEGs.
 
-**Product imagery.** The renders in `src/components/products/renders.tsx`
+**Product imagery.** The studio scenes in `src/components/products/scenes.tsx`
 are illustrative concepts. To show real client photography, replace a
-tile's `render` with a `next/image` element in
-`src/components/sections/showcase.tsx` or `possibilities.tsx` and change
-its caption from "Illustrative concept" to an accurate label. Only use
-client work with permission.
+scene with a `next/image` element in `src/components/sections/showcase.tsx`
+or `possibilities.tsx` and change its caption from "Illustrative concept"
+to an accurate label. Only use client work with permission.
 
 **Logo.** The mark is the official artwork from the brand pack
 (`brand/official/SVG`), extracted into `src/components/brand/logo-paths.ts`
@@ -141,6 +140,18 @@ Logo files for designers, printers and editors are in `brand/official`
 `npm run brand:build` renders the social templates and the two product
 film frames with Playwright (Chromium). See `docs/social-identity.md` for
 how to use them and `docs/video-concepts.md` for the content plan.
+
+## Fonts
+
+The site self hosts Plus Jakarta Sans and Inter from `src/fonts/web`,
+Latin woff2 subsets of the variable fonts supplied in the brand pack
+(`src/fonts/*.ttf`, licences alongside). To regenerate the subsets:
+
+```bash
+pip install fonttools brotli
+pyftsubset src/fonts/Inter.ttf --flavor=woff2 --output-file=src/fonts/web/Inter-latin.woff2 \
+  --unicodes="U+0000-00FF,U+2000-206F,U+20AC,U+2122" --layout-features="*" --no-hinting
+```
 
 ## 7. Deployment
 
@@ -181,16 +192,17 @@ and photography are labelled as illustrative wherever they appear.
 ## 10. Verification record
 
 Checked on the production build (`next build` then `next start`) with
-Playwright in Chromium, 1 November 2026:
+Playwright in Chromium, 2 November 2026:
 
 - Lint, type check and production build pass with no warnings.
 - Hero film plays on desktop (16:9 edit) and iPhone (9:16 edit); under
   `prefers-reduced-motion` the film is never requested and the poster stays.
+- Pinned gallery, pinned process scene, word reveal and parallax all run
+  without console errors; on phones the gallery is a native swipe carousel.
 - Enquiry form: every field validates with inline messages and focus moves
   to the first error; a valid submission opens `wa.me/<number>` with the
   complete, correctly encoded message.
-- Zero console or page errors on desktop and mobile.
-- Lighthouse, mobile emulation, throttled: performance 91, accessibility
-  100, best practices 100, SEO 100; CLS 0, TBT 120 ms, FCP 1.1 s, LCP 3.3 s.
-  LCP is bound by the hero poster on a throttled connection; serve the site
-  through a CDN (Vercel does) for real world numbers well under that.
+- Lighthouse, mobile emulation, throttled: performance 87, accessibility
+  100, best practices 100, SEO 100; CLS 0, TBT 60 ms, FCP 1.1 s, LCP 4.1 s.
+  LCP is the hero on a throttled connection; a CDN deployment (Vercel)
+  brings it down further.

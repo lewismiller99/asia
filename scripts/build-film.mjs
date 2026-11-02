@@ -89,8 +89,8 @@ for (const [name, edit] of Object.entries(edits)) {
       `scale=${w * 2}:${h * 2}:force_original_aspect_ratio=increase`,
       `crop=${w * 2}:${h * 2}`,
       `zoompan=z='${m.z}':x='${m.x}':y='${m.y}':d=${FRAMES}:s=${w}x${h}:fps=${FPS}`,
-      "eq=contrast=1.04:saturation=0.92",
-      "vignette=angle=PI/5",
+      "eq=contrast=1.08:brightness=0.02:saturation=0.98",
+      "vignette=angle=PI/6",
       "format=yuv420p",
     ].join(",");
     ff(["-loop", "1", "-i", scene.src, "-vf", vf, "-t", String(SCENE_SECONDS), "-c:v", "libx264", "-preset", "fast", "-crf", "16", clip]);
